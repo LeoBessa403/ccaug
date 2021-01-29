@@ -1,0 +1,594 @@
+* {
+    font-weight: normal;
+    text-decoration: none;
+    text-indent: 0;
+    font-family: "Trebuchet MS";
+}
+
+.main-navigation {
+    width: 11%;
+    min-width: 180px;
+}
+
+.main-content {
+    width: 100%;
+    max-width: 100%;
+    margin-left: 14%;
+}
+
+.capa .conteudo {
+    margin: 0;
+    padding: 0;
+}
+
+.capa .conteudo img {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 90%;
+}
+
+#ler_livro {
+    background-color: #d3d3d3;
+    padding: 10px 0;
+    width: 100%;
+    max-width: 100%;
+}
+
+.pag {
+    height: 50%;
+    max-height: 50%;
+    min-height: 500px !important;
+    width: 92%;
+    max-width: 92%;
+    padding: 5px 12px;
+    background-color: white;
+    margin: 10px 5%;
+    box-shadow: 1px 1px 8px #0d0d0d;
+    position: relative;
+}
+
+.pag:after {
+    content: ".";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+}
+
+.titulo-page {
+    border-bottom: 2px solid #aaa;
+    color: #aaa;
+    font-size: 16px;
+    width: 100%;
+    margin: 0;
+    padding: 23px 0 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+.titulo-page-ex-total {
+    border-bottom: 2px solid white !important;
+    color: white !important;
+    position: relative;
+    float: left;
+    z-index: 9999;
+}
+
+.class_i {
+    float: right;
+    margin-top: -23px;
+}
+
+.rodape-page {
+    text-align: center;
+    border-top: 1px solid #aaa;
+    color: #aaa;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.tt_capitulo {
+    text-transform: capitalize;
+    color: #aaa;
+    margin: 0;
+    padding: 0;
+    float: left;
+    font-size: 0.7em !important;
+    text-indent: 0;
+}
+
+.nu_pagina {
+    text-transform: capitalize;
+    color: #aaa;
+    margin: 0 10px 0;
+    padding: 0;
+    float: right;
+    font-size: 1em !important;
+}
+
+.conteudo {
+    width: 100%;
+    height: 93%;
+    padding: 2% 3%;
+    content: ".";
+    display: block;
+    clear: both;
+}
+
+.rodape-page {
+    text-align: center;
+    text-space: 0;
+    font-size: 1.8em !important;
+}
+
+.conteudo figure figcaption {
+    text-align: center;
+}
+
+.conteudo img {
+    padding: 1em;
+    margin-top: -15px;
+}
+
+.titulo-page-esq i, .anotProf {
+    float: right;
+    padding: 5px;
+    color: #aaa;
+}
+
+.titulo-page-esq i:hover, .titulo-page-dir i:hover, .anotProf:hover {
+    background-color: #aaa;
+    color: white;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.titulo-page-ex-total i {
+    color: white !important;
+    z-index: 9999;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.titulo-page-ex-total i:hover {
+    background-color: white;
+    color: #aaa !important;
+}
+
+.titulo-page-ex-total-rp {
+    z-index: 9999;
+    position: relative;
+    float: inherit;
+    border-top: 1px solid white !important;
+}
+
+.titulo-page-ex-total-rp .tt_capitulo {
+    color: white !important;
+    float: left;
+}
+
+.titulo-page-ex-total-rp .nu_pagina {
+    color: white !important;
+    float: right;
+}
+
+.painel_navegacao {
+    background-color: rgba(0, 0, 0, 0.8);
+    float: left;
+    position: fixed;
+    bottom: 15px;
+    padding: 3px 5px;
+    margin: 0 30%;
+    width: 380px;
+    z-index: 9999;
+}
+
+.painel_navegacao label {
+    color: white;
+    font-weight: bolder;
+    margin-bottom: 5px;
+    float: left;
+}
+
+@media (min-width: 800px) {
+    .pag {
+        width: 80%;
+        max-width: 80%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .pag {
+        width: 45%;
+        max-width: 45%;
+        float: left;
+        margin: 1%;
+    }
+
+    .pag:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+    }
+
+    .conteudo, .capa .conteudo {
+        height: 93%;
+        min-height: 1200px;
+        max-height: 1200px;
+        padding: 2% 3%;
+    }
+
+    .conteudo:after, .capa .conteudo:after {
+        content: ".";
+        display: block;
+        clear: both;
+        visibility: hidden;
+    }
+}
+
+@media (min-width: 1500px) {
+    .conteudo, .capa .conteudo {
+        min-height: 1000px;
+        max-height: 1000px;
+    }
+}
+
+/***************************/
+/******  CSS DO EDITOR *****/
+/***************************/
+
+:root {
+    --cor-complemento-titulo: rgba(0,0,0,0.5);
+    --cor-cinza: #ccc;
+}
+
+
+.tit_1 {
+    font-size: 1.4em;
+    font-weight: bold;
+    width: 98%;
+    margin: 0 0 30px 1%;
+    background-image: linear-gradient(75deg, var(--cor-1), var(--cor-complemento-titulo) 180%);
+    color: white;
+    float: left;
+}
+
+.num_tit {
+    color: var(--cor-1);
+    font-size: 1.1em;
+    font-weight: bold;
+    background-color: white;
+    float: left;
+    margin-right: 10px;
+    padding-right: 10px;
+}
+
+.tit_2 {
+    color: var(--cor-1);
+    font-size: 2.2em;
+    font-weight: bold;
+    width: 100%;
+    margin: 30px 0;
+    border-bottom: 1px solid var(--cor-1);
+}
+
+.tit_3 {
+    color: var(--cor-1);
+    font-size: 2em;
+    font-weight: bold;
+    width: 100%;
+    margin: 30px 0;
+}
+
+/* Formatação do Texto */
+.paragrafo, p {
+    text-align: justify;
+    text-indent: 2em;
+    text-space: 0;
+    font-size: 1.3em;
+    letter-spacing: 0.01em;
+    line-height: 1.5em;
+    color: black;
+}
+
+/* Formatação do Texto */
+.paragrafo_ex {
+    text-align: justify;
+    text-indent: 0;
+    text-space: 0;
+    font-size: 1.3em;
+    letter-spacing: 0.01em;
+    line-height: 1.5em;
+    color: black;
+}
+
+.bg-color-1{
+    background-color: var(--cor-1);
+}
+
+.bg-color-2{
+    background-color: var(--cor-2);
+}
+
+.bg-color-3{
+    background-color: var(--cor-3);
+    border: 1px solid var(--cor-1);
+}
+
+.bg-color-cinza{
+    background-color: #efefef;
+}
+
+/** TABELAS **/
+table {
+    text-align: center;
+    padding: 10px;
+    margin: 5px auto 10px;
+    background-color: #EEE;
+    font-size: 1.5em;
+    font-family: "Garamond";
+    border-spacing: 2px;
+    border-collapse: separate;
+}
+
+table tr td, table tr th {
+    padding: 3px 6px;
+}
+
+table tr th {
+    background-color: var(--cor-1);
+    text-align: center;
+    color: white;
+}
+
+table tr td {
+    background-color: #FFF;
+}
+
+/* Formatação do Negrito */
+strong {
+    font-weight: bold;
+}
+
+/* Sublinhado */
+u {
+    text-decoration: underline;
+}
+
+
+/* Legenda */
+figcaption, table figcaption {
+    font-size: 1.1em !important;
+    color: var(--cor-1) !important;
+    margin-top: -10px !important;
+}
+
+
+.tt_cx_rolagem {
+    font-size: 1.6em;
+    color: black;
+    display: block;
+    background-color: white;
+    border: 2px solid #efefef;
+    padding: 10px 5px;
+    background: url('../../admin/Imagens/img-scrool.png') center right no-repeat !important;
+    background-size: 3% !important;
+    background-clip: padding-box;
+}
+
+.tt_cx_rolagem2 {
+    font-size: 1.6em;
+    color: black;
+    display: block;
+    background-color: white;
+    border: 2px solid #efefef;
+    padding: 10px 5px;
+}
+
+.cx-texto-rolagem-lv {
+    padding: 10px 20px 5px;
+    margin-bottom: 15px;
+}
+
+.cx-texto-rolagem-p {
+    padding: 5px 20px 20px;
+    margin: 0;
+    height: 200px;
+    overflow-y: scroll;
+}
+
+.cx-texto-rolagem-m {
+    padding: 5px 20px 20px;
+    margin: 0;
+    height: 400px;
+    overflow-y: scroll;
+}
+
+.cx-texto-rolagem-g {
+    padding: 5px 20px 20px;
+    margin: 0;
+    height: 800px;
+    overflow-y: scroll;
+}
+
+
+/***** CAIXA DE EXERCICIO TOTOAL ***/
+.cx-exer-total {
+    background-image: linear-gradient(65deg, var(--cor-1), var(--cor-complemento-titulo) 180%);
+    position: relative;
+    width: 110%;
+    height: 1080px;
+    top: -49px;
+    left: -5%;
+    margin: 0;
+    padding: 10px 30px 50px;
+}
+
+.cx-exer-total h3 {
+    font-size: 1.8em;
+    color: var(--cor-cinza);
+    display: block;
+    border-bottom: 2px dotted var(--cor-cinza);
+    padding: 10px 5px;
+}
+
+.cx-exer-total .cx-texto-rolagem-g {
+    height: 920px;
+}
+
+.bootstrap-tabs {
+    margin-top: -5px;
+    margin-left: -20px;
+    background-color: var(--cor-cinza);
+}
+
+.nav-tabs {
+    width: 100%;
+    padding: 1%;
+}
+
+.nav-tabs li {
+    width: 12.5%;
+}
+
+.nav-tabs li a {
+    padding: 8px 4px;
+
+}
+
+.tab-content {
+    width: 100%;
+    border: none;
+    min-height: 1000px;
+}
+
+
+/******* MENU ACORDEON ********/
+.ui-accordion {
+    border: 1px solid #aaa;
+    width: 105%;
+    overflow: hidden;
+    padding: 0 10px 10px;
+    margin-left: -2.5%;
+}
+
+.ui-accordion .ui-accordion-header {
+    cursor: pointer;
+    padding: 2px;
+    max-width: 100%;
+    border-radius: 7px;
+}
+
+.accordion h3 {
+    margin: 10px 0;
+    border: 1px solid var(--cor-2);
+}
+
+.accordion a {
+    color: white;
+    text-decoration: none;
+    padding-left: 10px;
+}
+
+
+a.link-acordeon {
+    color: #000;
+    text-decoration: none;
+    font-size: 42px;
+}
+
+.ui-accordion .ui-accordion-content {
+    padding: 0 20px 20px;
+    overflow-y: scroll;
+    width: 900px;
+    margin-bottom: 20px;
+    background-color: #F4F4F4;
+}
+
+.ui-accordion .ui-accordion-header-active {
+    background-color: var(--cor-cinza);
+    color: var(--cor-2) !important;
+}
+
+.accordion h3:hover a {
+    color: var(--cor-2) !important;
+}
+
+.accordion .cx-texto-rolagem-m, .accordion .cx-texto-rolagem-p {
+    width: 100% !important;
+}
+
+.slideshowPlugin {
+    background-color: #F4F4F4;
+    border: 1px solid black;
+}
+
+.ad-thumb-list{
+    width: 100% !important;
+}
+
+/***** LINK POPUP ****/
+.popup {
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center !important;
+    text-indent: 0;
+    margin-right: 2px;
+    cursor: pointer;
+    float: left;
+}
+
+.popup:hover {
+    color: white;
+    box-shadow: 1px 1px 2px black;
+    text-decoration: none;
+}
+
+
+/********* Imagem Lateral ************/
+.img-lat{
+    position: absolute;
+    width: 100%;
+    float: right;
+    left: 96%;
+    top: 100px;
+}
+.img-lat .clique{
+    background-color: white;
+    width: 4%;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background: url('../../admin/Imagens/clique.png') center top no-repeat !important;
+    background-size: 100% !important;
+    background-clip: padding-box;
+    cursor: pointer;
+}
+.body-img-lat{
+    width: 92%;
+    float: left;
+    margin: 0;
+    height: 70%;
+    overflow-y: hidden;
+    padding: 10px 20px 30px;
+}
+.img-lat .voltar{
+    width: 4%;
+    height: 100px;
+    margin: 0;
+    padding: 0;
+    float: left;
+    background: url('../../admin/Imagens/voltar.png') center top no-repeat !important;
+    background-size: 100% !important;
+    background-clip: padding-box;
+    cursor: pointer;
+}
