@@ -6,8 +6,5 @@
 var home = $("#home").attr('data-val');
 
 CKEDITOR.editorConfig = function( config ) {
-    config.extraPlugins = 'image2, oembed, slideshow, bootstrapTabs, mathjax, liststyle';
-    config.stylesSet = 'my_styles:' + home + 'admin/js/Livro/styloLivro.js';
-    config.contentsCss = home + 'library/css/styloLerLivro.css';
+    config.extraPlugins = 'image2, oembed, slideshow, bootstrapTabs';
 };
-

@@ -1,3 +1,8 @@
+<style>
+    .cke_editable {
+        height: 200px !important;
+    }
+</style>
 <div class="main-content">
     <div class="container">
         <!-- start: PAGE HEADER -->
@@ -8,17 +13,16 @@
                     <li>
                         <i class="clip-grid-6"></i>
                         <a href="#">
-                            Livro
+                            Curso
                         </a>
                     </li>
                     <li class="active">
-                        Enviar / Responder
+                        Cadastrar Curso
                     </li>
-
                 </ol>
                 <div class="page-header">
-                    <h1>Livro
-                        <small>Cadastrar Livro</small>
+                    <h1>Curso
+                        <small>Cadastrar Curso</small>
                     </h1>
                 </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->
@@ -27,19 +31,23 @@
         <?php
         Modal::load();
         ?>
+
         <div class="row">
             <?php
-
             echo $form;
-            ?>
-        </div>
-        <div class="pull-right" style="margin-bottom: 15px">
-            <!-- end: DYNAMIC TABLE PANEL -->
-            <?php
-            Valida::geraBtnVoltar('Escola/ListarLivro/');
             ?>
         </div>
         <!-- end: PAGE CONTENT-->
     </div>
 </div>
 <!-- end: PAGE -->
+
+<!--CKEDITO 4 -->
+<script src="<?= HOME; ?>library/plugins/ckeditor4/ckeditor.js"></script>
+<script src="<?= HOME; ?>library/plugins/ckeditor4/ckfinder/ckfinder.js"></script>
+
+
+
+
+
+
