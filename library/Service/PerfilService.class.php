@@ -113,29 +113,9 @@ class  PerfilService extends AbstractService
         }
     }
 
-    public static function perfilGestor()
+    public static function perfilFundador()
     {
         return self::verificaPerfil(2);
-    }
-
-    public static function perfilCoordenador()
-    {
-        return self::verificaPerfil(5);
-    }
-
-    public static function perfilAluno()
-    {
-        return self::verificaPerfil(7);
-    }
-
-    public static function perfilDiagramador()
-    {
-        return self::verificaPerfil(6);
-    }
-
-    public static function perfilProfessor()
-    {
-        return self::verificaPerfil(4);
     }
 
     private static function verificaPerfil($coPerfil)

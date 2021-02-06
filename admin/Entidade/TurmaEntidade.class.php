@@ -15,9 +15,13 @@ class TurmaEntidade extends AbstractEntidade
 	private $ds_turma;
 	private $dt_cadastro;
 	private $nu_ano;
+    private $dt_inicio;
+    private $dt_fim;
+    private $nu_hora_abertura;
+    private $nu_hora_fechamento;
 	private $st_status;
 	private $co_curso;
-
+	private $co_inscricao;
 
 	/**
     * @return array
@@ -29,6 +33,10 @@ class TurmaEntidade extends AbstractEntidade
 			DS_TURMA,
 			DT_CADASTRO,
 			NU_ANO,
+            DT_INICIO,
+            DT_FIM,
+            NU_HORA_ABERTURA,
+            NU_HORA_FECHAMENTO,
 			ST_STATUS,
 			CO_CURSO,
 		];
@@ -112,6 +120,75 @@ class TurmaEntidade extends AbstractEntidade
         return $this->nu_ano = $nu_ano;
     }
 
+
+    /**
+     * @return mixed $dt_inicio
+     */
+    public function getDtInicio()
+    {
+        return $this->dt_inicio;
+    }
+
+    /**
+     * @param $dt_inicio
+     * @return mixed
+     */
+    public function setDtInicio($dt_inicio)
+    {
+        return $this->dt_inicio = $dt_inicio;
+    }
+
+    /**
+     * @return mixed $dt_fim
+     */
+    public function getDtFim()
+    {
+        return $this->dt_fim;
+    }
+
+    /**
+     * @param $dt_fim
+     * @return mixed
+     */
+    public function setDtFim($dt_fim)
+    {
+        return $this->dt_fim = $dt_fim;
+    }
+
+    /**
+     * @return mixed $nu_hora_abertura
+     */
+    public function getNuHoraAbertura()
+    {
+        return $this->nu_hora_abertura;
+    }
+
+    /**
+     * @param $nu_hora_abertura
+     * @return mixed
+     */
+    public function setNuHoraAbertura($nu_hora_abertura)
+    {
+        return $this->nu_hora_abertura = $nu_hora_abertura;
+    }
+
+    /**
+     * @return mixed $nu_hora_fechamento
+     */
+    public function getNuHoraFechamento()
+    {
+        return $this->nu_hora_fechamento;
+    }
+
+    /**
+     * @param $nu_hora_fechamento
+     * @return mixed
+     */
+    public function setNuHoraFechamento($nu_hora_fechamento)
+    {
+        return $this->nu_hora_fechamento = $nu_hora_fechamento;
+    }
+
 	/**
 	* @return mixed $st_status
     */
@@ -144,6 +221,23 @@ class TurmaEntidade extends AbstractEntidade
 	public function setCoCurso($co_curso)
     {
         return $this->co_curso = $co_curso;
+    }
+
+    /**
+     * @return InscricaoEntidade $co_inscricao
+     */
+    public function getCoInscricao()
+    {
+        return $this->co_inscricao;
+    }
+
+    /**
+     * @param $co_inscricao
+     * @return mixed
+     */
+    public function setCoInscricao($co_inscricao)
+    {
+        $this->co_inscricao = $co_inscricao;
     }
 
 }

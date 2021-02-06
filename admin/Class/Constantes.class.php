@@ -35,6 +35,10 @@ define('DS_TURMA', 'ds_turma');
 define('NU_ANO', 'nu_ano');
 define('CO_VALOR_CURSO', 'co_valor_curso');
 define('NU_VALOR', 'nu_valor');
+define('NU_HORA_ABERTURA', 'nu_hora_abertura');
+define('NU_HORA_FECHAMENTO', 'nu_hora_fechamento');
+define('DT_INICIO', 'dt_inicio');
+define('DT_FIM', 'dt_fim');
 
 
 // SERVICES

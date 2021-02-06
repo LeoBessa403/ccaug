@@ -11,7 +11,7 @@ class Curso extends AbstractController
     public function ListarCurso()
     {
         /** @var CursoService $CursoService */
-            $CursoService = $this->getService(CURSO_SERVICE);
+        $CursoService = $this->getService(CURSO_SERVICE);
         $this->result = $CursoService->PesquisaTodos();
     }
 
@@ -70,7 +70,70 @@ class Curso extends AbstractController
             );
             Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/PromocaoServico/');
         }
+    }
 
+    public function ListarTurma()
+    {
+        /** @var TurmaService $TurmaService */
+        $TurmaService = $this->getService(TURMA_SERVICE);
+
+        $this->curso = static::verificaCurso();
+
+        /** @var Session $session */
+        $session = new Session();
+        if ($session->CheckSession(PESQUISA_AVANCADA)) {
+            $session->FinalizaSession(PESQUISA_AVANCADA);
+        }
+        $Condicoes = [
+            CO_CURSO => $this->curso
+        ];
+        if (!empty($_POST)) {
+            $Condicoes[NU_ANO] = trim($_POST[NU_ANO]);
+            $Condicoes[DS_TURMA] = trim($_POST[DS_TURMA]);
+            $Condicoes[ST_STATUS] = (!empty($_POST[ST_STATUS])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
+            $Condicoes[CO_CURSO] = $_POST[CO_CURSO][0];
+
+        }
+        $this->result = $TurmaService->PesquisaTodos($Condicoes);
+    }
+
+
+    public function CadastroTurma()
+    {
+        /** @var TurmaService $TurmaService */
+        $TurmaService = $this->getService(TURMA_SERVICE);
+
+        $id = "CadastrarTurma";
+
+        if (!empty($_POST[$id])):
+            $retorno = $TurmaService->salvaTurma($_POST);
+
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller
+                    . '/ListarTurma/' . Valida::GeraParametro(CO_CURSO . "/" . $_POST[CO_CURSO]));
+            }
+        endif;
+
+        $coTurma = UrlAmigavel::PegaParametro(CO_TURMA);
+        $res = array();
+        $res[CO_CURSO] = static::verificaCurso();
+        $res[CO_TURMA] = $coTurma;
+        $res[ST_STATUS] = 'checked';
+
+        if ($coTurma) {
+            /** @var TurmaEntidade $turma */
+            $turma = $TurmaService->PesquisaUmRegistro($coTurma);
+            $res[NU_ANO] = $turma->getNuAno();
+            $res[DS_TURMA] = $turma->getDsTurma();
+            $res[ST_STATUS] = ($turma->getStStatus() == 'S')
+                ? 'checked' : '';
+            $res[DT_INICIO] = Valida::DataShow($turma->getDtInicio());
+            $res[DT_FIM] = Valida::DataShow($turma->getDtFim());
+            $res[NU_HORA_ABERTURA] = $turma->getNuHoraAbertura();
+            $res[NU_HORA_FECHAMENTO] = $turma->getNuHoraFechamento();
+        }
+
+        $this->form = CursoForm::CadastrarTurma($res);
     }
 
     public static function verificaCurso()
