@@ -4,13 +4,13 @@ function servidor_inicial()
 {
     if ($_SERVER['HTTP_HOST'] == 'localhost') {
         $config = array(
-            'HOME' => 'http://localhost/enovus/',
+            'HOME' => 'http://localhost/ccaug/',
             'HOST' => 'localhost',
-            'USER' => 'postgres',
-            'PASS' => 'admin',
-            'DBSA' => 'enovus10',
-            'SCHEMA' => 'enovus10',
-            'BANCO' => 2, // 1 = mysql, 2 = postgres
+            'USER' => 'root',
+            'PASS' => '',
+            'DBSA' => 'ccaug100',
+            'SCHEMA' => 'ccaug100',
+            'BANCO' => 1, // 1 = mysql, 2 = postgres
             'DEBUG' => true,
             'PROD' => false,
             'TOKEN_PAGSEGURO' => "5FDD35645CC1412296CE57A3542E48D0",
