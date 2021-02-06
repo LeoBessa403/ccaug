@@ -13,12 +13,7 @@ class CursoEntidade extends AbstractEntidade
 
 	private $co_curso;
 	private $ds_descricao;
-	private $dt_cadastro;
-	private $nu_carga_horaria;
-	private $nu_duracao;
-	private $st_certificacao;
-	private $st_status;
-	private $co_imagem;
+    private $dt_cadastro;
 	private $co_turma;
 	private $co_valor_curso;
 
@@ -32,11 +27,6 @@ class CursoEntidade extends AbstractEntidade
 			CO_CURSO,
 			DS_DESCRICAO,
 			DT_CADASTRO,
-			NU_CARGA_HORARIA,
-			NU_DURACAO,
-			ST_CERTIFICACAO,
-			ST_STATUS,
-			CO_IMAGEM,
 		];
     }
 
@@ -102,91 +92,6 @@ class CursoEntidade extends AbstractEntidade
     }
 
 	/**
-	* @return mixed $nu_carga_horaria
-    */
-	public function getNuCargaHoraria()
-    {
-        return $this->nu_carga_horaria;
-    }
-
-	/**
-	* @param $nu_carga_horaria
-    * @return mixed
-    */
-	public function setNuCargaHoraria($nu_carga_horaria)
-    {
-        return $this->nu_carga_horaria = $nu_carga_horaria;
-    }
-
-	/**
-	* @return mixed $nu_duracao
-    */
-	public function getNuDuracao()
-    {
-        return $this->nu_duracao;
-    }
-
-	/**
-	* @param $nu_duracao
-    * @return mixed
-    */
-	public function setNuDuracao($nu_duracao)
-    {
-        return $this->nu_duracao = $nu_duracao;
-    }
-
-	/**
-	* @return mixed $st_certificacao
-    */
-	public function getStCertificacao()
-    {
-        return $this->st_certificacao;
-    }
-
-	/**
-	* @param $st_certificacao
-    * @return mixed
-    */
-	public function setStCertificacao($st_certificacao)
-    {
-        return $this->st_certificacao = $st_certificacao;
-    }
-
-	/**
-	* @return mixed $st_status
-    */
-	public function getStStatus()
-    {
-        return $this->st_status;
-    }
-
-	/**
-	* @param $st_status
-    * @return mixed
-    */
-	public function setStStatus($st_status)
-    {
-        return $this->st_status = $st_status;
-    }
-
-	/**
-	* @return ImagemEntidade $co_imagem
-    */
-	public function getCoImagem()
-    {
-        return $this->co_imagem;
-    }
-
-	/**
-	* @param $co_imagem
-    * @return mixed
-    */
-	public function setCoImagem($co_imagem)
-    {
-        return $this->co_imagem = $co_imagem;
-    }
-
-	/**
 	* @return TurmaEntidade $co_turma
      */
 	public function getCoTurma()
@@ -218,6 +123,15 @@ class CursoEntidade extends AbstractEntidade
 	public function setCoValorCurso($co_valor_curso)
     {
         return $this->co_valor_curso = $co_valor_curso;
+    }
+
+
+    /**
+     * @return ValorCursoEntidade $co_valor_curso
+     */
+    public function getCoUltimoValorCurso()
+    {
+        return $this->ultimo($this->getCoValorCurso());
     }
 
 }

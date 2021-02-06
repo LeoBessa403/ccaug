@@ -45,16 +45,23 @@ class CursoForm
             ->CriaInpunt();
 
         $formulario
+            ->setId(DS_TITULO)
+            ->setClasses("ob")
+            ->setTamanhoInput(12)
+            ->setLabel("Nome do Curso")
+            ->CriaInpunt();
+
+        $formulario
             ->setLabel("Carga Horário")
-            ->setId(NU_ANO)
+            ->setId(NU_CARGA_HORARIA)
             ->setClasses('ob numero')
             ->setInfo('Em Horas')
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
         $formulario
-            ->setId(DS_TURMA)
-            ->setClasses("ob")
+            ->setId(NU_DURACAO)
+            ->setClasses("ob numero")
             ->setLabel("Duração")
             ->setInfo('Em Semanas')
             ->setTamanhoInput(6)

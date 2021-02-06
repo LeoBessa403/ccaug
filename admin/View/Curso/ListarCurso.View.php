@@ -43,34 +43,41 @@
                         <?php
                         Modal::load();
 
-                        $arrColunas = array('Curso', 'Carga Horária', 'Duração', 'Ativo', 'Ações');
+                        $arrColunas = array('Curso', 'Valor R$', 'Carga Horária', 'Duração', 'Ativo', 'Ações');
 
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
 
                         /** @var CursoEntidade $res */
                         foreach ($result as $res):
-//                            $acao = '<a href="' . PASTAADMIN . 'Escola/CadastroTurma/'
-//                                . Valida::GeraParametro(CO_TURMA . "/" . $res->getCoTurma() . "/"
-//                                . CO_ESCOLA . "/" . $escola) . '"
-//                                class="btn btn-primary tooltips"
-//                                data-original-title="Visualizar Registro" data-placement="top">
-//                                <i class="fa fa-clipboard"></i>
-//                                </a>
-//                                <a data-placement="top" role="button" class="btn btn-dark-grey tooltips"
-//                                    href="' . PASTAADMIN . 'Escola/ListarAluno/'
-//                                . Valida::GeraParametro(CO_TURMA . "/" . $res->getCoTurma() . "/"
-//                                    . CO_ESCOLA . "/" . $escola) . '"
-//                                       data-original-title="Alunos da Turma" data-placement="top">
-//                                        <i class="clip-study"></i>
-//                                    </a>';
+                            /** @var ValorCursoEntidade $valor */
+                            $valor = $res->getCoUltimoValorCurso();
+                            $acao = '<a href="' . PASTAADMIN . 'Curso/CadastroCurso/'
+                                . Valida::GeraParametro(CO_CURSO . "/" . $res->getCoCurso()) . '"
+                                class="btn btn-primary tooltips"
+                                data-original-title="Visualizar Registro" data-placement="top">
+                                <i class="fa fa-clipboard"></i>
+                                </a>
+                                <a data-placement="top" role="button" class="btn btn-green tooltips"
+                                    href="' . PASTAADMIN . 'Curso/ListarTurma/'
+                                . Valida::GeraParametro(CO_CURSO . "/" . $res->getCoCurso()) . '"
+                                       data-original-title="Turmas do Curso" data-placement="top">
+                                        <i class="fa fa-group"></i>
+                                    </a>
+                                    <a href="' . PASTAADMIN . 'Curso/HistoricoCurso/' .
+                                Valida::GeraParametro(CO_CURSO . "/" . $res->getCoCurso()) . '"
+                                        class="btn btn-med-grey tooltips"
+                                            data-original-title="Histórico de Preço do Curso" data-placement="top">
+                                             <i class="clip-folder-open"></i>
+                                         </a>';
 
-                            $grid->setColunas(strtoupper($res->getCoEscola()->getNoFantasia()));
-                            $grid->setColunas($res->getNuAno());
-                            $grid->setColunas(strtoupper($res->getDsTurma()));
-                            $grid->setColunas(Valida::SituacaoSimNao($res->getStStatus()));
-                            $grid->setColunas('$acao', 2);
-                            $grid->criaLinha($res->getCoTurma());
+                            $grid->setColunas(strtoupper($valor->getDsTitulo()));
+                            $grid->setColunas(Valida::FormataMoeda($valor->getNuValor()));
+                            $grid->setColunas($valor->getNuCargaHoraria());
+                            $grid->setColunas($valor->getNuDuracao());
+                            $grid->setColunas(Valida::SituacaoSimNao($valor->getStStatus()));
+                            $grid->setColunas($acao, 3);
+                            $grid->criaLinha($res->getCoCurso());
                         endforeach;
                         $grid->finalizaGrid();
                         ?>

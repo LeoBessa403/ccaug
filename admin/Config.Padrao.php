@@ -4,14 +4,15 @@
  * Config.Padrao [ HELPER ]
  * Constantes padrão gerados do sistema
  *
- * @copyright (c) 2020, Leo Bessa
+ * @copyright (c) 2021, Leo Bessa
  */ 
+define('TEM_SITE', '1');
 define('LOGAR_EMAIL', '1');
 define('TABELA_AUDITORIA', '1');
-define('DESC', 'Sistema da Enovus');
-define('DESC_SIS', 'SisEnovus');
-define('TITULO_SITE', 'Sistema de gestão de livros digitais');
-define('DESC_SITE', 'Sistema de gestão de livros digitais');
+define('DESC', 'Sistema da CCAUG');
+define('DESC_SIS', 'SisCCAUG');
+define('TITULO_SITE', 'Sistema de gestão de inscrições para cursos e formaçõews católicas');
+define('DESC_SITE', 'Sistema de gestão de inscrições para cursos e formaçõews católicas');
 define('CONTROLLER_INICIAL_ADMIN', 'Index');
 define('ACTION_INICIAL_ADMIN', 'IndexAdmin');
 define('CONTROLLER_INICIAL_SITE', 'IndexWeb');
@@ -33,5 +34,4 @@ define('PASS_EMAIL', '@EnOvUs.2018@');
 define('HOST_EMAIL', 'smtp.editoraenovus.com.br');
 define('PORTA_EMAIL', '587');
 define('ID_ANALITCS', '');
-define('TEM_SITE', '');
 

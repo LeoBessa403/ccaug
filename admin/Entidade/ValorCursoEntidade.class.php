@@ -14,7 +14,13 @@ class ValorCursoEntidade extends AbstractEntidade
 	private $co_valor_curso;
 	private $dt_cadastro;
 	private $nu_valor;
+    private $ds_titulo;
+    private $nu_carga_horaria;
+    private $nu_duracao;
+    private $st_certificacao;
+    private $st_status;
 	private $co_curso;
+	private $co_usuario;
 
 
 	/**
@@ -26,7 +32,13 @@ class ValorCursoEntidade extends AbstractEntidade
 			CO_VALOR_CURSO,
 			DT_CADASTRO,
 			NU_VALOR,
+            DS_TITULO,
+            NU_CARGA_HORARIA,
+            NU_DURACAO,
+            ST_CERTIFICACAO,
+            ST_STATUS,
 			CO_CURSO,
+			CO_USUARIO
 		];
     }
 
@@ -91,6 +103,91 @@ class ValorCursoEntidade extends AbstractEntidade
         return $this->nu_valor = $nu_valor;
     }
 
+
+    /**
+     * @return mixed
+     */
+    public function getDsTitulo()
+    {
+        return $this->ds_titulo;
+    }
+
+    /**
+     * @param mixed $ds_titulo
+     */
+    public function setDsTitulo($ds_titulo)
+    {
+        $this->ds_titulo = $ds_titulo;
+    }
+
+    /**
+     * @return mixed $nu_carga_horaria
+     */
+    public function getNuCargaHoraria()
+    {
+        return $this->nu_carga_horaria;
+    }
+
+    /**
+     * @param $nu_carga_horaria
+     * @return mixed
+     */
+    public function setNuCargaHoraria($nu_carga_horaria)
+    {
+        return $this->nu_carga_horaria = $nu_carga_horaria;
+    }
+
+    /**
+     * @return mixed $nu_duracao
+     */
+    public function getNuDuracao()
+    {
+        return $this->nu_duracao;
+    }
+
+    /**
+     * @param $nu_duracao
+     * @return mixed
+     */
+    public function setNuDuracao($nu_duracao)
+    {
+        return $this->nu_duracao = $nu_duracao;
+    }
+
+    /**
+     * @return mixed $st_certificacao
+     */
+    public function getStCertificacao()
+    {
+        return $this->st_certificacao;
+    }
+
+    /**
+     * @param $st_certificacao
+     * @return mixed
+     */
+    public function setStCertificacao($st_certificacao)
+    {
+        return $this->st_certificacao = $st_certificacao;
+    }
+
+    /**
+     * @return mixed $st_status
+     */
+    public function getStStatus()
+    {
+        return $this->st_status;
+    }
+
+    /**
+     * @param $st_status
+     * @return mixed
+     */
+    public function setStStatus($st_status)
+    {
+        return $this->st_status = $st_status;
+    }
+
 	/**
 	* @return CursoEntidade $co_curso
     */
@@ -106,6 +203,23 @@ class ValorCursoEntidade extends AbstractEntidade
 	public function setCoCurso($co_curso)
     {
         return $this->co_curso = $co_curso;
+    }
+
+	/**
+	* @return UsuarioEntidade $co_usuario
+    */
+	public function getCoUsuario()
+    {
+        return $this->co_usuario;
+    }
+
+	/**
+	* @param $co_usuario
+    * @return mixed
+    */
+	public function setCoUsuario($co_usuario)
+    {
+        return $this->co_usuario = $co_usuario;
     }
 
 }

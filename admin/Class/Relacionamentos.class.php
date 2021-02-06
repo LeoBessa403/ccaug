@@ -304,11 +304,6 @@ class Relacionamentos
                 ),
             ),
             (CursoEntidade::TABELA) => array(
-                (CO_IMAGEM) => array(
-                    ('Campo') => CO_IMAGEM,
-                    ('Entidade') => 'ImagemEntidade',
-                    ('Tipo') => '1',
-                ),
                 (CO_TURMA) => array(
                     ('Campo') => CO_CURSO,
                     ('Entidade') => 'TurmaEntidade',
@@ -374,7 +369,13 @@ class Relacionamentos
                 ),
             ),
             (TipoPagamentoEntidade::TABELA) => array(),
-            (ValorCursoEntidade::TABELA) => array(),
+            (ValorCursoEntidade::TABELA) => array(
+                (CO_USUARIO) => array(
+                    ('Campo') => CO_USUARIO,
+                    ('Entidade') => 'UsuarioEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
         );
     }
 }
