@@ -22,7 +22,7 @@ class UrlAmigavel
     public static $action;
 
     /** @var array Action Permitidas pra acesso sem validação de usuário */
-    public static $ACESSO_PERMITIDO = ['Acessar', 'Registrar', 'RecuperarSenha', 'AtivacaoUsuario'];
+    public static $ACESSO_PERMITIDO = ['Acessar', 'Registrar', 'RecuperarSenha', 'AtivacaoUsuario', 'InscricaoCurso'];
 
     /**
      * Realização a gestã£o da dos controladores e metodos a serem executados

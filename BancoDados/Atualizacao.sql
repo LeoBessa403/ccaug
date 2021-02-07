@@ -1122,3 +1122,43 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:06:05" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:06:06" where co_acesso = 9;
 
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:07:52" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:07:53" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:08:06" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:08:07" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:11:33" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 20:11:34" where co_acesso = 9;
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F" where co_acesso = 9;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("dp4e8slfrqt7qrvi7i7fhidhrc", "1", "A", "10", "2021-02-06 23:09:16", "2021-02-06 22:39:16");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:09:17" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:09:18" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:17:38" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:17:39" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:17:43" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:17:44" where co_acesso = 10;
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-06 22:47:46" where co_acesso = 10;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("dp4e8slfrqt7qrvi7i7fhidhrc", "1", "A", "11", "2021-02-06 23:29:25", "2021-02-06 22:59:25");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:29:26" where co_acesso = 11;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:29:28" where co_acesso = 11;
+
