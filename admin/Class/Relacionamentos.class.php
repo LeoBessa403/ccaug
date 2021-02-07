@@ -344,35 +344,29 @@ class Relacionamentos
                     ('Tipo') => '1',
                 ),
             ),
-            (PagamentoEntidade::TABELA) => array(
-                (CO_INSCRICAO) => array(
-                    ('Campo') => CO_INSCRICAO,
-                    ('Entidade') => 'InscricaoEntidade',
-                    ('Tipo') => '1',
-                ),
-                (CO_PARCELA) => array(
-                    ('Campo') => CO_PAGAMENTO,
-                    ('Entidade') => 'ParcelaEntidade',
-                    ('Tipo') => '2',
-                ),
-            ),
-            (ParcelaEntidade::TABELA) => array(
-                (CO_PAGAMENTO) => array(
-                    ('Campo') => CO_PAGAMENTO,
-                    ('Entidade') => 'PagamentoEntidade',
-                    ('Tipo') => '1',
-                ),
-                (CO_TIPO_PAGAMENTO) => array(
-                    ('Campo') => CO_TIPO_PAGAMENTO,
-                    ('Entidade') => 'TipoPagamentoEntidade',
-                    ('Tipo') => '1',
-                ),
-            ),
-            (TipoPagamentoEntidade::TABELA) => array(),
             (ValorCursoEntidade::TABELA) => array(
                 (CO_USUARIO) => array(
                     ('Campo') => CO_USUARIO,
                     ('Entidade') => 'UsuarioEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (HistoricoPagamentoEntidade::TABELA) => Array(
+                (CO_PAGAMENTO) => Array(
+                    ('Campo') => CO_PAGAMENTO,
+                    ('Entidade') => 'PagamentoEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
+            (PagamentoEntidade::TABELA) => Array(
+                (CO_HISTORICO_PAGAMENTO) => Array(
+                    ('Campo') => CO_PAGAMENTO,
+                    ('Entidade') => 'HistoricoPagamentoEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_INSCRICAO) => Array(
+                    ('Campo') => CO_INSCRICAO,
+                    ('Entidade') => 'InscricaoEntidade',
                     ('Tipo') => '1',
                 ),
             ),

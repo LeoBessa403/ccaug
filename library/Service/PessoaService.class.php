@@ -29,4 +29,57 @@ class  PessoaService extends AbstractService
         return $dados;
     }
 
+    /**
+     * @param array $dados
+     * @return bool|int $coPessoa
+     */
+    public static function verificaSalvaDadosPessoa(array $dados)
+    {
+        /** @var PessoaService $pessoaService */
+        $pessoaService = new PessoaService();
+        /** @var ContatoService $ContatoService */
+        $ContatoService = new ContatoService();
+        /** @var EnderecoService $EnderecoService */
+        $EnderecoService = new EnderecoService();
+        $dadosPessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
+        $dadosContato = $pessoaService->getDados($dados, ContatoEntidade::ENTIDADE);
+        $dadosEndereco = $pessoaService->getDados($dados, EnderecoEntidade::ENTIDADE);
+        if(!empty($dados[NU_CPF])){
+            /** @var PessoaEntidade $pessoa */
+            $pessoa = $pessoaService->PesquisaUmQuando([
+                NU_CPF => $dados[NU_CPF]
+            ]);
+            if(empty($pessoa)){
+                $coPessoa = $pessoaService->Salva($dadosPessoa);
+            }else{
+                $coPessoa = $pessoa->getCoPessoa();
+                $pessoaService->Salva($dadosPessoa, $coPessoa);
+            }
+        }else{
+            $coPessoa = $pessoaService->Salva($dadosPessoa);
+        }
+
+        /** @var PessoaEntidade $pessoa */
+        $pessoa = $pessoaService->PesquisaUmQuando([
+            CO_PESSOA => $coPessoa
+        ]);
+
+        $novodado = [];
+        if(empty($pessoa->getCoContato())){
+            $novodado[CO_CONTATO] = $ContatoService->Salva($dadosContato);
+        }else{
+            $ContatoService->Salva($dadosContato, $pessoa->getCoContato());
+        }
+
+        if(empty($pessoa->getCoEndereco())){
+            $novodado[CO_ENDERECO] = $EnderecoService->Salva($dadosEndereco);
+        }else{
+            $EnderecoService->Salva($dadosEndereco, $coPessoa);
+        }
+
+        $pessoaService->Salva($novodado, $coPessoa);
+
+        return $coPessoa;
+    }
+
 }

@@ -1162,3 +1162,213 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:29:26" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-06 23:29:28" where co_acesso = 11;
 
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F" where co_acesso = 11;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("31hk252it5ets4k3t3eoli0ggi", "1", "A", "12", "2021-02-07 18:56:41", "2021-02-07 18:26:41");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:56:41" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:56:42" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:56:48" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:56:49" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:57:00" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:57:00" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:59:08" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:59:09" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:59:25" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 18:59:25" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 19:00:29" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 19:00:30" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 19:00:39" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-07 19:00:40" where co_acesso = 12;
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf) VALUES ("01304694160");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf) VALUES ("01304694160");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf) VALUES ("01304694160");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf) VALUES ("01304694160");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf) VALUES ("01304694160");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:21:26", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:23:20", "", "");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:27:10", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "3", co_endereco = "3" where co_pessoa = 9;
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:38:42", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "4", co_endereco = "4" where co_pessoa = 10;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("10", "2021-02-07 19:38:42", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-07 19:38:42");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:44:39", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "5", co_endereco = "5" where co_pessoa = 11;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("11", "2021-02-07 19:44:39", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("2", "1", "2021-02-07 19:44:40");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:45:52", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "6", co_endereco = "6" where co_pessoa = 12;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("12", "2021-02-07 19:45:52", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("3", "1", "2021-02-07 19:45:52");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:46:31", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "7", co_endereco = "7" where co_pessoa = 13;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("13", "2021-02-07 19:46:31", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("4", "1", "2021-02-07 19:46:31");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:46:34", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "8", co_endereco = "8" where co_pessoa = 14;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("14", "2021-02-07 19:46:34", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("5", "1", "2021-02-07 19:46:34");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:46:44", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "9", co_endereco = "9" where co_pessoa = 15;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("15", "2021-02-07 19:46:44", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("6", "1", "2021-02-07 19:46:44");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:47:30", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "10", co_endereco = "10" where co_pessoa = 16;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("16", "2021-02-07 19:47:30", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("7", "1", "2021-02-07 19:47:30");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:47:56", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 17;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("17", "2021-02-07 19:47:56", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("8", "1", "2021-02-07 19:47:56");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:48:11", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "12", co_endereco = "12" where co_pessoa = 18;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("18", "2021-02-07 19:48:12", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("9", "1", "2021-02-07 19:48:12");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:49:00", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "13", co_endereco = "13" where co_pessoa = 19;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("19", "2021-02-07 19:49:00", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-07 19:49:00");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:49:07", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "14", co_endereco = "14" where co_pessoa = 20;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("20", "2021-02-07 19:49:08", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("11", "1", "2021-02-07 19:49:08");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("11", "5", "2021-02-07 19:49:08");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("01304694160", "Leonardo Machado Carvalho Bessa", "", "2021-02-07 19:49:31", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("5767868767", "", "", "", "leninha.k@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "15", co_endereco = "15" where co_pessoa = 21;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("21", "2021-02-07 19:49:31", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("12", "1", "2021-02-07 19:49:31");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("12", "5", "2021-02-07 19:49:31");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("2", "2021-02-07 19:49:31", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+

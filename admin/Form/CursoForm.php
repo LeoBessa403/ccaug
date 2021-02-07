@@ -163,7 +163,7 @@ class CursoForm
         $id = "InscricaoCurso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
-            "Pagar", 12);
+            "Cadastrar", 12);
         $formulario->setValor($res);
 
         $formulario

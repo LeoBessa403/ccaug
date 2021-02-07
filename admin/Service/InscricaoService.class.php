@@ -13,7 +13,7 @@ class  InscricaoService extends AbstractService
     public function __construct()
     {
         parent::__construct(InscricaoEntidade::ENTIDADE);
-        $this->ObjetoModel = New InscricaoModel();
+        $this->ObjetoModel = new InscricaoModel();
     }
 
     public function getReferenciaPagamentoInscricao()
@@ -46,20 +46,12 @@ class  InscricaoService extends AbstractService
         return [NU_VALOR => $curso->getCoUltimoValorCurso()->getNuValor()];
     }
 
-    public function salvaPagamentoAssinante($dados)
+    public function salvaInscricao($dados)
     {
-        /** @var PlanoService $PlanoService */
-        $PlanoService = $this->getService(PLANO_SERVICE);
-        /** @var AssinanteService $AssinanteService */
-        $AssinanteService = $this->getService(ASSINANTE_SERVICE);
-        /** @var PlanoAssinanteAssinaturaService $planoAssinanteAssinaturaService */
-        $planoAssinanteAssinaturaService = $this->getService(PLANO_ASSINANTE_ASSINATURA_SERVICE);
-        /** @var HistoricoPagAssinaturaService $HistPagAssService */
-        $HistPagAssService = $this->getService(HISTORICO_PAG_ASSINATURA_SERVICE);
-        /** @var PessoaService $pessoaService */
-        $pessoaService = $this->getService(PESSOA_SERVICE);
-        /** @var ContatoService $contatoService */
-        $contatoService = $this->getService(CONTATO_SERVICE);
+        /** @var PagamentoService $PagamentoService */
+        $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        /** @var HistoricoPagamentoService $HistoricoPagamentoService */
+        $HistoricoPagamentoService = $this->getService(HISTORICO_PAGAMENTO_SERVICE);
         /** @var PDO $PDO */
         $PDO = $this->getPDO();
         $session = new Session();
@@ -67,61 +59,37 @@ class  InscricaoService extends AbstractService
             SUCESSO => false,
             MSG => null
         ];
-        /** @var PlanoAssinanteAssinaturaValidador $planoAssinanteAssinaturaValidador */
-        $planoAssinanteAssinaturaValidador = new PlanoAssinanteAssinaturaValidador();
-        $validador = $planoAssinanteAssinaturaValidador->validarPlanoAssinanteAssinatura($dados);
+        /** @var InscricaoValidador $InscricaoValidador */
+        $InscricaoValidador = new InscricaoValidador();
+        $validador = $InscricaoValidador->validarInscricao($dados);
         if ($validador[SUCESSO]) {
 
             $PDO->beginTransaction();
-            /** @var PlanoEntidade $plano */
-            $plano = $PlanoService->PesquisaUmRegistro($dados[CO_PLANO][0]);
-            /** @var AssinanteEntidade $assinante */
-            $assinante = $AssinanteService->PesquisaUmRegistro($dados[CO_ASSINANTE]);
 
+            $coPessoa = PessoaService::verificaSalvaDadosPessoa($dados);
+            $insc[CO_ALUNO] = AlunoService::verificaSalvaDadosAluno($coPessoa);
+            $insc[CO_TURMA] = 1;
+            $insc[DT_CADASTRO] = Valida::DataHoraAtualBanco();
 
-            $pessoa[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
-            $pessoaService->Salva($pessoa, $assinante->getCoPessoa()->getCoPessoa());
-            $contato[NU_TEL1] = Valida::RetiraMascara($dados[NU_TEL1]);
-            $contatoService->Salva($contato, $assinante->getCoPessoa()->getCoContato()->getCoContato());
-
-
-            if (!empty($dados[CO_PLANO_ASSINANTE_ASSINATURA])) {
-                $retorno[SUCESSO] = $dados[CO_PLANO_ASSINANTE_ASSINATURA];
-                $retorno[MSG] = ATUALIZADO;
-            } else {
-                $planoAssinanteAssinatura[CO_PLANO_ASSINANTE] = $plano->getCoUltimoPlanoAssinante()->getCoPlanoAssinante();
-                $planoAssinanteAssinatura[CO_ASSINANTE] = $dados[CO_ASSINANTE];
-                $planoAssinanteAssinatura[NU_PROFISSIONAIS] = PlanoService::getNuProfissionais($plano->getNuMesAtivo());
-                $planoAssinanteAssinatura[NU_FILIAIS] = 0;
-                $planoAssinanteAssinatura[NU_VALOR_ASSINATURA] = $plano->getCoUltimoPlanoAssinante()->getNuValor();
-                $planoAssinanteAssinatura[TP_PAGAMENTO] = $dados[TP_PAGAMENTO][0];
-                $planoAssinanteAssinatura[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $planoAssinanteAssinatura[DT_EXPIRACAO] = Valida::DataDBDate(Valida::CalculaData(
-                    Valida::DataShow($assinante->getDtExpiracao()),
-                    $plano->getNuMesAtivo(),
-                    "+",
-                    'm'
-                ));
-                $planoAssinanteAssinatura[CO_PLANO_ASSINANTE_ASSINATURA_ATIVO] =
-                    PlanoAssinanteAssinaturaService::getCoPlanoAssinaturaAtivo(
-                        AssinanteService::getCoAssinanteLogado()
-                    );
-                $retorno[SUCESSO] = $planoAssinanteAssinaturaService->Salva($planoAssinanteAssinatura);
-                $retorno[MSG] = CADASTRADO;
-            }
+            $pagInsc[CO_INSCRICAO] = $this->Salva($insc);
+            $pagInsc[TP_PAGAMENTO] = $dados[TP_PAGAMENTO][0];
+            $pagInsc[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
+            $histPag[CO_PAGAMENTO] = $PagamentoService->Salva($pagInsc);
+            $retorno[MSG] = CADASTRADO;
 
             // HISTORICO DO PAGAMENTO INICIADO
-            $histPagAss[CO_PLANO_ASSINANTE_ASSINATURA] = $retorno[SUCESSO];
-            $histPagAss[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $histPagAss[DS_ACAO] = 'Inicia o pagamento';
-            $histPagAss[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
+            $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+            $histPag[DS_ACAO] = 'Inicia o pagamento';
+            $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
                 . ' Iniciou o pagamento';
-            $histPagAss[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
-
-            $HistPagAssService->Salva($histPagAss);
+            $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
+            $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 
             if ($retorno[SUCESSO]) {
 
+
+
+                debug('ok',1);
                 $plano = $PlanoService->PesquisaUmRegistro($dados[CO_PLANO][0]);
                 /** @var AssinanteEntidade $assinante */
                 $assinante = $AssinanteService->PesquisaUmRegistro($dados[CO_ASSINANTE]);
@@ -143,7 +111,7 @@ class  InscricaoService extends AbstractService
                     $retPagSeg[NU_VALOR_REAL] = (string)$retornoPagSeguro->netAmount;
                     $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
                     $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
-                    $retPagSeg[CO_PLANO_ASSINANTE] = $plano->getCoUltimoPlanoAssinante()->getCoPlanoAssinante();
+                    $retPagSeg[CO_INSCRICAO] = $pagInsc[CO_INSCRICAO];
 
                     $retorno[SUCESSO] = $planoAssinanteAssinaturaService->Salva(
                         $retPagSeg, (int)$retornoPagSeguro->reference);

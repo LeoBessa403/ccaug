@@ -39,6 +39,9 @@ define('NU_HORA_ABERTURA', 'nu_hora_abertura');
 define('NU_HORA_FECHAMENTO', 'nu_hora_fechamento');
 define('DT_INICIO', 'dt_inicio');
 define('DT_FIM', 'dt_fim');
+define('CO_HISTORICO_PAGAMENTO', 'co_historico_pagamento');
+define('NU_VALOR_TOTAL', 'nu_valor_total');
+define('DT_PAGO', 'dt_pago');
 
 
 // SERVICES
@@ -47,6 +50,7 @@ define('CURSO_SERVICE', 'CursoService');
 define('INSCRICAO_SERVICE', 'InscricaoService');
 define('PAGAMENTO_SERVICE', 'PagamentoService');
 define('PARCELA_SERVICE', 'ParcelaService');
-define('TIPO_PAGAMENTO_SERVICE', 'TipoPagamentoService');
 define('TURMA_SERVICE', 'TurmaService');
 define('VALOR_CURSO_SERVICE', 'ValorCursoService');
+define('HISTORICO_PAGAMENTO_SERVICE', 'HistoricoPagamentoService');
+
