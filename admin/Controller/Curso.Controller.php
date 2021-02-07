@@ -154,36 +154,19 @@ class Curso extends AbstractController
 
     public function InscricaoCurso()
     {
+        /** @var InscricaoService $InscricaoService */
+        $InscricaoService = $this->getService(INSCRICAO_SERVICE);
 
-//        /** @var AssinanteService $assinanteService */
-//        $assinanteService = $this->getService(ASSINANTE_SERVICE);
-//        /** @var PlanoAssinanteAssinaturaService $PlanoAssinanteAssinaturaService */
-//        $PlanoAssinanteAssinaturaService = $this->getService(PLANO_ASSINANTE_ASSINATURA_SERVICE);
-//
-//        if (!empty($_POST)):
-//            $retorno = $PlanoAssinanteAssinaturaService->salvaPagamentoAssinante($_POST);
-//            if ($retorno[SUCESSO]) {
-//                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
-//                exit;
-//            }
-//        endif;
-//
-//        $coAssinante = AssinanteService::getCoAssinanteLogado();
-//        $coPlanoAssinanteAssinatura = UrlAmigavel::PegaParametro(CO_PLANO_ASSINANTE_ASSINATURA);
-        $res = [];
-//        if (AssinanteService::assianteNaoEncontrado($coAssinante)) {
-//            /** @var AssinanteEntidade $assinante */
-//            $assinante = $assinanteService->PesquisaUmRegistro($coAssinante);
-//            $res[CO_ASSINANTE] = $coAssinante;
-//            $res[DT_EXPIRACAO] = Valida::DataShow($assinante->getDtExpiracao());
-//            if ($coPlanoAssinanteAssinatura) {
-//                /** @var PlanoAssinanteAssinaturaEntidade $planoAssinanteAssinatura */
-//                $planoAssinanteAssinatura =
-//                    $PlanoAssinanteAssinaturaService->PesquisaUmRegistro($coPlanoAssinanteAssinatura);
-//                $res[CO_PLANO] = $planoAssinanteAssinatura->getCoPlanoAssinante()->getCoPlano()->getCoPlano();
-//                $res[CO_PLANO_ASSINANTE_ASSINATURA] = $planoAssinanteAssinatura->getCoPlanoAssinanteAssinatura();
-//            }
-//        }
+        if (!empty($_POST)):
+            $retorno = $InscricaoService->salvaInscricao($_POST);
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+                exit;
+            }
+        endif;
+
+
+        $res[CO_CURSO] = 1;//static::verificaCurso();
         $this->form = CursoForm::Pagamento($res);
     }
 

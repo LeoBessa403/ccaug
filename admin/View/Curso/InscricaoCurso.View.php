@@ -28,4 +28,7 @@ include_once 'library/Partial/AcessoPermitido/topo_inicial.php';
 include_once 'library/Partial/AcessoPermitido/rodape_inicial.php';
 echo '<script src="' . HOME . 'admin/js/Curso/InscricaoCurso.js"></script>';
 ?>
+<!-- SCRIPT PAGSEGURO -->
+<script type="text/javascript"
+        src="<?= JS_PAGSEGURO; ?>"></script>
 

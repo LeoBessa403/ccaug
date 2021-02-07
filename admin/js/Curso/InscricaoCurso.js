@@ -1,7 +1,7 @@
 $(function () {
     var imgBand = '';
     $('.debito,.credito').parents('.form-group').hide();
-    var dados = Funcoes.Ajax('Assinante/getSessaoPagamentoAssinante', null);
+    var dados = Funcoes.Ajax('Inscricao/getReferenciaPagamentoInscricao', null);
     PagSeguroDirectPayment.setSessionId(dados.id);
     carregaBancos();
     $("button.btn-success").attr('type', 'button');
@@ -67,15 +67,15 @@ $(function () {
     });
 
     function recupParcelas(bandeira) {
-        var coPlano = $("#co_plano").val();
+        var coCurso = 1;//$("#co_curso").val();
         var comboParc = $("#qntParcelas");
-        if (coPlano) {
-            var dados = Funcoes.Ajax('Assinante/getValorPlano', coPlano);
-            var valorPlano = dados.nu_valor_assinatura;
+        if (coCurso) {
+            var dados = Funcoes.Ajax('Inscricao/getValorCurso', coCurso);
+            var valorCurso = dados.nu_valor;
             limpaComboParcelas();
             var noIntInstalQuantity = 3;
             PagSeguroDirectPayment.getInstallments({
-                amount: valorPlano,
+                amount: valorCurso,
                 maxInstallmentNoInterest: noIntInstalQuantity,
                 brand: bandeira,
                 success: function (retorno) {
@@ -170,7 +170,7 @@ $(function () {
                 return 1
             } else {
                 $("#hash").val(retorno.senderHash);
-                $("#RenovaPlanoAssinante").submit()
+                $("#InscricaoCurso").submit()
             }
         })
     }

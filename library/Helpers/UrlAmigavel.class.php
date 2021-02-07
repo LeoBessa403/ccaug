@@ -82,7 +82,7 @@ class UrlAmigavel
     {
         $erro_404 = false;
         if (self::$modulo != SITE && self::$action != ACTION_INICIAL_ADMIN &&
-            self::$controller != CONTROLLER_INICIAL_ADMIN):
+            self::$controller != CONTROLLER_INICIAL_ADMIN && !in_array(self::$action, self::$ACESSO_PERMITIDO)):
             if (!Valida::ValPerfil(self::$action)):
                 self::$action = ACTION_INICIAL_ADMIN;
                 self::$controller = CONTROLLER_INICIAL_ADMIN;
@@ -142,6 +142,9 @@ class UrlAmigavel
 
         extract((array)$app);
         $actAux = self::$action;
+
+
+
 
         if ($erro_404):
             $module = (self::$modulo == SITE) ? CONTROLLER_INICIAL_SITE : CONTROLLER_INICIAL_ADMIN;

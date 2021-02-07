@@ -160,30 +160,43 @@ class CursoForm
 
     public static function Pagamento($res = false)
     {
-        $id = "RenovaPlanoAssinante";
+        $id = "InscricaoCurso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
             "Pagar", 12);
         $formulario->setValor($res);
 
-//        $formulario
-//            ->setId(DT_EXPIRACAO)
-//            ->setTamanhoInput(4)
-//            ->setClasses("disabilita")
-//            ->setIcon("clip-calendar-3")
-//            ->setInfo("Termino do plano Ativo")
-//            ->setLabel("Data de Expiração")
-//            ->CriaInpunt();
+        $formulario
+            ->setId(NO_PESSOA)
+            ->setClasses("ob nome")
+            ->setInfo("O Nome deve ser Completo Mínimo de 10 Caracteres")
+            ->setLabel("Nome do Aluno")
+            ->CriaInpunt();
 
-//        $options = PlanoService::montaComboPlanosAtivos();
-//        $formulario
-//            ->setId(CO_PLANO)
-//            ->setType(TiposCampoEnum::SELECT)
-//            ->setLabel("Plano")
-//            ->setTamanhoInput(12)
-//            ->setClasses("ob")
-//            ->setOptions($options)
-//            ->CriaInpunt();
+        $formulario
+            ->setId(NU_CPF)
+            ->setClasses("cpf ob")
+            ->setInfo('Somente números')
+            ->setTamanhoInput(6)
+            ->setLabel("CPF do Aluno")
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(NU_TEL1)
+            ->setIcon("fa fa-mobile-phone")
+            ->setLabel("Celular do Aluno")
+            ->setInfo("Com <i class='fa fa-whatsapp' style='color: green;'></i> WhatSapp")
+            ->setClasses("tel ob")
+            ->setTamanhoInput(6)
+            ->CriaInpunt();
+
+        $formulario
+            ->setId(DS_EMAIL)
+            ->setIcon("fa-envelope fa")
+            ->setClasses("email ob")
+            ->setLabel("Email do Aluno")
+            ->CriaInpunt();
+
 
         $tp_pagamentos = [
             null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
@@ -202,24 +215,6 @@ class CursoForm
             ->setClasses("ob")
             ->setOptions($tp_pagamentos)
             ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_CPF)
-            ->setClasses("cpf ob")
-            ->setInfo('Somente números')
-            ->setTamanhoInput(6)
-            ->setLabel("CPF do Comprador")
-            ->CriaInpunt();
-
-        $formulario
-            ->setId(NU_TEL1)
-            ->setIcon("fa fa-mobile-phone")
-            ->setLabel("Celular do Comprador")
-            ->setInfo("Com <i class='fa fa-whatsapp' style='color: green;'></i> WhatSapp")
-            ->setClasses("tel ob")
-            ->setTamanhoInput(6)
-            ->CriaInpunt();
-
 
         $bancos = [
             null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
@@ -337,21 +332,7 @@ class CursoForm
             ->setOptions($options)
             ->CriaInpunt();
 
-//        if (!empty($res[CO_ASSINANTE])):
-//            $formulario
-//                ->setType(TiposCampoEnum::HIDDEN)
-//                ->setId(CO_ASSINANTE)
-//                ->setValues($res[CO_ASSINANTE])
-//                ->CriaInpunt();
-//        endif;
-//
-//        if (!empty($res[CO_PLANO_ASSINANTE_ASSINATURA])):
-//            $formulario
-//                ->setType(TiposCampoEnum::HIDDEN)
-//                ->setId(CO_PLANO_ASSINANTE_ASSINATURA)
-//                ->setValues($res[CO_PLANO_ASSINANTE_ASSINATURA])
-//                ->CriaInpunt();
-//        endif;
+        Form::CriaInputHidden($formulario, $res, [CO_CURSO]);
 
         $formulario
             ->setType(TiposCampoEnum::HIDDEN)
@@ -377,7 +358,7 @@ class CursoForm
             ->setValues(null)
             ->CriaInpunt();
 
-        return $formulario->finalizaForm('Assinante/MeuPlanoAssinante');
+        return $formulario->finalizaForm('Inscricao/InscricaoCurso');
     }
 
 }
