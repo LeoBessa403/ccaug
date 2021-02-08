@@ -178,3 +178,19 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:28" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:29" where co_acesso = 13;
 
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:32" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:33" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:37" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:37" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08 01:45:43", "Mudou o Status do pagamento para Devolvida", "Suporte Efetuou o estorno.", "6");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-08 01:45:43", st_pagamento = "6" where co_pagamento = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:44" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:15:44" where co_acesso = 13;
+

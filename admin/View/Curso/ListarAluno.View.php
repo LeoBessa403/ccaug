@@ -72,7 +72,7 @@
                             if ($pagamento->getStPagamento() > 0) {
                                 if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
                                     $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
-                                    $acao .= ' <a href="' . PASTAADMIN . 'Aluno/CancelarAssinaturaAluno/' .
+                                    $acao .= ' <a href="' . PASTAADMIN . 'Curso/CancelarPagamentoCurso/' .
                                         Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
                                             $pagamento->getDsCodeTransacao()) . '" 
                                                 class="btn btn-danger tooltips" 
@@ -82,7 +82,7 @@
                                 } elseif ($pagamento->getStPagamento() == StatusPagamentoEnum::PAGO ||
                                     $pagamento->getStPagamento() == StatusPagamentoEnum::DISPONIVEL ||
                                     $pagamento->getStPagamento() == StatusPagamentoEnum::EM_DISPUTA) {
-                                    $acao .= ' <a href="' . PASTAADMIN . 'Aluno/EstornarAssinaturaAluno/' .
+                                    $acao .= ' <a href="' . PASTAADMIN . 'Curso/EstornarPagamentoCurso/' .
                                         Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
                                             $pagamento->getDsCodeTransacao()) . '" 
                                 class="btn btn-danger tooltips" 
