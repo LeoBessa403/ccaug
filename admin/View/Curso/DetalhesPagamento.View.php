@@ -5,18 +5,10 @@
         <button type="button" class="close cancelar" data-dismiss="modal" aria-hidden="true">
             X
         </button>
-        <h4 class="modal-title">Visualisar Assinatura</h4>
+        <h4 class="modal-title">Visualisar Pagamento</h4>
     </div>
     <div class="modal-body">
         <div class="row col-sm-12" id="Visualizar-Pagamento">
-            <div id="form-group-st_status" class="form-group col-sm-12">
-                <label for="st_status" class="col-sm-3 align-right">
-                    Status Assinatura:
-                </label>
-                <div class="col-sm-9">
-                    <span class="st_status"><b></b></span>
-                </div>
-            </div>
             <div id="form-group-Code" class="form-group col-sm-12">
                 <label for="Code" class="col-sm-3  align-right">
                     Código da Transação:
@@ -27,7 +19,7 @@
             </div>
             <div id="form-group-plano" class="form-group col-sm-12">
                 <label for="plano" class="col-sm-3  align-right">
-                    Plano:
+                    Curso:
                 </label>
                 <div class="col-sm-9">
                     <span class="plano"><b></b></span>
@@ -57,40 +49,28 @@
                     <span class="Meio_Pagamento"><b></b></span>
                 </div>
             </div>
-            <div id="form-group-Valor_Ass" class="form-group col-sm-12">
-                <label for="Valor_Ass" class="col-sm-3  align-right">
-                    Valor Assinatura:
+            <div id="form-group-Valor_Total" class="form-group col-sm-12">
+                <label for="Valor_Total" class="col-sm-3  align-right">
+                    Valor do Curso:
                 </label>
                 <div class="col-sm-9">
-                    <span class="Valor_Ass"><b></b></span>
+                    <span class="Valor_Total"><b></b></span>
                 </div>
             </div>
-            <?php
-            if (PerfilService::perfilMaster()) {
-                ?>
-                <div id="form-group-Valor_Desconto" class="form-group col-sm-12">
-                    <label for="Valor_Desconto" class="col-sm-3  align-right">
-                        Valor desconto:
-                    </label>
-                    <div class="col-sm-9">
-                        <span class="Valor_Desconto"><b></b></span>
-                    </div>
-                </div>
-                <div id="form-group-Valor_Liquido" class="form-group col-sm-12">
-                    <label for="Valor_Liquido" class="col-sm-3  align-right">
-                        Valor Líquido:
-                    </label>
-                    <div class="col-sm-9">
-                        <span class="Valor_Liquido"><b></b></span>
-                    </div>
-                </div>
-            <?php } ?>
-            <div id="form-group-Profissionais" class="form-group col-sm-12">
-                <label for="Profissionais" class="col-sm-3  align-right">
-                    Nº Profissionais:
+            <div id="form-group-Valor_Desconto" class="form-group col-sm-12">
+                <label for="Valor_Desconto" class="col-sm-3  align-right">
+                    Valor desconto:
                 </label>
                 <div class="col-sm-9">
-                    <span class="Profissionais"><b></b></span>
+                    <span class="Valor_Desconto"><b></b></span>
+                </div>
+            </div>
+            <div id="form-group-Valor_Liquido" class="form-group col-sm-12">
+                <label for="Valor_Liquido" class="col-sm-3  align-right">
+                    Valor Líquido:
+                </label>
+                <div class="col-sm-9">
+                    <span class="Valor_Liquido"><b></b></span>
                 </div>
             </div>
             <div id="form-group-transacoes" class="form-group col-sm-12">

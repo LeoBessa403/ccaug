@@ -341,7 +341,7 @@ class Relacionamentos
                 (CO_PAGAMENTO) => array(
                     ('Campo') => CO_INSCRICAO,
                     ('Entidade') => 'PagamentoEntidade',
-                    ('Tipo') => '1',
+                    ('Tipo') => '2',
                 ),
             ),
             (TurmaEntidade::TABELA) => array(

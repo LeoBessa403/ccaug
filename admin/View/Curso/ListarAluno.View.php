@@ -44,67 +44,68 @@
                         $statusSis = '';
                         /** @var InscricaoEntidade $res */
                         foreach ($result as $res):
-                            debug($res, 1);
+                            /** @var PagamentoEntidade $pagamento */
+                            $pagamento = $res->getCoPagamento()[0];
                             $acao = '<button class="btn btn-primary btn-visualizar tooltips" data-coPagamento="' .
-                                $res->getCoPagamento()->getCoPagamento() . '"  
+                                $pagamento->getCoPagamento() . '"  
                                         data-original-title="Visualizar Pagamento" data-placement="top">
                                          <i class="clip-eye"></i>
                                      </button>';
-                            if ($res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
-                                $res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
-                                if ($res->getCoPagamento()->getTpPagamento() == TipoPagamentoEnum::BOLETO
-                                    && $res->getCoPagamento()->getDsLinkBoleto()) {
-                                    $acao .= ' <a href="' . $res->getCoPagamento()->getDsLinkBoleto() . '" target="_blank"
+                            if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
+                                $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
+                                if ($pagamento->getTpPagamento() == TipoPagamentoEnum::BOLETO
+                                    && $pagamento->getDsLinkBoleto()) {
+                                    $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
                                                     class="btn btn-warning tooltips" 
                                                         data-original-title="Abrir Boleto" data-placement="top">
                                                          <i class="clip-file-pdf"></i>
                                                      </a>';
-                                } elseif ($res->getCoPagamento()->getTpPagamento() == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA
-                                    && $res->getCoPagamento()->getDsLinkBoleto()) {
-                                    $acao .= ' <a href="' . $res->getCoPagamento()->getDsLinkBoleto() . '" target="_blank"
+                                } elseif ($pagamento->getTpPagamento() == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA
+                                    && $pagamento->getDsLinkBoleto()) {
+                                    $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
                                                     class="btn btn-warning tooltips" 
                                                         data-original-title="Abrir Página do Banco" data-placement="top">
                                                          <i class="clip-banknote"></i>
                                                      </a>';
                                 }
                             }
-                            if ($res->getCoPagamento()->getStPagamento() > 0) {
-                                if ($res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
-                                    $res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
+                            if ($pagamento->getStPagamento() > 0) {
+                                if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
+                                    $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
                                     $acao .= ' <a href="' . PASTAADMIN . 'Aluno/CancelarAssinaturaAluno/' .
                                         Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
-                                            $res->getCoPagamento()->getDsCodeTransacao()) . '" 
+                                            $pagamento->getDsCodeTransacao()) . '" 
                                                 class="btn btn-danger tooltips" 
-                                                    data-original-title="Cancelar Assinatura do Aluno" data-placement="top">
+                                                    data-original-title="Cancelar Inscrição do Aluno" data-placement="top">
                                                      <i class="fa fa-trash-o"></i>
                                                  </a>';
-                                } elseif ($res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::PAGO ||
-                                    $res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::DISPONIVEL ||
-                                    $res->getCoPagamento()->getStPagamento() == StatusPagamentoEnum::EM_DISPUTA) {
+                                } elseif ($pagamento->getStPagamento() == StatusPagamentoEnum::PAGO ||
+                                    $pagamento->getStPagamento() == StatusPagamentoEnum::DISPONIVEL ||
+                                    $pagamento->getStPagamento() == StatusPagamentoEnum::EM_DISPUTA) {
                                     $acao .= ' <a href="' . PASTAADMIN . 'Aluno/EstornarAssinaturaAluno/' .
                                         Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
-                                            $res->getCoPagamento()->getDsCodeTransacao()) . '" 
+                                            $pagamento->getDsCodeTransacao()) . '" 
                                 class="btn btn-danger tooltips" 
-                                    data-original-title="Estornar Assinatura do Aluno" data-placement="top">
+                                    data-original-title="Estornar Inscrição do Aluno" data-placement="top">
                                      <i class="fa fa-trash-o"></i>
                                  </a>';
                                 }
                             }
-                            $dtPagamento = ($res->getCoPagamento()->getDtPago())
-                                ? Valida::DataShow($res->getCoPagamento()->getDtPago())
+                            $dtPagamento = ($pagamento->getDtPago())
+                                ? Valida::DataShow($pagamento->getDtPago())
                                 : null;
-                            $tpPagamento = ($res->getCoPagamento()->getTpPagamento())
-                                ? TipoPagamentoEnum::getDescricaoValor($res->getCoPagamento()->getTpPagamento())
+                            $tpPagamento = ($pagamento->getTpPagamento())
+                                ? TipoPagamentoEnum::getDescricaoValor($pagamento->getTpPagamento())
                                 : null;
 
                             $grid->setColunas($res->getCoAluno()->getCoPessoa()->getNoPessoa(), 3);
-                            $grid->setColunas($res->getCoPagamento()->getDsCodeTransacao(), 2);
+                            $grid->setColunas($pagamento->getDsCodeTransacao(), 2);
                             $grid->setColunas($dtPagamento, 2);
                             $grid->setColunas($tpPagamento, 4);
-                            $grid->setColunas($res->getCoPagamento()->getNuValorTotal(), 2);
-                            $grid->setColunas(StatusPagamentoEnum::getDescricaoValor($res->getCoPagamento()->getStPagamento()), 2);
+                            $grid->setColunas($pagamento->getNuValorTotal(), 2);
+                            $grid->setColunas(StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento()), 2);
                             $grid->setColunas($acao, 3);
-                            $grid->criaLinha($res->getCoPagamento()->getCoPagamento());
+                            $grid->criaLinha($pagamento->getCoPagamento());
                         endforeach;
                         $grid->finalizaGrid();
                         ?>
