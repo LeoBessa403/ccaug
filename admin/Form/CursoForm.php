@@ -12,7 +12,7 @@ class CursoForm
         $id = "CadastrarCurso";
 
         $formulario = new Form($id, ADMIN . "/" . UrlAmigavel::$controller . "/" . UrlAmigavel::$action,
-            "Cadastrar", 12);
+            "Cadastrar", 6);
         if ($res):
             $formulario->setValor($res);
         endif;
@@ -102,16 +102,16 @@ class CursoForm
             ->CriaInpunt();
 
         $formulario
-            ->setLabel("Ano")
-            ->setId(NU_ANO)
-            ->setClasses('ob numero')
+            ->setId(DS_TURMA)
+            ->setClasses("ob")
+            ->setLabel("Turma")
             ->setTamanhoInput(4)
             ->CriaInpunt();
 
         $formulario
-            ->setId(DS_TURMA)
-            ->setClasses("ob")
-            ->setLabel("Turma")
+            ->setLabel("Ano")
+            ->setId(NU_ANO)
+            ->setClasses('ob numero')
             ->setTamanhoInput(4)
             ->CriaInpunt();
 

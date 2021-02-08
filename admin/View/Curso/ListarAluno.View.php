@@ -32,6 +32,16 @@
                         Alunos de Planos
                     </div>
                     <div class="panel-body">
+                        <div class="alert alert-block alert-warning fade in col-md-12"
+                             style="margin-bottom: 15px;">
+                            <h4 class="alert-heading"><i class="fa fa-calendar"></i> Status de Pagamento</h4>
+                            <?php
+                            foreach (StatusPagamentoEnum::$descricao as $chave => $desc) {
+                                echo '<span class="circle-img label-' . StatusPagamentoEnum::$cores[$chave] . '">';
+                                echo '&nbsp;&nbsp;&nbsp;&nbsp;</span> ' . $desc . ' / ';
+                            }
+                            ?>
+                        </div>
                         <?php
                         Modal::load();
                         Modal::confirmacao("confirma_Aluno");
@@ -98,12 +108,17 @@
                                 ? TipoPagamentoEnum::getDescricaoValor($pagamento->getTpPagamento())
                                 : null;
 
+                            $spanLabel = '<span style="border: 0.5px solid rgba(255,255,255,0.5) !important;" 
+                                            class="circle-img label-' .
+                                StatusPagamentoEnum::$cores[$pagamento->getStPagamento()] . '">
+                                            &nbsp;&nbsp;&nbsp;&nbsp;</span> ';
+
                             $grid->setColunas($res->getCoAluno()->getCoPessoa()->getNoPessoa(), 3);
                             $grid->setColunas($pagamento->getDsCodeTransacao(), 2);
                             $grid->setColunas($dtPagamento, 2);
                             $grid->setColunas($tpPagamento, 4);
                             $grid->setColunas($pagamento->getNuValorTotal(), 2);
-                            $grid->setColunas(StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento()), 2);
+                            $grid->setColunas($spanLabel . StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento()), 2);
                             $grid->setColunas($acao, 3);
                             $grid->criaLinha($pagamento->getCoPagamento());
                         endforeach;
