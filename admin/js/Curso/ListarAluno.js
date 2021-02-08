@@ -6,7 +6,7 @@ $(function () {
         var dados = Funcoes.Ajax('Curso/DetalharPagamentoAjax', coPagamento);
 
         $('.Code b').text(dados.ds_code_transacao);
-        $('.plano b').text(dados.no_plano);
+        $('.plano b').text(dados.ds_titulo);
         $('.Data_Pagamento b').text(dados.dt_confirma_pagamento);
         $('.Situacao_Pagamento b').text(dados.st_pagamento);
         $('.Meio_Pagamento b').text(dados.tp_pagamento);
