@@ -152,6 +152,21 @@ class Curso extends AbstractController
         return $coCurso;
     }
 
+    public function ListarAluno()
+    {
+        /** @var InscricaoService $InscricaoService */
+        $InscricaoService = $this->getService(INSCRICAO_SERVICE);
+
+        $coTurma = UrlAmigavel::PegaParametro(CO_TURMA);
+        if ($coTurma) {
+                $this->result = $InscricaoService->PesquisaTodos([
+                    CO_TURMA => $coTurma
+                ]);
+        } else {
+            $this->result = $InscricaoService->PesquisaTodos();
+        }
+    }
+
     public function InscricaoCurso()
     {
         /** @var InscricaoService $InscricaoService */
@@ -165,9 +180,52 @@ class Curso extends AbstractController
             }
         endif;
 
-
         $res[CO_CURSO] = 1;//static::verificaCurso();
         $this->form = CursoForm::Pagamento($res);
+    }
+
+
+    public function CancelarPagamentoCurso()
+    {
+        /** @var PagamentoService $PagamentoService */
+        $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        $code = UrlAmigavel::PegaParametro(DS_CODE_TRANSACAO);
+        $PagamentoService->CancelarPagamentoCurso($code);
+        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+    }
+
+    public function EstornarPagamentoCurso()
+    {
+        /** @var PagamentoService $PagamentoService */
+        $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
+        $code = UrlAmigavel::PegaParametro(DS_CODE_TRANSACAO);
+        $PagamentoService->EstornarPagamentoCurso($code);
+        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+    }
+
+    public function NotificacaoPagSeguro()
+    {
+        /** @var PagamentoService $PagamentoService */
+        $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
+
+        $id = "CadastrarNotificaacao";
+
+        if (!empty($_POST[$id])):
+            $retorno = $PagamentoService->notificacaoPagSeguro(true);
+            if ($retorno[SUCESSO]) {
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+            }
+        endif;
+
+        $this->form = CursoForm::CadastrarNotificaacao();
+
+    }
+
+    public static function DetalharPagamentoAjax($coPlanoAssAss)
+    {
+        /** @var PagamentoService $PagamentoService */
+        $PagamentoService = static::getServiceStatic(PAGAMENTO_SERVICE);
+        return $PagamentoService->DetalharPagamentoAjax($coPlanoAssAss);
     }
 
 

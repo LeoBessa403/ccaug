@@ -1536,3 +1536,125 @@ UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-07T22:52:45
 
 INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-07T22:52:45.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
 
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F" where co_acesso = 12;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("9n8jfc5nmh006msiprtck20r52", "1", "A", "13", "2021-02-08 01:11:09", "2021-02-08 00:41:09");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:10" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:11" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:19" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:19" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:36" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:11:37" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:13:01" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:13:02" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:14:43" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:14:44" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:18:44" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:18:45" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:18:47" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:18:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:05" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:06" where co_acesso = 13;
+
+INSERT INTO ccaug100.TB_FUNCIONALIDADE (no_funcionalidade, ds_action, st_menu, co_controller, st_status) VALUES ("Listar Aluno", "ListarAluno", "N", "10", "A");
+
+INSERT INTO ccaug100.TB_PERFIL_FUNCIONALIDADE (co_funcionalidade, co_perfil) VALUES ("37", "2");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:06" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:07" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:10" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:10" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:13" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:13" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:16" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:19:16" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:29:18" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:29:19" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:29:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:29:49" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:03" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:04" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:42" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:43" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:52" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:30:53" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:31:54" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:31:55" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:32:29" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:32:30" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:04" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:05" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:07" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:08" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:43" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:36:44" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:14" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:15" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:17" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:17" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:37:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:38:49" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:38:50" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:38:56" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:38:57" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:39:27" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:39:28" where co_acesso = 13;
+

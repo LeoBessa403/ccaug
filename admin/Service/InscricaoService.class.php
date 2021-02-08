@@ -69,7 +69,6 @@ class  InscricaoService extends AbstractService
         if ($validador[SUCESSO]) {
 
             $PDO->beginTransaction();
-
             $coPessoa = PessoaService::verificaSalvaDadosPessoa($dados);
             $insc[CO_ALUNO] = AlunoService::verificaSalvaDadosAluno($coPessoa);
             $insc[CO_TURMA] = 1;
@@ -110,6 +109,7 @@ class  InscricaoService extends AbstractService
                     $retPagSeg[DT_MODIFICADO] = (string)$retornoPagSeguro->lastEventDate;
                     $retPagSeg[NU_VALOR_DESCONTO] = (string)$retornoPagSeguro->feeAmount;
                     $retPagSeg[NU_VALOR_PAGO] = (string)$retornoPagSeguro->netAmount;
+                    $retPagSeg[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
                     $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
                     $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
 

@@ -15,6 +15,7 @@ class AlunoEntidade extends AbstractEntidade
 	private $dt_cadastro;
 	private $st_status;
 	private $co_pessoa;
+	private $co_inscricao;
 
 
 	/**
@@ -106,6 +107,23 @@ class AlunoEntidade extends AbstractEntidade
 	public function setCoPessoa($co_pessoa)
     {
         return $this->co_pessoa = $co_pessoa;
+    }
+
+    /**
+     * @return InscricaoEntidade $co_pessoa
+     */
+    public function getCoInscricao()
+    {
+        return $this->co_inscricao;
+    }
+
+    /**
+     * @param $co_inscricao
+     * @return mixed
+     */
+    public function setCoInscricao($co_inscricao)
+    {
+        $this->co_inscricao = $co_inscricao;
     }
 
 }

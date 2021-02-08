@@ -315,6 +315,18 @@ class Relacionamentos
                     ('Tipo') => '2',
                 ),
             ),
+            (PagamentoEntidade::TABELA) => Array(
+                (CO_HISTORICO_PAGAMENTO) => Array(
+                    ('Campo') => CO_PAGAMENTO,
+                    ('Entidade') => 'HistoricoPagamentoEntidade',
+                    ('Tipo') => '2',
+                ),
+                (CO_INSCRICAO) => Array(
+                    ('Campo') => CO_INSCRICAO,
+                    ('Entidade') => 'InscricaoEntidade',
+                    ('Tipo') => '1',
+                ),
+            ),
             (InscricaoEntidade::TABELA) => array(
                 (CO_TURMA) => array(
                     ('Campo') => CO_TURMA,
@@ -355,18 +367,6 @@ class Relacionamentos
                 (CO_PAGAMENTO) => Array(
                     ('Campo') => CO_PAGAMENTO,
                     ('Entidade') => 'PagamentoEntidade',
-                    ('Tipo') => '1',
-                ),
-            ),
-            (PagamentoEntidade::TABELA) => Array(
-                (CO_HISTORICO_PAGAMENTO) => Array(
-                    ('Campo') => CO_PAGAMENTO,
-                    ('Entidade') => 'HistoricoPagamentoEntidade',
-                    ('Tipo') => '2',
-                ),
-                (CO_INSCRICAO) => Array(
-                    ('Campo') => CO_INSCRICAO,
-                    ('Entidade') => 'InscricaoEntidade',
                     ('Tipo') => '1',
                 ),
             ),
