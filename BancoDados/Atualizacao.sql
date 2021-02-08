@@ -1372,3 +1372,167 @@ INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("12
 
 INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("2", "2021-02-07 19:49:31", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
 
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:32:56", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "16", co_endereco = "16" where co_pessoa = 22;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("22", "2021-02-07 23:32:58", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("13", "1", "2021-02-07 23:32:59");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("13", "5", "2021-02-07 23:32:59");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("3", "2021-02-07 23:32:59", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:34:56", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "17", co_endereco = "17" where co_pessoa = 23;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("23", "2021-02-07 23:34:56", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("14", "1", "2021-02-07 23:34:56");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("14", "5", "2021-02-07 23:34:56");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("4", "2021-02-07 23:34:57", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:36:23", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "18", co_endereco = "18" where co_pessoa = 24;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("24", "2021-02-07 23:36:23", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("15", "1", "2021-02-07 23:36:23");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("15", "5", "2021-02-07 23:36:23");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("5", "2021-02-07 23:36:23", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:43:35", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "19", co_endereco = "19" where co_pessoa = 25;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("25", "2021-02-07 23:43:36", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("16", "1", "2021-02-07 23:43:36");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("16", "5", "2021-02-07 23:43:36");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("6", "2021-02-07 23:43:36", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:44:31", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "20", co_endereco = "20" where co_pessoa = 26;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("26", "2021-02-07 23:44:32", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("17", "1", "2021-02-07 23:44:32");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("17", "5", "2021-02-07 23:44:32");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("7", "2021-02-07 23:44:32", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:44:44", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "21", co_endereco = "21" where co_pessoa = 27;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("27", "2021-02-07 23:44:44", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("18", "1", "2021-02-07 23:44:44");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("18", "5", "2021-02-07 23:44:44");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("8", "2021-02-07 23:44:44", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:46:44", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "22", co_endereco = "22" where co_pessoa = 28;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("28", "2021-02-07 23:46:45", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("19", "1", "2021-02-07 23:46:45");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("19", "5", "2021-02-07 23:46:45");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("9", "2021-02-07 23:46:45", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:46:53", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "23", co_endereco = "23" where co_pessoa = 29;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("29", "2021-02-07 23:46:53", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("20", "1", "2021-02-07 23:46:53");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("20", "5", "2021-02-07 23:46:53");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("10", "2021-02-07 23:46:53", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:47:14", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "24", co_endereco = "24" where co_pessoa = 30;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("30", "2021-02-07 23:47:14", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("21", "1", "2021-02-07 23:47:14");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("21", "5", "2021-02-07 23:47:14");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("11", "2021-02-07 23:47:14", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Jose Arnaldo", "", "2021-02-07 23:52:41", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6199332255", "", "", "", "arnaldo@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "25", co_endereco = "25" where co_pessoa = 31;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("31", "2021-02-07 23:52:41", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("22", "1", "2021-02-07 23:52:41");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("22", "5", "2021-02-07 23:52:41");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-07 23:52:41", "Inicia o pagamento", "Usuário SisCcaug Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-07T22:52:45.000-03:00", nu_valor_desconto = "1.38", nu_valor_pago = "23.17", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=d8823cdb6726e820e709b4c07d2c9f38e915a0b2ea9a517b1638bb981d1facd3725b28aec2c0b1da", ds_code_transacao = "EE43E12C-EF84-40A3-8007-F69CD4111490" where co_pagamento = 12;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-07T22:52:45.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+
