@@ -12,33 +12,55 @@
                     <div class="grid-container">
 
                         <?php
+                        $i = 0;
                         /** @var CursoEntidade $curso */
                         foreach ($result as $curso) {
                             ?>
                             <a href="<?= PASTASITE . 'IndexWeb/DetalhesCurso/' .
-                                        Valida::GeraParametro(CO_CURSO . "/" .$curso->getCoCurso()); ?>'" class="d-block mb-4">
+                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'" class="d-block mb-4">
                                 <div class="card m-auto link-card">
                                     <div class="card-image"
                                          style="background-image: url('<?= PASTASITE; ?>images/pregacao.png')">
                                         <div class="card-image-overlay" style="background-color: #0087c5">
-                                            <img class="card-image-overlay-icon warning" style="filter: brightness(0) invert(1)"
+                                            <img class="card-image-overlay-icon warning"
+                                                 style="filter: brightness(0) invert(1)"
                                                  src="<?= PASTASITE; ?>images/pregacao.png"/>
                                         </div>
 
                                         <div class="card-image-svg">
-                                            <svg width="320" height="30" xmlns="http://www.w3.org/2000/svg" class="top">
-                                                <g>
-                                                    <rect fill="none" id="canvas_background" height="32" width="322"
-                                                          y="-1" x="-1"/>
-                                                </g>
-                                                <g>
-                                                    <path stroke="null" id="svg_1" fill="#FFF"
-                                                          d="m0,-1s134.78938,50.954025 322.589986,0c0,39.551729 -1.544053,23.339081 -1.544053,23.339081l1.127047,7.660921l-322.172981,0l0,-31.000002z"/>
-                                                    <path stroke="null" id="svg_2"
-                                                          d="m1976.96277,55.85904l29.99943,0l0,121.74864l-29.99943,0l0,-121.74864z"
-                                                          stroke-width="1.5" fill="#F3F8FB"/>
-                                                </g>
-                                            </svg>
+                                            <?php
+                                            if ($i % 2 == 0) {
+                                                ?>
+                                                <svg width="320" height="30" xmlns="http://www.w3.org/2000/svg"
+                                                     class="top">
+                                                    <g>
+                                                        <rect fill="none" id="canvas_background" height="32" width="322"
+                                                              y="-1" x="-1"/>
+                                                    </g>
+                                                    <g>
+                                                        <path stroke="null" id="svg_1" fill="#FFF"
+                                                              d="m0,-1s134.78938,50.954025 322.589986,0c0,39.551729 -1.544053,23.339081 -1.544053,23.339081l1.127047,7.660921l-322.172981,0l0,-31.000002z"/>
+                                                        <path stroke="null" id="svg_2"
+                                                              d="m1976.96277,55.85904l29.99943,0l0,121.74864l-29.99943,0l0,-121.74864z"
+                                                              stroke-width="1.5" fill="#F3F8FB"/>
+                                                    </g>
+                                                </svg>
+                                            <?php } else { ?>
+                                                <svg width="280" height="45" xmlns="http://www.w3.org/2000/svg">
+                                                    <g>
+                                                        <rect x="-1" y="-1" width="282" height="47"
+                                                              id="canvas_background"
+                                                              fill="none"></rect>
+                                                    </g>
+                                                    <g>
+                                                        <path stroke="null"
+                                                              d="m-115,44.999999q254.999993,-78.999995 509.999987,0"
+                                                              fill="#FFF" id="svg_1"></path>
+                                                    </g>
+                                                </svg>
+                                            <?php }
+                                            $i++;
+                                            ?>
                                         </div>
                                     </div>
 
