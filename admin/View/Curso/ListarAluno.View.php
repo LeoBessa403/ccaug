@@ -1,3 +1,8 @@
+<style>
+    .label_span{
+        box-shadow: 1px 1px 1px black;
+    }
+</style>
 <div class="main-content">
     <div class="container">
         <div class="row">
@@ -17,7 +22,6 @@
                 <div class="page-header">
                     <h1>Aluno
                         <small>Listar Alunos</small>
-                        <!--                        --><?php //Valida::geraBtnNovo('Renovar Assinatura', 'RenovaPlanoAluno'); ?>
                     </h1>
                 </div>
                 <!-- end: PAGE TITLE & BREADCRUMB -->
@@ -34,10 +38,10 @@
                     <div class="panel-body">
                         <div class="alert alert-block alert-warning fade in col-md-12"
                              style="margin-bottom: 15px;">
-                            <h4 class="alert-heading"><i class="fa fa-calendar"></i> Status de Pagamento</h4>
+                            <h4 class="alert-heading"><i class="fa fa-money"></i> Status de Pagamento</h4>
                             <?php
                             foreach (StatusPagamentoEnum::$descricao as $chave => $desc) {
-                                echo '<span class="circle-img label-' . StatusPagamentoEnum::$cores[$chave] . '">';
+                                echo '<span class="circle-img label_span label-' . StatusPagamentoEnum::$cores[$chave] . '">';
                                 echo '&nbsp;&nbsp;&nbsp;&nbsp;</span> ' . $desc . ' / ';
                             }
                             ?>
@@ -108,8 +112,7 @@
                                 ? TipoPagamentoEnum::getDescricaoValor($pagamento->getTpPagamento())
                                 : null;
 
-                            $spanLabel = '<span style="border: 0.5px solid rgba(255,255,255,0.5) !important;" 
-                                            class="circle-img label-' .
+                            $spanLabel = '<span class="circle-img label_span label-' .
                                 StatusPagamentoEnum::$cores[$pagamento->getStPagamento()] . '">
                                             &nbsp;&nbsp;&nbsp;&nbsp;</span> ';
 

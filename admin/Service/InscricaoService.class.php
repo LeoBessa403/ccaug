@@ -133,7 +133,7 @@ class  InscricaoService extends AbstractService
                             echo "<script>window.open('" . $retPagSeg[DS_LINK_BOLETO] . "', '_blank');</script>";
                         }
                         Notificacoes::geraMensagem(
-                            'Renovação Cadastrada com Sucesso!',
+                            'Inscrição Realizada com Sucesso!',
                             TiposMensagemEnum::SUCESSO
                         );
                         $PDO->commit();
