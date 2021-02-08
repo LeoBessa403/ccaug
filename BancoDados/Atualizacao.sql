@@ -94,3 +94,87 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:59:22" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 01:59:23" where co_acesso = 13;
 
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:27" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:28" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:32" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:33" where co_acesso = 13;
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-07T22:52:45.000-03:00" where co_pagamento = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:40" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:03:41" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:04:14" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:04:15" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:05:27" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:05:29" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:05:33" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:05:34" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08T00:35:03.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "3", dt_modificado = "2021-02-08T00:35:03.000-03:00", dt_confirma_pagamento = "2021-02-08T00:35:03.000-03:00" where co_pagamento = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:06:51" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:06:53" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:07:11" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:07:11" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:07:40" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:07:41" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:09:45" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:09:46" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08T00:35:03.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:10:11" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:10:12" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:10:55" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:10:56" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08T00:35:03.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:11" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:11" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08T00:35:03.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:45" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:46" where co_acesso = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-08T00:35:03.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "3", dt_modificado = "2021-02-08T00:35:03.000-03:00", dt_pago = "2021-02-08T00:35:03.000-03:00" where co_pagamento = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:53" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:11:53" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:20" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:21" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:28" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-08 02:13:29" where co_acesso = 13;
+

@@ -45,7 +45,7 @@ class  PagamentoService extends AbstractService
         $dados[ST_PAGAMENTO] = (string)$Xml->status;
         $dados[DT_MODIFICADO] = (string)$Xml->lastEventDate;
         if ($dados[ST_PAGAMENTO] == StatusPagamentoEnum::PAGO)
-            $dados[DT_CONFIRMA_PAGAMENTO] = (string)$Xml->lastEventDate;
+            $dados[DT_PAGO] = (string)$Xml->lastEventDate;
 
         /** @var PagamentoEntidade $pagamento */
         $pagamento = $PagamentoService->PesquisaUmRegistro($coPagamento);

@@ -175,7 +175,7 @@ class Curso extends AbstractController
         if (!empty($_POST)):
             $retorno = $InscricaoService->salvaInscricao($_POST);
             if ($retorno[SUCESSO]) {
-                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarAluno/');
                 exit;
             }
         endif;
@@ -191,7 +191,7 @@ class Curso extends AbstractController
         $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
         $code = UrlAmigavel::PegaParametro(DS_CODE_TRANSACAO);
         $PagamentoService->CancelarPagamentoCurso($code);
-        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarAluno/');
     }
 
     public function EstornarPagamentoCurso()
@@ -200,7 +200,7 @@ class Curso extends AbstractController
         $PagamentoService = $this->getService(PAGAMENTO_SERVICE);
         $code = UrlAmigavel::PegaParametro(DS_CODE_TRANSACAO);
         $PagamentoService->EstornarPagamentoCurso($code);
-        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+        Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarAluno/');
     }
 
     public function NotificacaoPagSeguro()
@@ -213,7 +213,7 @@ class Curso extends AbstractController
         if (!empty($_POST[$id])):
             $retorno = $PagamentoService->notificacaoPagSeguro(true);
             if ($retorno[SUCESSO]) {
-                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/MeuPlanoAssinante/');
+                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarAluno/');
             }
         endif;
 
