@@ -67,35 +67,32 @@ $siteMap = new Sitemap();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!--    <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700%7CNiconne"-->
-<!--          rel="stylesheet">-->
 
     <!-- end: CSS REQUIRED FOR THIS PAGE ONLY -->
     <link rel="shortcut icon" href="<?= HOME; ?>favicon.ico"/>
-
     <!-- Bootstrap.css -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/bootstrap.min.css">
-    <!-- Date pixker -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/bootstrap-datepicker.min.css">
-    <!-- Font awesome -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/font-awesome.min.css">
-    <!-- XS Icon -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/xs-icon.css">
-    <!-- Owl slider -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/owl.carousel.min.css">
-    <!-- Isotope -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/isotope.css">
-    <!-- magnific-popup -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/magnific-popup.css">
-    <!--For Plugins external css-->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/plugins.css"/>
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/app.css">
 
-    <!--Theme custom css -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/style.css">
-
-    <!--Theme Responsive css-->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/responsive.css"/>
 </head>
+<style>
+    ::-webkit-scrollbar {
+        width: 7px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #d8d8d8;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #294798;;
+        border-radius: 6px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+        background: #11338D;
+    }
+</style>
 <body>
 <h1 style="display: none;">
     <!--        --><? //= //$seo->getTitulo(); ?>
@@ -118,125 +115,70 @@ $siteMap = new Sitemap();
 <?php endif; ?>
 <!-- FIM / GOOGLE ANALITCS -->
 
-<!--[if lt IE 8]>
-<p class="browserupgrade">Voçê está usando um programa <strong>DESATUALIZADO</strong> navegador. por favor <a
-        href="http://browsehappy.com/">atualize seu navegador</a> para que possa navegar no site e sistema de forma
-    melhor.</p>
-<![endif]-->
-
 <!-- Main menu -->
-<header class="beautypress-header-section beautypress-version-1 beautypress-extra-css menu-skew header-height-calc-minus navbar-fixed">
-    <div class="container">
-        <div class="beautypress-logo-wraper">
-            <a class="beautypress-logo beautypress-version-2 beautypress-version-4 home_inicio">
-                <img src="<?= PASTASITE; ?>img/logo-v1-1.png" alt="">
-            </a>
-        </div><!-- .beautypress-logo-wraper END -->
-    </div>
-    <div class="beautypress-header-top bg-navy-blue">
-        <div class="container">
-            <h4 style="display: none;">Redes Sociais</h4>
-            <ul class="beautypress-simple-iocn-list beautypress-social-list beautypress-version-1">
-                <?php foreach ($redesSocial as $key => $dados) : ?>
-                    <li><a href="<?= $dados['link']; ?>" class="<?= $dados['class']; ?>"
-                           target="_blank" title="<?= $dados['title']; ?>"><i class="<?= $dados['iClass']; ?>">
-                            </i></a></li>
-                <?php endforeach; ?>
-                <a href="#" class="btn-exp xs-btn round-btn box-shadow-btn bg-color-green experimentar_gratis">
-                    Experimentar Grátis<span></span></a>
-            </ul>
-
+<header>
+    <div class="main-header main-header-full position-relative">
+        <div class="main-header-wrapper header-full">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <nav class="navbar navbar-expand-lg">
+                            <a class="navbar-brand" href="<?= HOME; ?>">
+                                <img src="<?= PASTASITE; ?>images/logo_escola.png" alt="" style="max-width: 350px;"/>
+                            </a>
+                            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavTopo" aria-controls="navbarNavTopo" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarNavTopo">
+                                <ul class="navbar-nav margin-top-40 margin-top-lg-0">
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <div class="d-flex justify-content-lg-center align-items-center flex-lg-column padding-left-lg-0 padding-left-30">
+                                                <div class="btn btn-primary btn-full-rounded has-icon-outside btn-sm margin-right-15 margin-right-lg-0">
+                                                    <img src="https://imagem.rsb.org.br/bucket/csf/tipo-acao-formativa/3/Cd77fpwOUwc9Ib79GBM7emKGcH9pI53Tp5TyXcbY.svg" alt="." />
+                                                </div>
+                                                <span class="text">Capacitações Presenciais</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <div class="d-flex justify-content-lg-center align-items-center flex-lg-column padding-left-lg-0 padding-left-30">
+                                                <div class="btn btn-primary btn-full-rounded has-icon-outside btn-sm margin-right-15 margin-right-lg-0">
+                                                    <img src="https://imagem.rsb.org.br/bucket/csf/tipo-acao-formativa/2/He9Sbs7LlqlBA7H77JDDs71XL7hormPxlKxIoE0v.svg" alt="." />
+                                                </div>
+                                                <span class="text">Cursos On-line</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <div class="d-flex justify-content-lg-center align-items-center flex-lg-column padding-left-lg-0 padding-left-30">
+                                                <div class="btn btn-primary btn-full-rounded has-icon-outside btn-sm margin-right-15 margin-right-lg-0">
+                                                    <img src="https://imagem.rsb.org.br/bucket/csf/tipo-acao-formativa/4/v0Os9ubSaqfBcUFe0b97xaViWuMdy27JeSdHpv4g.svg" alt="." />
+                                                </div>
+                                                <span class="text">Eventos</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="#">
+                                            <div class="d-flex justify-content-lg-center align-items-center flex-lg-column padding-left-lg-0 padding-left-30">
+                                                <div class="btn btn-primary btn-full-rounded has-icon-outside btn-sm margin-right-15 margin-right-lg-0">
+                                                    <img src="https://imagem.rsb.org.br/bucket/csf/tipo-acao-formativa/1/tpL928BPgUXsGfV83uptGKW69SzRenmZkJwz5QaT.svg" alt="." />
+                                                </div>
+                                                <span class="text">Webconferências</span>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="beautypress-main-header bg-color-purple color-white">
-        <div class="container">
-            <nav class="xs_nav beautypress-nav beautypress-mega-menu">
-                <div class="nav-header">
-                    <div class="nav-toggle"></div>
-                </div>
-                <div class="nav-menus-wrapper">
-                    <ul class="nav-menu">
-                        <?php foreach ($pages as $key => $packagePage) : ?>
-                            <li class="<?= $key; ?>"><a href="#">
-                                    <?php echo $packagePage; ?></a></li>
-                        <?php endforeach; ?>
-                        <li><a href="<?= PASTAADMIN; ?>Index/PrimeiroAcesso" target="_blank">SisBela</a></li>
-                    </ul>
-                </div>
-            </nav>
-        </div>
-    </div><!-- .beautypress-main-header END -->
-</header><!-- .beautypress-header-section END -->
-<!-- Main menu closed -->
+</header>
 
-<!-- welcome section -->
-<section class="beautypress-welcome-section beautypress-welcome-section-v1 welcome-height-calc-minus">
-    <div class="beautypress-welcome-slider-wraper">
-        <div class="beautypress-welcome-slider owl-carousel">
-            <div class="beautypress-welcome-slider-item content-left beautypress-bg"
-                 style="background-image: url(<?= PASTASITE; ?>img/slider-bg-1.png);">
-                <div class="container">
-                    <div class="beautypress-welcome-content-group">
-                        <div class="beautypress-welcome-container">
-                            <div class="beautypress-welcome-wraper">
-                                <h2 class="color-pink">37th Years Of </h2>
-                                <h3 class="color-purple">BeautyPress</h3>
-                                <p class="color-black">Allow our team of beauty specialists to help you prepare for
-                                    your wedding and enhance your special.</p>
-                                <div class="beautypress-btn-wraper">
-                                    <a href="#" class="xs-btn bg-color-pink round-btn box-shadow-btn">learn more
-                                        <span></span></a>
-                                    <a href="#" class="xs-btn bg-color-purple round-btn box-shadow-btn">phurchase
-                                        <span></span></a>
-                                </div>
-                            </div>
-                        </div><!-- .beautypress-welcome-container END -->
-                    </div><!-- .beautypress-welcome-content-group END -->
-                </div>
-            </div><!-- .beautypress-welcome-slider-item END -->
-            <div class="beautypress-welcome-slider-item content-left beautypress-bg"
-                 style="background-image: url(<?= PASTASITE; ?>img/slider-bg-2.png);">
-                <div class="container">
-                    <div class="beautypress-welcome-content-group">
-                        <div class="beautypress-welcome-container">
-                            <div class="beautypress-welcome-wraper">
-                                <h2 class="color-pink">Beautiful Face</h2>
-                                <h3 class="color-purple">Healthy You</h3>
-                                <p class="color-black">Allow our team of beauty specialists to help you prepare for
-                                    your wedding and enhance your special.</p>
-                                <div class="beautypress-btn-wraper">
-                                    <a href="#" class="xs-btn bg-color-pink round-btn box-shadow-btn">learn more
-                                        <span></span></a>
-                                    <a href="#" class="xs-btn bg-color-purple round-btn box-shadow-btn">phurchase
-                                        <span></span></a>
-                                </div>
-                            </div>
-                        </div><!-- .beautypress-welcome-container END -->
-                    </div><!-- .beautypress-welcome-content-group END -->
-                </div>
-            </div><!-- .beautypress-welcome-slider-item END -->
-            <div class="beautypress-welcome-slider-item content-right beautypress-bg"
-                 style="background-image: url(<?= PASTASITE; ?>img/slider-bg-3.png);">
-                <div class="container">
-                    <div class="beautypress-welcome-content-group">
-                        <div class="beautypress-welcome-container">
-                            <div class="beautypress-welcome-wraper">
-                                <h2 class="color-pink">Beauty means</h2>
-                                <h3 class="color-purple">Happiness</h3>
-                                <p class="color-black">Allow our team of beauty specialists to help you prepare for
-                                    your wedding and enhance your special.</p>
-                                <div class="beautypress-btn-wraper">
-                                    <a href="#" class="xs-btn bg-color-pink round-btn box-shadow-btn">learn more
-                                        <span></span></a>
-                                    <a href="#" class="xs-btn bg-color-purple round-btn box-shadow-btn">phurchase
-                                        <span></span></a>
-                                </div>
-                            </div>
-                        </div><!-- .beautypress-welcome-container END -->
-                    </div><!-- .beautypress-welcome-content-group END -->
-                </div>
-            </div><!-- .beautypress-welcome-slider-item END -->
-        </div><!-- .beautypress-welcome-slider END -->
-    </div>
-</section><!-- .beautypress-welcome-section END -->
-<!-- welcome section -->
+

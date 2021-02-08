@@ -23,7 +23,7 @@ class CursoForm
             ->setId(ST_STATUS)
             ->setClasses($res[ST_STATUS])
             ->setType(TiposCampoEnum::CHECKBOX)
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(3)
             ->setOptions($label_options2)
             ->CriaInpunt();
 
@@ -33,15 +33,25 @@ class CursoForm
             ->setId(ST_CERTIFICACAO)
             ->setClasses($res[ST_CERTIFICACAO])
             ->setType(TiposCampoEnum::CHECKBOX)
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(3)
+            ->setOptions($label_options2)
+            ->CriaInpunt();
+
+        $label_options2 = array("Sim", "Não", "vermelho", "branco");
+        $formulario
+            ->setLabel("Gratuito")
+            ->setId('st_gratuito')
+            ->setClasses($res['st_gratuito'])
+            ->setType(TiposCampoEnum::CHECKBOX)
+            ->setTamanhoInput(3)
             ->setOptions($label_options2)
             ->CriaInpunt();
 
         $formulario
             ->setId(NU_VALOR)
-            ->setClasses("moeda ob")
+            ->setClasses("moeda ob disabilita")
             ->setLabel("Investimento R$")
-            ->setTamanhoInput(4)
+            ->setTamanhoInput(3)
             ->CriaInpunt();
 
         $formulario
@@ -67,6 +77,11 @@ class CursoForm
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
+        $formulario
+            ->setLabel("Objetivo do Curso")
+            ->setType(TiposCampoEnum::TEXTAREA)
+            ->setId(DS_OBJETIVO)
+            ->CriaInpunt();
 
         $formulario
             ->setLabel("Descrição do Curso")

@@ -11,6 +11,7 @@
 define('CO_ALUNO', 'co_aluno');
 define('CO_CURSO', 'co_curso');
 define('NU_CARGA_HORARIA', 'nu_carga_horaria');
+define('DS_OBJETIVO', 'ds_objetivo');
 define('NU_DURACAO', 'nu_duracao');
 define('ST_CERTIFICACAO', 'st_certificacao');
 define('CO_INSCRICAO', 'co_inscricao');

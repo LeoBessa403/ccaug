@@ -14,9 +14,11 @@ class  CursoValidador extends AbstractValidador
 
     public function validarCadastro($dados)
     {
-        $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
-            $dados[NU_VALOR], AbstractValidador::VALIDACAO_MOEDA, 'Investimento'
-        );
+        if(empty($dados['st_gratuito'])){
+            $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
+                $dados[NU_VALOR], AbstractValidador::VALIDACAO_MOEDA, 'Investimento'
+            );
+        }
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_DURACAO], AbstractValidador::VALIDACAO_NUMERO, 'Duração'
         );

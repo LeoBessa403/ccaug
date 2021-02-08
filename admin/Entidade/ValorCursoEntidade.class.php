@@ -15,6 +15,7 @@ class ValorCursoEntidade extends AbstractEntidade
 	private $dt_cadastro;
 	private $nu_valor;
     private $ds_titulo;
+    private $ds_objetivo;
     private $nu_carga_horaria;
     private $nu_duracao;
     private $st_certificacao;
@@ -33,6 +34,7 @@ class ValorCursoEntidade extends AbstractEntidade
 			DT_CADASTRO,
 			NU_VALOR,
             DS_TITULO,
+            DS_OBJETIVO,
             NU_CARGA_HORARIA,
             NU_DURACAO,
             ST_CERTIFICACAO,
@@ -118,6 +120,22 @@ class ValorCursoEntidade extends AbstractEntidade
     public function setDsTitulo($ds_titulo)
     {
         $this->ds_titulo = $ds_titulo;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDsObjetivo()
+    {
+        return $this->ds_objetivo;
+    }
+
+    /**
+     * @param mixed $ds_objetivo
+     */
+    public function setDsObjetivo($ds_objetivo)
+    {
+        $this->ds_objetivo = $ds_objetivo;
     }
 
     /**

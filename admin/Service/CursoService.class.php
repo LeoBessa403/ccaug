@@ -28,7 +28,6 @@ class  CursoService extends AbstractService
             MSG => null
         ];
         $session = new Session();
-
         $cursoValidador = new CursoValidador();
         /** @var CursoValidador $validador */
         $validador = $cursoValidador->validarCadastro($dados);
@@ -47,7 +46,11 @@ class  CursoService extends AbstractService
                 $session->setSession(MENSAGEM, CADASTRADO);
             endif;
             $valor[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $valor[NU_VALOR] = Valida::FormataMoedaBanco($dados[NU_VALOR]);
+            if(empty($dados['st_gratuito'])) {
+                $valor[NU_VALOR] = Valida::FormataMoedaBanco($dados[NU_VALOR]);
+            }else{
+                $valor[NU_VALOR] = '0.00';
+            }
             $valor[ST_CERTIFICACAO] = (!empty($dados[ST_CERTIFICACAO])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
             $valor[ST_STATUS] = (!empty($dados[ST_STATUS])) ? SimNaoEnum::SIM : SimNaoEnum::NAO;
             $valor[CO_USUARIO] = UsuarioService::getCoUsuarioLogado();

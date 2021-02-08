@@ -13,6 +13,19 @@ $(function () {
 
     $(".accordion").accordion();
 
+    $("#st_gratuito").change(function () {
+        if(!$(this).prop('checked')){
+            $("#nu_valor").prop('disabled',false);
+        }else{
+            $("#nu_valor").prop('disabled',true).val('0.00');
+            Funcoes.TiraValidacao('nu_valor');
+        }
+    });
+
+    if(!$("#st_gratuito").prop('checked')){
+        $("#nu_valor").prop('disabled',false);
+    }
+
 
 
 });

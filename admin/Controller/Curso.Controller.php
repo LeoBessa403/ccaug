@@ -46,7 +46,10 @@ class Curso extends AbstractController
             $res[DS_DESCRICAO] = $curso->getDsDescricao();
             $res[NU_VALOR] = Valida::FormataMoeda($valor->getNuValor());
             $res[DS_TITULO] = $valor->getDsTitulo();
+            $res[DS_OBJETIVO] = $valor->getDsObjetivo();
             $res[ST_STATUS] = ($valor->getStStatus() == 'S')
+                ? 'checked' : '';
+            $res['st_gratuito'] = ($res[NU_VALOR] === '0,00')
                 ? 'checked' : '';
             $res[ST_CERTIFICACAO] = ($valor->getStCertificacao() == 'S')
                 ? 'checked' : '';
