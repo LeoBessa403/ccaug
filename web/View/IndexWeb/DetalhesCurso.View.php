@@ -114,7 +114,7 @@ $curso = $result;
                             $curso->getCoImagem()->getDsCaminho()))) {
                         $imagem = Valida::GetMiniatura(
                             $curso->getCoImagem()->getDsCaminho(),
-                            $noPessoa, $tamanhoImg, $tamanhoImg, "img-fluid"
+                            $curso->getCoUltimoValorCurso()->getDsTitulo(), $tamanhoImg, $tamanhoImg, "img-fluid"
                         );
                     } else {
                         $imagem = Valida::getSemImg($tamanhoImg, 'img-fluid');

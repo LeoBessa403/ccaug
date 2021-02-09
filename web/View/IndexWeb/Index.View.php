@@ -15,13 +15,16 @@
                         $i = 0;
                         /** @var CursoEntidade $curso */
                         foreach ($result as $curso) {
-                            $tamanhoImg = 300;
+                            $tamanhoImg = 180;
                             if ($curso->getCoImagem() && (file_exists(PASTA_UPLOADS .
                                     $curso->getCoImagem()->getDsCaminho()))) {
                                 $imagem = Valida::GetMiniatura(
                                     $curso->getCoImagem()->getDsCaminho(),
-                                    $noPessoa, $tamanhoImg, $tamanhoImg, "card-image-overlay-icon warning img-fluid"
+                                    $curso->getCoUltimoValorCurso()->getDsTitulo(),
+                                    $tamanhoImg, $tamanhoImg, "card-image-overlay-icon warning img-fluid"
                                 );
+                                $imgBck = TIMTHUMB . '?src=' . PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho()
+                                    . '&w=' . $tamanhoImg . '&h=' . $tamanhoImg;
                             } else {
                                 $imagem = Valida::getSemImg($tamanhoImg, 'card-image-overlay-icon warning img-fluid');
                                 $imgBck = TIMTHUMB . '?src=' . SEM_FOTO . '&w=' . $tamanhoImg . '&h=' . $tamanhoImg;
