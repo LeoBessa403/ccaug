@@ -101,12 +101,23 @@
                                         <div class="min-height-55">
                                             <div class="row">
                                                 <div class="col-12">
-                                                    <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
-                                                        Investimento</p>
-                                                    <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
-                                                        Em até 12 vezes</p>
-                                                    <p class="font-secondary text-medium font-size-14 font-color-primary">
-                                                        R$ <?= $curso->getCoUltimoValorCurso()->getNuValor(); ?></p>
+                                                    <?php
+                                                    if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
+                                                        ?>
+                                                        <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
+                                                            Investimento</p>
+                                                        <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
+                                                            Em até 12 vezes</p>
+                                                        <p class="font-secondary text-medium font-size-14 font-color-primary">
+                                                            R$ <?= $curso->getCoUltimoValorCurso()->getNuValor(); ?></p>
+                                                        <?php
+                                                    } else {
+                                                        ?>
+                                                        <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
+                                                            Curso Inteiramente</p>
+                                                        <p class="font-secondary text-medium font-size-14 font-color-primary">
+                                                           GRATUITO</p>
+                                                    <?php } ?>
                                                 </div>
                                             </div>
                                         </div>

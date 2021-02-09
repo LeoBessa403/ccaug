@@ -142,7 +142,7 @@ $siteMap = new Sitemap();
                                         </a>
                                     </li>
                                     <li class="nav-item">
-                                        <a class="nav-link" href="#">
+                                        <a class="nav-link" href="<?= HOME; ?>">
                                             <div class="d-flex justify-content-lg-center align-items-center flex-lg-column padding-left-lg-0 padding-left-30">
                                                 <div class="btn btn-primary btn-full-rounded has-icon-outside btn-sm margin-right-15 margin-right-lg-0">
                                                     <img src="https://imagem.rsb.org.br/bucket/csf/tipo-acao-formativa/2/He9Sbs7LlqlBA7H77JDDs71XL7hormPxlKxIoE0v.svg" alt="." />
