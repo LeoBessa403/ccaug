@@ -44,11 +44,14 @@ class  PessoaService extends AbstractService
         $dadosPessoa = $pessoaService->getDados($dados, PessoaEntidade::ENTIDADE);
         $dadosContato = $pessoaService->getDados($dados, ContatoEntidade::ENTIDADE);
         $dadosEndereco = $pessoaService->getDados($dados, EnderecoEntidade::ENTIDADE);
+
         if(!empty($dados[NU_CPF])){
+            $dados[NU_CPF] = Valida::RetiraMascara($dados[NU_CPF]);
             /** @var PessoaEntidade $pessoa */
             $pessoa = $pessoaService->PesquisaUmQuando([
                 NU_CPF => $dados[NU_CPF]
             ]);
+
             if(empty($pessoa)){
                 $coPessoa = $pessoaService->Salva($dadosPessoa);
             }else{
@@ -58,25 +61,26 @@ class  PessoaService extends AbstractService
         }else{
             $coPessoa = $pessoaService->Salva($dadosPessoa);
         }
-
         /** @var PessoaEntidade $pessoa */
         $pessoa = $pessoaService->PesquisaUmQuando([
             CO_PESSOA => $coPessoa
         ]);
 
+
         $novodado = [];
         if(empty($pessoa->getCoContato())){
             $novodado[CO_CONTATO] = $ContatoService->Salva($dadosContato);
         }else{
-            $ContatoService->Salva($dadosContato, $pessoa->getCoContato());
+            $ContatoService->Salva($dadosContato, $pessoa->getCoContato()->getCoContato());
+            $novodado[CO_CONTATO] = $pessoa->getCoContato()->getCoContato();
         }
 
         if(empty($pessoa->getCoEndereco())){
             $novodado[CO_ENDERECO] = $EnderecoService->Salva($dadosEndereco);
         }else{
-            $EnderecoService->Salva($dadosEndereco, $coPessoa);
+            $EnderecoService->Salva($dadosEndereco, $pessoa->getCoEndereco()->getCoEndereco());
+            $novodado[CO_ENDERECO] = $pessoa->getCoEndereco()->getCoEndereco();
         }
-
         $pessoaService->Salva($novodado, $coPessoa);
 
         return $coPessoa;

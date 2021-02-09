@@ -51,21 +51,14 @@ $curso = $result;
                                 <span class="font-secondary font-size-12 font-color-gray">Certificação</span>
                             </div>
                         </div>
-
-                        <div class="d-flex align-items-center  justify-content-sm-start justify-content-lg-end">
-                            <div class="line-height-15">
-                                <span class="d-block font-secondary font-color-gray font-size-12"><!--Inscrições--> </span>
-                                <span class="text-medium font-secondary font-size-13 font-color-terniary"></span>
-                            </div>
-                        </div>
                     </div>
                 </div>
                 <div class="col-12 col-lg-auto">
                     <div class="sticky" data-margin-top="30" data-sticky-class="shadow">
                         <div class="card m-auto  card-full">
                             <div class="card-body">
-                                <div class="row  justify-content-end">
-                                    <div class="col-auto text-right">
+                                <div class="row justify-content-end">
+                                    <div class="col-auto text-right" style="float: left;">
                                         <?php
                                         if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
                                             ?>
@@ -88,7 +81,13 @@ $curso = $result;
                                                 GRATUITO
                                             </p>
                                         <?php } ?>
-
+                                    </div>
+                                    <div class="col-auto text-right" style="float: left;">
+                                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'"
+                                           class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
+                                            Se Inscrever
+                                        </a>
                                     </div>
                                 </div>
                                 <div class="row justify-content-end no-gutters margin-top-15">
@@ -126,6 +125,13 @@ $curso = $result;
                     <h3 class="font-size-20 text-bold font-color-primary margin-bottom-30">Conheça esta Formação!</h3>
                     <div class="conteudo">
                         <?= $curso->getDsDescricao(); ?>
+                    </div>
+                    <div class="col-auto text-right" style="float: left;">
+                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
+                           class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
+                            Se Inscrever
+                        </a>
                     </div>
                 </div>
             </div>

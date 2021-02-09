@@ -187,7 +187,7 @@ class Curso extends AbstractController
             }
         endif;
 
-        $res[CO_CURSO] = 1;//static::verificaCurso();
+        $res[CO_CURSO] = static::verificaCurso();
         $this->form = CursoForm::Pagamento($res);
     }
 

@@ -120,3 +120,27 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-09 12:18:50" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-09 12:18:52" where co_acesso = 4;
 
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 10", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("uvulk300kskkoveq0qmoekvvoh", "1", "A", "5", "2021-02-09 14:45:04", "2021-02-09 14:15:04");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-09 14:45:04" where co_acesso = 5;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-09 14:45:05" where co_acesso = 5;
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("12345678909", "Professor Pardal", "", "2021-02-09 14:54:12", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("6145121321", "", "", "", "leodjx55@hotmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "7", co_endereco = "7" where co_pessoa = 7;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("7", "2021-02-09 14:54:12", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("6", "1", "2021-02-09 14:54:12");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("6", "5", "2021-02-09 14:54:12");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("6", "2021-02-09 14:54:12", "Inicia o pagamento", "Usuário SisEnovus Iniciou o pagamento", "0");
+
