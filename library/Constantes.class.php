@@ -119,6 +119,7 @@ define('ST_LIDO', 'st_lido');
 define('TP_PAGAMENTO', 'tp_pagamento');
 define('DS_ACAO', 'ds_acao');
 define('DS_USUARIO', 'ds_usuario');
+define('NU_CNPJ', 'nu_cnpj');
 
 
 
