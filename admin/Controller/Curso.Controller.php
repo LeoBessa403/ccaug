@@ -5,6 +5,7 @@ class Curso extends AbstractController
     public $result;
     public $curso;
     public $form;
+    public $noCurso;
     public $mensagem;
 
 
@@ -176,6 +177,8 @@ class Curso extends AbstractController
 
     public function InscricaoCurso()
     {
+        /** @var CursoService $CursoService */
+        $CursoService = $this->getService(CURSO_SERVICE);
         /** @var InscricaoService $InscricaoService */
         $InscricaoService = $this->getService(INSCRICAO_SERVICE);
 
@@ -188,6 +191,9 @@ class Curso extends AbstractController
         endif;
 
         $res[CO_CURSO] = static::verificaCurso();
+        /** @var CursoEntidade $curso */
+        $curso = $CursoService->PesquisaUmRegistro($res[CO_CURSO]);
+        $this->noCurso = $curso->getCoUltimoValorCurso()->getDsTitulo();
         $this->form = CursoForm::Pagamento($res);
     }
 

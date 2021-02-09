@@ -3,7 +3,7 @@ include_once 'library/Partial/AcessoPermitido/topo_inicial.php';
 ?>
     <!-- start: LOGIN BOX -->
     <div class="box-login box-shadow">
-        <h3 class="logo" style="margin: 20px 0 10px; padding: 0;">Inscrição de Curso</h3>
+        <h3 class="logo" style="margin: 20px 0 10px; padding: 0;">Inscrição no <?= $noCurso; ?></h3>
         <?php
         echo $form;
         include_once 'library/Partial/Site/versao.php';

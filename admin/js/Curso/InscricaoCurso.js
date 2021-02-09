@@ -156,9 +156,9 @@ $(function () {
                 }
             })
         } else if (tpPagamento == 5) {
-            recupHashCartao()
+            recupHashCartao();
         } else if (tpPagamento == 4) {
-            recupHashCartao()
+            recupHashCartao();
         }
     });
 
@@ -174,4 +174,10 @@ $(function () {
             }
         })
     }
+
+    $(".btn-primary").click(function () {
+        $(".img-load").show();
+        location.href = $("#home").attr('data-val');
+        return false;
+    });
 });

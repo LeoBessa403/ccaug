@@ -372,8 +372,7 @@ class CursoForm
             ->setId('installmentValue')
             ->setValues(null)
             ->CriaInpunt();
-
-        return $formulario->finalizaForm('Inscricao/InscricaoCurso');
+        return $formulario->finalizaForm();
     }
 
 
