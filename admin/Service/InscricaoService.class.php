@@ -58,11 +58,11 @@ class  InscricaoService extends AbstractService
         $PessoaService = $this->getService(PESSOA_SERVICE);
         /** @var PDO $PDO */
         $PDO = $this->getPDO();
-        $session = new Session();
         $retorno = [
             SUCESSO => false,
             MSG => null
         ];
+
         /** @var InscricaoValidador $InscricaoValidador */
         $InscricaoValidador = new InscricaoValidador();
         $validador = $InscricaoValidador->validarInscricao($dados);
@@ -75,84 +75,126 @@ class  InscricaoService extends AbstractService
             $insc[DT_CADASTRO] = Valida::DataHoraAtualBanco();
 
             $pagInsc[CO_INSCRICAO] = $this->Salva($insc);
-            $pagInsc[TP_PAGAMENTO] = $dados[TP_PAGAMENTO][0];
+            if (!empty($dados[TP_PAGAMENTO])) {
+                $pagInsc[TP_PAGAMENTO] = $dados[TP_PAGAMENTO][0];
+            } else {
+                $pagInsc[TP_PAGAMENTO] = TipoPagamentoEnum::GRATIS;
+            }
             $pagInsc[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
+
             $histPag[CO_PAGAMENTO] = $PagamentoService->Salva($pagInsc);
             $retorno[MSG] = CADASTRADO;
 
-            // HISTORICO DO PAGAMENTO INICIADO
-            $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-            $histPag[DS_ACAO] = 'Inicia o pagamento';
-            $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
-                . ' Iniciou o pagamento';
-            $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
-            $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
+            if ($pagInsc[TP_PAGAMENTO] == TipoPagamentoEnum::GRATIS) {
 
-            if ($retorno[SUCESSO]) {
+                $retPagSeg[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
+                $retPagSeg[NU_VALOR_PAGO] = '0.00';
+                $retPagSeg[NU_VALOR_TOTAL] = '0.00';
+                $retPagSeg[NU_VALOR_DESCONTO] = '0.00';
+                $retPagSeg[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
 
-                $curso = $CursoService->PesquisaUmRegistro($dados[CO_CURSO]);
-                /** @var PessoaEntidade $pessoa */
-                $pessoa = $PessoaService->PesquisaUmRegistro($coPessoa);
-                $retorno = $this->processaPagamento($curso, $pessoa, $histPag[CO_PAGAMENTO]);
+                $PagamentoService->Salva($retPagSeg, $histPag[CO_PAGAMENTO]);
 
-                if ($retorno["dados"]->error) {
+                // HISTORICO DO PAGAMENTO INICIADO
+                $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $histPag[DS_ACAO] = 'Curso Gratuito';
+                $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
+                    . ' Efetivou a Inscrição';
+                $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
+                $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
+
+                if ($retorno[SUCESSO]) {
+
+                    $retorno[SUCESSO] = true;
                     Notificacoes::geraMensagem(
-                        'Não foi possível realizar o Pagamento!',
+                        'Inscrição Realizada com Sucesso!',
+                        TiposMensagemEnum::SUCESSO
+                    );
+                    $PDO->commit();
+                } else {
+                    Notificacoes::geraMensagem(
+                        'Error ao salvar o pagamento',
                         TiposMensagemEnum::ALERTA
                     );
                     $retorno[SUCESSO] = false;
                     $PDO->rollBack();
-                } else {
-                    $retornoPagSeguro = $retorno['dados'];
+                }
+            } else {
 
-                    $retPagSeg[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
-                    $retPagSeg[DT_MODIFICADO] = (string)$retornoPagSeguro->lastEventDate;
-                    $retPagSeg[NU_VALOR_DESCONTO] = (string)$retornoPagSeguro->feeAmount;
-                    $retPagSeg[NU_VALOR_PAGO] = (string)$retornoPagSeguro->netAmount;
-                    $retPagSeg[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
-                    $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
-                    $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
+                // HISTORICO DO PAGAMENTO INICIADO
+                $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                $histPag[DS_ACAO] = 'Inicia o pagamento';
+                $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
+                    . ' Iniciou o pagamento';
+                $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
+                $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 
-                    $retorno[SUCESSO] = $PagamentoService->Salva(
-                        $retPagSeg, (int)$retornoPagSeguro->reference);
+                if ($retorno[SUCESSO]) {
 
-                    // HISTORICO DO PAGAMENTO RETORNO PAGSEGURO
-                    $histPagAss[CO_PAGAMENTO] = (int)$retornoPagSeguro->reference;
-                    $histPagAss[DT_CADASTRO] = (string)$retornoPagSeguro->lastEventDate;
-                    $histPagAss[DS_ACAO] = 'Mudou o Status do pagamento para ' .
-                        StatusPagamentoEnum::getDescricaoValor((string)$retornoPagSeguro->status);
-                    $histPagAss[DS_USUARIO] = 'Retorno da operadora do pagamento';
-                    $histPagAss[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
+                    $curso = $CursoService->PesquisaUmRegistro($dados[CO_CURSO]);
+                    /** @var PessoaEntidade $pessoa */
+                    $pessoa = $PessoaService->PesquisaUmRegistro($coPessoa);
+                    $retorno = $this->processaPagamento($curso, $pessoa, $histPag[CO_PAGAMENTO]);
 
-                    $HistoricoPagamentoService->Salva($histPagAss);
-
-                    if ($retorno[SUCESSO]) {
-                        $retorno[SUCESSO] = true;
-
-                        if ($retPagSeg[DS_LINK_BOLETO]) {
-                            echo "<script>window.open('" . $retPagSeg[DS_LINK_BOLETO] . "', '_blank');</script>";
-                        }
+                    if ($retorno["dados"]->error) {
                         Notificacoes::geraMensagem(
-                            'Inscrição Realizada com Sucesso!',
-                            TiposMensagemEnum::SUCESSO
-                        );
-                        $PDO->commit();
-                    } else {
-                        Notificacoes::geraMensagem(
-                            'Error ao salvar o pagamento',
+                            'Não foi possível realizar o Pagamento!',
                             TiposMensagemEnum::ALERTA
                         );
                         $retorno[SUCESSO] = false;
                         $PDO->rollBack();
+                    } else {
+                        $retornoPagSeguro = $retorno['dados'];
+
+                        $retPagSeg[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
+                        $retPagSeg[DT_MODIFICADO] = (string)$retornoPagSeguro->lastEventDate;
+                        $retPagSeg[NU_VALOR_DESCONTO] = (string)$retornoPagSeguro->feeAmount;
+                        $retPagSeg[NU_VALOR_PAGO] = (string)$retornoPagSeguro->netAmount;
+                        $retPagSeg[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
+                        $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
+                        $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
+
+                        $retorno[SUCESSO] = $PagamentoService->Salva(
+                            $retPagSeg, (int)$retornoPagSeguro->reference);
+
+                        // HISTORICO DO PAGAMENTO RETORNO PAGSEGURO
+                        $histPagAss[CO_PAGAMENTO] = (int)$retornoPagSeguro->reference;
+                        $histPagAss[DT_CADASTRO] = (string)$retornoPagSeguro->lastEventDate;
+                        $histPagAss[DS_ACAO] = 'Mudou o Status do pagamento para ' .
+                            StatusPagamentoEnum::getDescricaoValor((string)$retornoPagSeguro->status);
+                        $histPagAss[DS_USUARIO] = 'Retorno da operadora do pagamento';
+                        $histPagAss[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
+
+                        $HistoricoPagamentoService->Salva($histPagAss);
+
+                        if ($retorno[SUCESSO]) {
+                            $retorno[SUCESSO] = true;
+
+                            if ($retPagSeg[DS_LINK_BOLETO]) {
+                                echo "<script>window.open('" . $retPagSeg[DS_LINK_BOLETO] . "', '_blank');</script>";
+                            }
+                            Notificacoes::geraMensagem(
+                                'Inscrição Realizada com Sucesso!',
+                                TiposMensagemEnum::SUCESSO
+                            );
+                            $PDO->commit();
+                        } else {
+                            Notificacoes::geraMensagem(
+                                'Error ao salvar o pagamento',
+                                TiposMensagemEnum::ALERTA
+                            );
+                            $retorno[SUCESSO] = false;
+                            $PDO->rollBack();
+                        }
                     }
+                } else {
+                    Notificacoes::geraMensagem(
+                        'Não foi possível realizar a ação',
+                        TiposMensagemEnum::ALERTA
+                    );
+                    $retorno[SUCESSO] = false;
+                    $PDO->rollBack();
                 }
-            } else {
-                Notificacoes::geraMensagem(
-                    'Não foi possível realizar a ação',
-                    TiposMensagemEnum::ALERTA
-                );
-                $retorno[SUCESSO] = false;
-                $PDO->rollBack();
             }
         } else {
             Notificacoes::geraMensagem(
@@ -166,7 +208,8 @@ class  InscricaoService extends AbstractService
     }
 
 
-    private function processaPagamento(CursoEntidade $curso, PessoaEntidade $pessoa, $coPag)
+    private
+    function processaPagamento(CursoEntidade $curso, PessoaEntidade $pessoa, $coPag)
     {
         $Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 

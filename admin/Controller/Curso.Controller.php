@@ -167,9 +167,9 @@ class Curso extends AbstractController
 
         $coTurma = UrlAmigavel::PegaParametro(CO_TURMA);
         if ($coTurma) {
-                $this->result = $InscricaoService->PesquisaTodos([
-                    CO_TURMA => $coTurma
-                ]);
+            $this->result = $InscricaoService->PesquisaTodos([
+                CO_TURMA => $coTurma
+            ]);
         } else {
             $this->result = $InscricaoService->PesquisaTodos();
         }
@@ -194,7 +194,10 @@ class Curso extends AbstractController
         /** @var CursoEntidade $curso */
         $curso = $CursoService->PesquisaUmRegistro($res[CO_CURSO]);
         $this->noCurso = $curso->getCoUltimoValorCurso()->getDsTitulo();
-        $this->form = CursoForm::Pagamento($res);
+        $eGratuito = false;
+        if ($curso->getCoUltimoValorCurso()->getNuValor() == '0.00')
+            $eGratuito = true;
+        $this->form = CursoForm::Pagamento($res, $eGratuito);
     }
 
 

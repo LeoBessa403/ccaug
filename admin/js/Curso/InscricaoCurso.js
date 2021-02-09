@@ -137,27 +137,31 @@ $(function () {
     $(".btn-success").click(function () {
         $(".img-load").show();
         var tpPagamento = $("#tp_pagamento").val();
-        if (tpPagamento == 3) {
-            var validade = $('#validadeCartao').val().split('/');
-            PagSeguroDirectPayment.createCardToken({
-                cardNumber: $('#numCartao').val(),
-                brand: $('#bandeiraCartao').val(),
-                cvv: $('#cvvCartao').val(),
-                expirationMonth: validade[0],
-                expirationYear: '20' + validade[1],
-                success: function (retorno) {
-                    $('#tokenCartao').val(retorno.card.token);
-                    recupHashCartao()
-                },
-                error: function (retorno) {
-                    $(".img-load").hide();
-                },
-                complete: function (retorno) {
-                }
-            })
-        } else if (tpPagamento == 5) {
-            recupHashCartao();
-        } else if (tpPagamento == 4) {
+        if (tpPagamento) {
+            if (tpPagamento == 3) {
+                var validade = $('#validadeCartao').val().split('/');
+                PagSeguroDirectPayment.createCardToken({
+                    cardNumber: $('#numCartao').val(),
+                    brand: $('#bandeiraCartao').val(),
+                    cvv: $('#cvvCartao').val(),
+                    expirationMonth: validade[0],
+                    expirationYear: '20' + validade[1],
+                    success: function (retorno) {
+                        $('#tokenCartao').val(retorno.card.token);
+                        recupHashCartao()
+                    },
+                    error: function (retorno) {
+                        $(".img-load").hide();
+                    },
+                    complete: function (retorno) {
+                    }
+                })
+            } else if (tpPagamento == 5) {
+                recupHashCartao();
+            } else if (tpPagamento == 4) {
+                recupHashCartao();
+            }
+        }else{
             recupHashCartao();
         }
     });

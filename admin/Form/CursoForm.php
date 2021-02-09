@@ -173,7 +173,7 @@ class CursoForm
     }
 
 
-    public static function Pagamento($res = false)
+    public static function Pagamento($res = false, $eGratuito = false)
     {
         $id = "InscricaoCurso";
 
@@ -213,23 +213,26 @@ class CursoForm
             ->CriaInpunt();
 
 
-        $tp_pagamentos = [
-            null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
-            TipoPagamentoEnum::CARTAO_CREDITO =>
-                TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::CARTAO_CREDITO),
-            TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA =>
-                TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA),
-            TipoPagamentoEnum::BOLETO =>
-                TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::BOLETO)
-        ];
-        $formulario
-            ->setId(TP_PAGAMENTO)
-            ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Tipo de Pagamento")
-            ->setTamanhoInput(12)
-            ->setClasses("ob")
-            ->setOptions($tp_pagamentos)
-            ->CriaInpunt();
+        if (!$eGratuito) {
+            $tp_pagamentos = [
+                null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
+                TipoPagamentoEnum::CARTAO_CREDITO =>
+                    TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::CARTAO_CREDITO),
+                TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA =>
+                    TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA),
+                TipoPagamentoEnum::BOLETO =>
+                    TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::BOLETO)
+            ];
+            $formulario
+                ->setId(TP_PAGAMENTO)
+                ->setType(TiposCampoEnum::SELECT)
+                ->setLabel("Tipo de Pagamento")
+                ->setTamanhoInput(12)
+                ->setClasses("ob")
+                ->setOptions($tp_pagamentos)
+                ->CriaInpunt();
+        }
+
 
         $bancos = [
             null => Mensagens::MSG_SEM_ITEM_SELECIONADO,

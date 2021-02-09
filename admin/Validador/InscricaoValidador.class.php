@@ -17,9 +17,12 @@ class  InscricaoValidador extends AbstractValidador
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[CO_CURSO], AbstractValidador::VALIDACAO_NUMERO, 'Curso'
         );
-        $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
-            $dados[TP_PAGAMENTO],  'Tipo de Pagamento'
-        );
+        if(!empty($dados[TP_PAGAMENTO])){
+            $this->retorno[DADOS][] = $this->ValidaCampoSelectObrigatorio(
+                $dados[TP_PAGAMENTO],  'Tipo de Pagamento'
+            );
+        }
+
         $this->retorno[DADOS][] = $this->ValidaCampoObrigatorioValido(
             $dados[NU_CPF], AbstractValidador::VALIDACAO_CPF, 'CPF do Aluno'
         );
