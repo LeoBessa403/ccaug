@@ -185,7 +185,7 @@ class Curso extends AbstractController
         if (!empty($_POST)):
             $retorno = $InscricaoService->salvaInscricao($_POST);
             if ($retorno[SUCESSO]) {
-                Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/InscricaoCurso/');
+                Redireciona('');
                 exit;
             }
         endif;
