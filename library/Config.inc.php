@@ -9,7 +9,7 @@ $pastaRaiz = pastaRaiz();
 if (file_exists($pastaRaiz . ADMIN . "/Class/Constantes.class.php")):
     include $pastaRaiz . ADMIN . "/Class/Constantes.class.php";
 else:
-    die('Error ao adicionar /Class/Constantes.class.php');
+    die($pastaRaiz . ADMIN . "/Class/Constantes.class.php");
 endif;
 
 if (file_exists($pastaRaiz . 'library/Constantes.class.php')):
@@ -262,8 +262,8 @@ function carregaJs($urlAmigavel)
 
 function pastaRaiz()
 {
-    $caminho = explode('/', $_SERVER['PHP_SELF']);
-    unset($caminho[0], $caminho[1]);
-    $caminho = implode('/', $caminho);
-    return str_replace($caminho, '', $_SERVER['SCRIPT_FILENAME']);
+    $caminho = explode('/', $_SERVER['SCRIPT_FILENAME']);
+    unset($caminho[count($caminho) - 1]);
+    $caminho = implode('/', $caminho) . '/';
+    return $caminho;
 }

@@ -40,13 +40,13 @@ function servidor_inicial()
             );
         } else {
             $config = array(
-                'HOME' => 'https://sisenovus.editoraenovus.com.br/',
-                'HOST' => 'dbsisenovus.postgres.database.azure.com',
-                'USER' => 'digitalenovus@dbsisenovus',
-                'PASS' => '@EnV@2021#digital',
-                'DBSA' => 'db_fisica',
-                'SCHEMA' => 'sis_enovus',
-                'BANCO' => 2, // 1 = mysql, 2 = postgres
+                'HOME' => 'https://ccaug.com.br/',
+                'HOST' => '162.241.2.220',
+                'USER' => 'ccaugc68_prd',
+                'PASS' => 'unVD8y9f38',
+                'DBSA' => 'ccaugc68_prd',
+                'SCHEMA' => 'ccaugc68_prd',
+                'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'DEBUG' => false,
                 'PROD' => true,
                 'TOKEN_PAGSEGURO' => "e420df9f-b88a-4ba4-acfc-ef3dc796abd129194be145c3878bd1e90a4f65786848b0c0-51de-48b2-a242-7ae275f26890",
