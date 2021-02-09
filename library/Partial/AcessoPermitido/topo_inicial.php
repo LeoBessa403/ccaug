@@ -48,6 +48,7 @@
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
     <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
+    <link rel="stylesheet" href="<?= PASTASITE; ?>css/responsivo.css">
 
     <style>
         body.login.example1 {
