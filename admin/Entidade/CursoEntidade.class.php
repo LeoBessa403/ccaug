@@ -16,7 +16,7 @@ class CursoEntidade extends AbstractEntidade
     private $dt_cadastro;
 	private $co_turma;
 	private $co_valor_curso;
-
+    private $co_imagem;
 
 	/**
     * @return array
@@ -27,6 +27,7 @@ class CursoEntidade extends AbstractEntidade
 			CO_CURSO,
 			DS_DESCRICAO,
 			DT_CADASTRO,
+            CO_IMAGEM,
 		];
     }
 
@@ -125,6 +126,23 @@ class CursoEntidade extends AbstractEntidade
         return $this->co_valor_curso = $co_valor_curso;
     }
 
+
+    /**
+     * @return ImagemEntidade $co_imagem
+     */
+    public function getCoImagem()
+    {
+        return $this->co_imagem;
+    }
+
+    /**
+     * @param $co_imagem
+     * @return mixed
+     */
+    public function setCoImagem($co_imagem)
+    {
+        return $this->co_imagem = $co_imagem;
+    }
 
     /**
      * @return ValorCursoEntidade $co_valor_curso

@@ -314,6 +314,11 @@ class Relacionamentos
                     ('Entidade') => 'ValorCursoEntidade',
                     ('Tipo') => '2',
                 ),
+                (CO_IMAGEM) => array(
+                    ('Campo') => CO_IMAGEM,
+                    ('Entidade') => 'ImagemEntidade',
+                    ('Tipo') => '1',
+                ),
             ),
             (PagamentoEntidade::TABELA) => Array(
                 (CO_HISTORICO_PAGAMENTO) => Array(

@@ -17,8 +17,10 @@ class  CursoService extends AbstractService
     }
 
 
-    public function salvaCurso($dados)
+    public function salvaCurso($dados, $foto)
     {
+        /** @var ImagemService $imagemService */
+        $imagemService = $this->getService(IMAGEM_SERVICE);
         /** @var ValorCursoService $ValorCursoService */
         $ValorCursoService = $this->getService(VALOR_CURSO_SERVICE);
         /** @var PDO $PDO */
@@ -34,6 +36,13 @@ class  CursoService extends AbstractService
         if ($validador[SUCESSO]) {
             $curso = $this->getDados($dados, CursoEntidade::ENTIDADE);
             $valor = $this->getDados($dados, ValorCursoEntidade::ENTIDADE);
+
+            $imagem[DS_CAMINHO] = "";
+            if ($foto[DS_CAMINHO]["tmp_name"]):
+                $curso[CO_IMAGEM] = $imagemService->salvaImagem(
+                    $foto, $valor[DS_TITULO], TipoImagemEnum::CAPA_CURSO, "Curso/"
+                );
+            endif;
 
             $PDO->beginTransaction();
             if (!empty($_POST[CO_CURSO])):

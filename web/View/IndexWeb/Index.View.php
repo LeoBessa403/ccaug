@@ -20,11 +20,11 @@
                             Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'" class="d-block mb-4">
                                 <div class="card m-auto link-card">
                                     <div class="card-image"
-                                         style="background-image: url('<?= PASTASITE; ?>images/pregacao.png')">
+                                         style="background-image: url('<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>')">
                                         <div class="card-image-overlay" style="background-color: #0087c5">
-                                            <img class="card-image-overlay-icon warning"
+                                            <img class="card-image-overlay-icon warning img-fluid"
                                                  style="filter: brightness(0) invert(1)"
-                                                 src="<?= PASTASITE; ?>images/pregacao.png"/>
+                                                 src="<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>"/>
                                         </div>
 
                                         <div class="card-image-svg">
@@ -83,7 +83,7 @@
                                         <div class="row">
                                             <div class="col-12">
                                                 <p class="text-regular height-60 margin-bottom-0">
-                                                    <?= $curso->getCoUltimoValorCurso()->getDsObjetivo(); ?>
+                                                    <?= Valida::Resumi(strip_tags($curso->getDsDescricao()), 180); ?>
                                                 </p>
                                             </div>
                                         </div>

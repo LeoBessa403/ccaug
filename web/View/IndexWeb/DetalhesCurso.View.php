@@ -66,14 +66,28 @@ $curso = $result;
                             <div class="card-body">
                                 <div class="row  justify-content-end">
                                     <div class="col-auto text-right">
-                                        <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
-                                            Investimento</p>
+                                        <?php
+                                        if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
+                                            ?>
+                                            <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
+                                                Investimento</p>
 
-                                        <p class="margin-bottom-0 font-size-20 text-bold font-secondary font-color-terniary">
-                                            R$ <?= Valida::FormataMoeda($curso->getCoUltimoValorCurso()->getNuValor()); ?>
-                                        </p>
-                                        <p class='margin-0 font-size-10 text-bold font-color-primary font-primary'>Em
-                                            até 12 vezes</p>
+                                            <p class="margin-bottom-0 font-size-20 text-bold font-secondary font-color-terniary">
+                                                R$ <?= Valida::FormataMoeda($curso->getCoUltimoValorCurso()->getNuValor()); ?>
+                                            </p>
+                                            <p class='margin-0 font-size-10 text-bold font-color-primary font-primary'>
+                                                Em
+                                                até 12 vezes</p>
+                                            <?php
+                                        } else {
+                                            ?>
+                                            <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
+                                                Curso Inteiramente</p>
+
+                                            <p class="margin-bottom-0 font-size-20 text-bold font-secondary font-color-terniary">
+                                                GRATUITO
+                                            </p>
+                                        <?php } ?>
 
                                     </div>
                                 </div>
@@ -94,7 +108,8 @@ $curso = $result;
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8" style="margin-bottom: 20px">
-                    <img src="<?= PASTASITE; ?>images/pregacao_curso.png" width="650">
+                    <img src="<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>" width="650"
+                         class="img-fluid">
                 </div>
                 <div class="col-12 col-lg-8">
                     <h3 class="font-size-20 text-bold font-color-primary margin-bottom-30">Conheça esta Formação!</h3>

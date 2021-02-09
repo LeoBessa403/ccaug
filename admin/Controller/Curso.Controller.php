@@ -23,7 +23,7 @@ class Curso extends AbstractController
         $id = "CadastrarCurso";
 
         if (!empty($_POST[$id])):
-            $retorno = $CursoService->salvaCurso($_POST);
+            $retorno = $CursoService->salvaCurso($_POST, $_FILES);
 
             if ($retorno[SUCESSO]) {
                 Redireciona(UrlAmigavel::$modulo . '/' . UrlAmigavel::$controller . '/ListarCurso/');
@@ -46,13 +46,17 @@ class Curso extends AbstractController
             $res[DS_DESCRICAO] = $curso->getDsDescricao();
             $res[NU_VALOR] = Valida::FormataMoeda($valor->getNuValor());
             $res[DS_TITULO] = $valor->getDsTitulo();
-            $res[DS_OBJETIVO] = $valor->getDsObjetivo();
             $res[ST_STATUS] = ($valor->getStStatus() == 'S')
                 ? 'checked' : '';
             $res['st_gratuito'] = ($res[NU_VALOR] === '0,00')
                 ? 'checked' : '';
             $res[ST_CERTIFICACAO] = ($valor->getStCertificacao() == 'S')
                 ? 'checked' : '';
+            if (!empty($curso->getCoImagem())):
+                if ($curso->getCoImagem()->getDsCaminho()):
+                    $res[DS_CAMINHO] = $curso->getCoImagem()->getDsCaminho();
+                endif;
+            endif;
         }
 
         $this->form = CursoForm::CadastrarCurso($res);

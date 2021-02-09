@@ -77,10 +77,11 @@ class CursoForm
             ->setTamanhoInput(6)
             ->CriaInpunt();
 
+
         $formulario
-            ->setLabel("Objetivo do Curso")
-            ->setType(TiposCampoEnum::TEXTAREA)
-            ->setId(DS_OBJETIVO)
+            ->setId(DS_CAMINHO)
+            ->setType(TiposCampoEnum::SINGLEFILE)
+            ->setLabel("Imagem do Curso")
             ->CriaInpunt();
 
         $formulario
@@ -89,7 +90,6 @@ class CursoForm
             ->setClasses("editor")
             ->setId(DS_DESCRICAO)
             ->CriaInpunt();
-
 
         Form::CriaInputHidden($formulario, $res, [CO_CURSO]);
 
