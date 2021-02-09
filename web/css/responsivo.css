@@ -1,4 +1,4 @@
-@media (min-width: 319px) and (max-width: 800px) {
+@media (min-width: 319px) and (max-width: 600px) {
     .main-login {
         padding: 0 !important;
         width: 98%;
@@ -36,15 +36,104 @@
     }
 }
 
-@media (min-width: 601px) and (max-width: 800px) {
+@media (min-width: 601px) and (max-width: 1000px) {
+    .main-login {
+        width: 90%;
+        margin: 0 auto !important;
+    }
+    .box-login {
+        padding: 0 !important;
+        margin: 0 5% !important;
+    }
 
+    .box-login .col-md-12 {
+        padding: 0 2% !important;
+    }
+
+    .box-login .panel-body {
+        padding: 0 2% 2% !important;
+    }
+
+    .box-login .col-sm-6, .box-login .col-sm-12 {
+        padding-right: 0 !important;
+    }
+
+    .box-login .col-sm-3 {
+        width: 49% !important;
+        padding: 0 1%!important;
+        float: left;
+    }
 }
 
 @media (min-width: 801px) and (max-width: 1200px) {
+    .main-login {
+        width: 75%;
+        margin: 0 12.5% !important;
+    }
+    .box-login {
+        padding: 0 !important;
+    }
 
+    .box-login .col-md-12 {
+        padding: 0 2% !important;
+    }
+
+    .box-login .panel-body {
+        padding: 0 2% 2% !important;
+    }
+
+    .box-login .col-sm-6, .box-login .col-sm-12 {
+        padding-right: 0 !important;
+    }
+
+    .box-login .col-sm-3 {
+        width: 49% !important;
+        padding: 0 1%!important;
+        float: left;
+    }
 }
 
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1500px) {
+    .main-login {
+        width: 65%;
+        margin: 0 17.5% !important;
+    }
+    .box-login {
+        padding: 0 !important;
+    }
 
+    .box-login .col-md-12 {
+        padding: 0 2% !important;
+    }
+
+    .box-login .panel-body {
+        padding: 0 2% 2% !important;
+    }
+
+    .box-login .col-sm-6, .box-login .col-sm-12 {
+        padding-right: 0 !important;
+    }
+}
+
+@media (min-width: 1501px) {
+    .main-login {
+        width: 50%;
+        margin: 0 25% !important;
+    }
+    .box-login {
+        padding: 0 !important;
+    }
+
+    .box-login .col-md-12 {
+        padding: 0 2% !important;
+    }
+
+    .box-login .panel-body {
+        padding: 0 2% 2% !important;
+    }
+
+    .box-login .col-sm-6, .box-login .col-sm-12 {
+        padding-right: 0 !important;
+    }
 }
 
