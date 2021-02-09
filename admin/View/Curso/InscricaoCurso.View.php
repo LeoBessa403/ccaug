@@ -1,6 +1,7 @@
 <?php
 include_once 'library/Partial/AcessoPermitido/topo_inicial.php';
 ?>
+<link rel="stylesheet" href="<?= PASTASITE; ?>css/responsivo.css">
     <!-- start: LOGIN BOX -->
     <div class="box-login box-shadow">
         <h3 class="logo" style="margin: 20px 0 10px; padding: 0;">Inscrição no <?= $noCurso; ?></h3>

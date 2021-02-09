@@ -48,8 +48,7 @@
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/bootstrap-fileupload/bootstrap-fileupload.min.css">
     <!-- start: CSS REQUIRED FOR DATAPICKER -->
     <link rel="stylesheet" href="<?= INCLUDES; ?>Jcalendar.css">
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/responsivo.css">
-
+    
     <style>
         body.login.example1 {
             background: url("<?= PASTAADMIN; ?>Imagens/bg (<?= rand(1, NUM_BG_IMAGENS); ?>).jpg") rgba(0, 0, 0, 0) top center !important;
