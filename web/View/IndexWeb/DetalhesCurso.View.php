@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="<?= PASTASITE; ?>css/responsivo.css">
 <?php
 /** @var CursoEntidade $curso */
 $curso = $result;
