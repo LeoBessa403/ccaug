@@ -108,8 +108,19 @@ $curso = $result;
         <div class="container">
             <div class="row">
                 <div class="col-12 col-lg-8" style="margin-bottom: 20px">
-                    <img src="<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>" width="650"
-                         class="img-fluid">
+                    <?php
+                    $tamanhoImg = 650;
+                    if ($curso->getCoImagem() && (file_exists(PASTA_UPLOADS .
+                            $curso->getCoImagem()->getDsCaminho()))) {
+                        $imagem = Valida::GetMiniatura(
+                            $curso->getCoImagem()->getDsCaminho(),
+                            $noPessoa, $tamanhoImg, $tamanhoImg, "img-fluid"
+                        );
+                    } else {
+                        $imagem = Valida::getSemImg($tamanhoImg, 'img-fluid');
+                    }
+                    ?>
+                    <?= $imagem; ?>
                 </div>
                 <div class="col-12 col-lg-8">
                     <h3 class="font-size-20 text-bold font-color-primary margin-bottom-30">Conheça esta Formação!</h3>

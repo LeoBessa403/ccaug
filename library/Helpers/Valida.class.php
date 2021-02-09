@@ -149,7 +149,7 @@ class Valida
      */
     public static function DataDBDate($data)
     {
-        if(!$data)
+        if (!$data)
             return null;
 
         self::$Data = explode('/', $data);
@@ -332,14 +332,14 @@ class Valida
      */
     public static function CalculaDiferencaDiasData($data1, $data2)
     {
-        if($data1 && $data2){
+        if ($data1 && $data2) {
             $Data1 = explode('/', $data1);
             $Data2 = explode('/', $data2);
             $Data1 = mktime(0, 0, 0, $Data1[1], $Data1[0], $Data1[2]);
             $Data2 = mktime(0, 0, 0, $Data2[1], $Data2[0], $Data2[2]);
             $Diferenca = $Data2 - $Data1; //CALCULA-SE A DIFERENÇA EM SEGUNDOS
             return ($Diferenca / (60 * 60 * 24)); //CALCULA-SE A DIFERENÇA EM DIAS
-        }else{
+        } else {
             return null;
         }
     }
@@ -731,14 +731,15 @@ class Valida
     /**
      * Retorna a logo padrão do sistema pelo TimThamb
      * @param int $tamanho
+     * @param string $class
      * @return string
      */
-    public static function getSemImg($tamanho = 50)
+    public static function getSemImg($tamanho = 50, $class = 'circle-img')
     {
         return '
         <img src="' . TIMTHUMB . '?src=' . SEM_FOTO .
             '&w=' . $tamanho . '&h=' . $tamanho . '"
-                                alt="Sem Imagem" title="Sem Imagem" class="circle-img" />
+                                alt="Sem Imagem" title="Sem Imagem" class="' . $class . '" />
         ';
     }
 
@@ -1130,13 +1131,13 @@ class Valida
             $dias = 0;
             $diaAux = 0;
             $semanas = 0;
-        }elseif($mediaDia == 0){
+        } elseif ($mediaDia == 0) {
             $diaAux = ($dados['esforcoRestante'] / 3);
             $dias = intval(($dados['esforcoRestante'] / 3));
             $semanas = intval($diaAux / 7);
         } else {
-            $diaAux = (($dados['esforcoRestante']) ? $dados['esforcoRestante']:  0 / $mediaDia);
-            $dias = intval((($dados['esforcoRestante']) ? $dados['esforcoRestante']:  0 / $mediaDia));
+            $diaAux = (($dados['esforcoRestante']) ? $dados['esforcoRestante'] : 0 / $mediaDia);
+            $dias = intval((($dados['esforcoRestante']) ? $dados['esforcoRestante'] : 0 / $mediaDia));
             $semanas = intval($diaAux / 7);
         }
         $dataPrevista = Valida::CalculaData(Date('d/m/Y'), $diaAux, '+');

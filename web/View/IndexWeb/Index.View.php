@@ -15,18 +15,25 @@
                         $i = 0;
                         /** @var CursoEntidade $curso */
                         foreach ($result as $curso) {
+                            $tamanhoImg = 300;
+                            if ($curso->getCoImagem() && (file_exists(PASTA_UPLOADS .
+                                    $curso->getCoImagem()->getDsCaminho()))) {
+                                $imagem = Valida::GetMiniatura(
+                                    $curso->getCoImagem()->getDsCaminho(),
+                                    $noPessoa, $tamanhoImg, $tamanhoImg, "card-image-overlay-icon warning img-fluid"
+                                );
+                            } else {
+                                $imagem = Valida::getSemImg($tamanhoImg, 'card-image-overlay-icon warning img-fluid');
+                                $imgBck = TIMTHUMB . '?src=' . SEM_FOTO . '&w=' . $tamanhoImg . '&h=' . $tamanhoImg;
+                            }
                             ?>
                             <a href="<?= PASTASITE . 'IndexWeb/DetalhesCurso/' .
                             Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'" class="d-block mb-4">
                                 <div class="card m-auto link-card">
-                                    <div class="card-image"
-                                         style="background-image: url('<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>')">
+                                    <div class="card-image" style="background-image: url('<?= $imgBck; ?>')">
                                         <div class="card-image-overlay" style="background-color: #0087c5">
-                                            <img class="card-image-overlay-icon warning img-fluid"
-                                                 style="filter: brightness(0) invert(1)"
-                                                 src="<?= PASTAUPLOADS . $curso->getCoImagem()->getDsCaminho(); ?>"/>
+                                            <?= $imagem; ?>
                                         </div>
-
                                         <div class="card-image-svg">
                                             <?php
                                             if ($i % 2 == 0) {
@@ -116,7 +123,7 @@
                                                         <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
                                                             Curso Inteiramente</p>
                                                         <p class="font-secondary text-medium font-size-14 font-color-primary">
-                                                           GRATUITO</p>
+                                                            GRATUITO</p>
                                                     <?php } ?>
                                                 </div>
                                             </div>
