@@ -71,9 +71,20 @@ class  InscricaoService extends AbstractService
             $PDO->beginTransaction();
             $coPessoa = PessoaService::verificaSalvaDadosPessoa($dados);
             $insc[CO_ALUNO] = AlunoService::verificaSalvaDadosAluno($coPessoa);
+            /** @var CursoEntidade $curso */
+            $curso = $CursoService->PesquisaUmRegistro($dados[CO_CURSO]);
             $insc[CO_TURMA] = 1;
+            if ($curso->getCoTurma()) {
+                $turmas = array_reverse($curso->getCoTurma());
+                /** @var TurmaEntidade $turma */
+                foreach ($turmas as $turma) {
+                    if ($turma->getStStatus() == SimNaoEnum::SIM){
+                        $insc[CO_TURMA] = $turma->getCoTurma();
+                        break;
+                    }
+                }
+            }
             $insc[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-
             $pagInsc[CO_INSCRICAO] = $this->Salva($insc);
             if (!empty($dados[TP_PAGAMENTO])) {
                 $pagInsc[TP_PAGAMENTO] = $dados[TP_PAGAMENTO][0];
@@ -130,8 +141,6 @@ class  InscricaoService extends AbstractService
                 $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 
                 if ($retorno[SUCESSO]) {
-
-                    $curso = $CursoService->PesquisaUmRegistro($dados[CO_CURSO]);
                     /** @var PessoaEntidade $pessoa */
                     $pessoa = $PessoaService->PesquisaUmRegistro($coPessoa);
                     $retorno = $this->processaPagamento($curso, $pessoa, $histPag[CO_PAGAMENTO]);
