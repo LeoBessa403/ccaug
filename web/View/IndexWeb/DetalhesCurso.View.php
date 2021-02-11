@@ -97,7 +97,7 @@ $curso = $result;
                                         ?>
                                         <div class="col-auto text-right" style="float: left;">
                                             <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
-                                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'"
+                                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
                                                class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
                                                 Se Inscrever
                                             </a>
