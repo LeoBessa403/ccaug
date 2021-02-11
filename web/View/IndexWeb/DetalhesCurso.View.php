@@ -83,13 +83,27 @@ $curso = $result;
                                             </p>
                                         <?php } ?>
                                     </div>
-                                    <div class="col-auto text-right" style="float: left;">
-                                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
-                                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'"
-                                           class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
-                                            Se Inscrever
-                                        </a>
-                                    </div>
+                                    <?php
+                                    if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
+                                        ?>
+                                        <div class="col-auto text-right" style="float: left;">
+                                            <a href="#"
+                                               class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
+                                                Em breve
+                                            </a>
+                                        </div>
+                                        <?php
+                                    } else {
+                                        ?>
+                                        <div class="col-auto text-right" style="float: left;">
+                                            <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'"
+                                               class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
+                                                Se Inscrever
+                                            </a>
+                                        </div>
+
+                                    <?php } ?>
                                 </div>
                                 <div class="row justify-content-end no-gutters margin-top-15">
                                     <div class="col-auto">
@@ -127,13 +141,26 @@ $curso = $result;
                     <div class="conteudo">
                         <?= $curso->getDsDescricao(); ?>
                     </div>
-                    <div class="col-auto text-right" style="float: left;">
-                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
-                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
-                           class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
-                            Se Inscrever
-                        </a>
-                    </div>
+                    <?php
+                    if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
+                        ?>
+                        <div class="col-auto text-right" style="float: left;">
+                            <a href="#"
+                               class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
+                                Em breve
+                            </a>
+                        </div>
+                        <?php
+                    } else {
+                        ?>
+                        <div class="col-auto text-right" style="float: left;">
+                            <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
+                               class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
+                                Se Inscrever
+                            </a>
+                        </div>
+                    <?php } ?>
                 </div>
             </div>
         </div>
