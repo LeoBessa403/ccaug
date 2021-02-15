@@ -35,10 +35,35 @@
         </div>
     </div>
 </footer>
-<script src="<?= PASTASITE; ?>js/app.js"></script>
-<!--<script src="--><?//= HOME ?><!--library/Helpers/includes/jquery.mask.js"></script>-->
 
+<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>Helpers/includes/jquery-1.10.2.js"></script>
+<script type="text/javascript" src="<?= PASTA_LIBRARY; ?>Helpers/includes/jquery-2.0.3.js"></script>
+<script type="text/javascript" src="<?= PASTASITE; ?>js/app.js"></script>
 <?php include_once PARTIAL_LIBRARY . 'constantes_javascript.php'; ?>
 <?php carregaJs($url); ?>
+<!-- Carrega DIVs dos Alertas e Notificações   -->
+<?php
+$session = new Session();
+if ($session->CheckSession(MENSAGEM)) {
+    switch ($session::getSession(MENSAGEM)) {
+        case CADASTRADO:
+            Notificacoes::cadastrado();
+            break;
+        case ATUALIZADO:
+            Notificacoes::atualizado();
+            break;
+        case DELETADO:
+            Notificacoes::deletado();
+            break;
+        default:
+            Notificacoes::mesagens($session::getSession(MENSAGEM), $session::getSession(TIPO));
+            break;
+    }
+//    $session->FinalizaSession(MENSAGEM);
+}
+
+
+
+?>
 </body>
 </html>

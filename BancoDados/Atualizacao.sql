@@ -486,3 +486,93 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:33:30" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:33:31" where co_acesso = 12;
 
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:36:47" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:36:48" where co_acesso = 12;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6155887788", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "arnaldo@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "2", "2021-02-15 18:12:24");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("12", "0", "2021-02-15 18:12:24");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-15 18:12:24", nu_valor_pago = "0.00", nu_valor_total = "0.00", nu_valor_desconto = "0.00", st_pagamento = "3" where co_pagamento = 10;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("10", "2021-02-15 18:12:24", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "3");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Jose Arnaldo", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "61553366556", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardo.bessa@basis.com.br", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "2", "2021-02-15 18:15:07");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("13", "0", "2021-02-15 18:15:07");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-15 18:15:07", nu_valor_pago = "0.00", nu_valor_total = "0.00", nu_valor_desconto = "0.00", st_pagamento = "3" where co_pagamento = 11;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("11", "2021-02-15 18:15:07", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "3");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Jose Arnaldo", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6546546545", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leninha.k@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "2", "2021-02-15 18:25:03");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("14", "0", "2021-02-15 18:25:03");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-15 18:25:03", nu_valor_pago = "0.00", nu_valor_total = "0.00", nu_valor_desconto = "0.00", st_pagamento = "3" where co_pagamento = 12;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("12", "2021-02-15 18:25:03", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "3");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:01:43" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:01:44" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:01:54" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:01:55" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:02:02" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:02:02" where co_acesso = 12;
+
+INSERT INTO ccaug100.TB_PERFIL (no_perfil) VALUES ("sad");
+
+INSERT INTO ccaug100.TB_PERFIL_FUNCIONALIDADE (co_perfil, co_funcionalidade) VALUES ("3", "39");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:02:03" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:02:04" where co_acesso = 12;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Jose Arnaldo", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "32452354535", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leninha.k@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "2", "2021-02-15 18:33:56");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("15", "0", "2021-02-15 18:33:56");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-15 18:33:56", nu_valor_pago = "0.00", nu_valor_total = "0.00", nu_valor_desconto = "0.00", st_pagamento = "3" where co_pagamento = 13;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("13", "2021-02-15 18:33:56", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "3");
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-15 19:02:06" where co_acesso = 12;
+

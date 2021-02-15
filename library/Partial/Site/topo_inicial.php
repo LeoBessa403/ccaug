@@ -73,6 +73,8 @@ $siteMap = new Sitemap();
     <!-- Bootstrap.css -->
     <link rel="stylesheet" href="<?= PASTASITE; ?>css/app.css">
 
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/gritter/css/jquery.gritter.css">
+
 </head>
 <style>
     ::-webkit-scrollbar {
