@@ -71,17 +71,17 @@
 //endif;
 
 //Contatos
-$this->Sitemap .= '<url>' . "\r\n";
-$this->Sitemap .= '<loc>' . HOME . 'web/Institucional/Contatos</loc>' . "\r\n";
-$this->Sitemap .= '<lastmod>' . date('Y-m-d\TH:i:sP') . '</lastmod>' . "\r\n";
-$this->Sitemap .= '<changefreq>monthly</changefreq>' . "\r\n";
-$this->Sitemap .= '<priority>0.8</priority >' . "\r\n";
-$this->Sitemap .= '</url>' . "\r\n";
+//$this->Sitemap .= '<url>' . "\r\n";
+//$this->Sitemap .= '<loc>' . HOME . 'web/Institucional/Contatos</loc>' . "\r\n";
+//$this->Sitemap .= '<lastmod>' . date('Y-m-d\TH:i:sP') . '</lastmod>' . "\r\n";
+//$this->Sitemap .= '<changefreq>monthly</changefreq>' . "\r\n";
+//$this->Sitemap .= '<priority>0.8</priority >' . "\r\n";
+//$this->Sitemap .= '</url>' . "\r\n";
 
 //Sobre Nós
-$this->Sitemap .= '<url>' . "\r\n";
-$this->Sitemap .= '<loc>' . HOME . 'web/Institucional/SobreNos</loc>' . "\r\n";
-$this->Sitemap .= '<lastmod>' . date('Y-m-d\TH:i:sP') . '</lastmod>' . "\r\n";
-$this->Sitemap .= '<changefreq>monthly</changefreq>' . "\r\n";
-$this->Sitemap .= '<priority>0.8</priority >' . "\r\n";
-$this->Sitemap .= '</url>' . "\r\n";
+//$this->Sitemap .= '<url>' . "\r\n";
+//$this->Sitemap .= '<loc>' . HOME . 'web/Institucional/SobreNos</loc>' . "\r\n";
+//$this->Sitemap .= '<lastmod>' . date('Y-m-d\TH:i:sP') . '</lastmod>' . "\r\n";
+//$this->Sitemap .= '<changefreq>monthly</changefreq>' . "\r\n";
+//$this->Sitemap .= '<priority>0.8</priority >' . "\r\n";
+//$this->Sitemap .= '</url>' . "\r\n";

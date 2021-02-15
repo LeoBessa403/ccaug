@@ -576,3 +576,15 @@ INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuar
 
 UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-15 19:02:06" where co_acesso = 12;
 
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("4eg446o3h8povc3t1t3578d8ba", "1", "A", "13", "2021-02-15 19:38:47", "2021-02-15 19:08:47");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:38:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:38:48" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:38:52" where co_acesso = 13;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 19:38:53" where co_acesso = 13;
+
