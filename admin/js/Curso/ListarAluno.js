@@ -1,7 +1,7 @@
 $(function () {
 
     // ABRE MODAL DE DETALHAMENTO DO AGENDAMENTO
-    $('.btn-visualizar').click(function () {
+    $('.btn-visualizar').on('click', function () {
         var coPagamento = $(this).attr('data-coPagamento');
         var dados = Funcoes.Ajax('Curso/DetalharPagamentoAjax', coPagamento);
 
