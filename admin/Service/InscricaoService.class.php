@@ -109,8 +109,7 @@ class  InscricaoService extends AbstractService
                 // HISTORICO DO PAGAMENTO INICIADO
                 $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                 $histPag[DS_ACAO] = 'Curso Gratuito';
-                $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
-                    . ' Efetivou a Inscrição';
+                $histPag[DS_USUARIO] = 'O Aluno Efetivou a Inscrição';
                 $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PAGO;
                 $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 

@@ -3,6 +3,7 @@
 class Curso extends AbstractController
 {
     public $result;
+    public $CursoGratuito;
     public $curso;
     public $form;
     public $noCurso;
@@ -162,14 +163,26 @@ class Curso extends AbstractController
 
     public function ListarAluno()
     {
+        /** @var TurmaService $TurmaService */
+        $TurmaService = $this->getService(TURMA_SERVICE);
         /** @var InscricaoService $InscricaoService */
         $InscricaoService = $this->getService(INSCRICAO_SERVICE);
-
+        $CursoGratuito = true;
         $coTurma = UrlAmigavel::PegaParametro(CO_TURMA);
         if ($coTurma) {
-            $this->result = $InscricaoService->PesquisaTodos([
+            /** @var InscricaoEntidade $result */
+            $result = $InscricaoService->PesquisaTodos([
                 CO_TURMA => $coTurma
             ]);
+            if($result){
+                /** @var TurmaEntidade $turma */
+                $turma = $TurmaService->PesquisaUmRegistro($coTurma);
+                if ($turma->getCoCurso()->getCoUltimoValorCurso()->getNuValor() != '0.00') {
+                    $CursoGratuito = false;
+                }
+            }
+            $this->result = $result;
+            $this->CursoGratuito = $CursoGratuito;
         } else {
             $this->result = $InscricaoService->PesquisaTodos();
         }

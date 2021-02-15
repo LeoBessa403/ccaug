@@ -50,12 +50,16 @@
                         Modal::load();
                         Modal::confirmacao("confirma_Aluno");
                         $grid = new Grid();
-                        $arrColunas = array('Aluno', 'Code', 'Data Pagamento', 'Meio de Pagamento', 'Valor R$',
-                            'Sit. Pagamento', 'Ações');
+                        if ($CursoGratuito) {
+                            $arrColunas = array('Aluno', 'Inscrito', 'Valor R$', 'Sit. Pagamento', 'Ações');
+                        } else {
+                            $arrColunas = array('Aluno', 'Inscrito', 'Code', 'Data Pagamento', 'Meio de Pagamento', 'Valor R$',
+                                'Sit. Pagamento', 'Ações');
+
+                        }
 
                         $grid->setColunasIndeces($arrColunas);
                         $grid->criaGrid();
-                        $statusSis = '';
                         /** @var InscricaoEntidade $res */
                         foreach ($result as $res):
                             /** @var PagamentoEntidade $pagamento */
@@ -121,9 +125,12 @@
                                             &nbsp;&nbsp;&nbsp;&nbsp;</span> ';
 
                             $grid->setColunas($res->getCoAluno()->getCoPessoa()->getNoPessoa(), 3);
-                            $grid->setColunas($pagamento->getDsCodeTransacao(), 2);
-                            $grid->setColunas($dtPagamento, 2);
-                            $grid->setColunas($tpPagamento, 4);
+                            $grid->setColunas(valida::DataShow($pagamento->getCoInscricao()->getDtCadastro(), 'd/m/Y H:i'), 3);
+                            if (!$CursoGratuito) {
+                                $grid->setColunas($pagamento->getDsCodeTransacao(), 2);
+                                $grid->setColunas($dtPagamento, 2);
+                                $grid->setColunas($tpPagamento, 4);
+                            }
                             $grid->setColunas($pagamento->getNuValorTotal(), 2);
                             $grid->setColunas($spanLabel . StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento()), 2);
                             $grid->setColunas($acao, $tmBtn);
