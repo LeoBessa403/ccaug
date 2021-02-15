@@ -166,5 +166,4 @@ $curso = $result;
         </div>
         </div>
     </section>
-
 </main>

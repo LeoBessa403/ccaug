@@ -5,7 +5,7 @@
         color: white;
         max-width: 30%;
         float: right;
-        font-size: 0.8em;
+        font-size: 0.7em;
         margin-top: -20px;
         border-radius: 10px;
     }
