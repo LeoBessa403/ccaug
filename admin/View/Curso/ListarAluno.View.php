@@ -1,5 +1,5 @@
 <style>
-    .label_span{
+    .label_span {
         box-shadow: 1px 1px 1px black;
     }
 </style>
@@ -65,45 +65,49 @@
                                         data-original-title="Visualizar Pagamento" data-placement="top">
                                          <i class="clip-eye"></i>
                                      </button>';
-                            if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
-                                $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
-                                if ($pagamento->getTpPagamento() == TipoPagamentoEnum::BOLETO
-                                    && $pagamento->getDsLinkBoleto()) {
-                                    $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
+                            $tmBtn = 1;
+                            if ($pagamento->getNuValorTotal() != '0.00') {
+                                if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
+                                    $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
+                                    if ($pagamento->getTpPagamento() == TipoPagamentoEnum::BOLETO
+                                        && $pagamento->getDsLinkBoleto()) {
+                                        $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
                                                     class="btn btn-warning tooltips" 
                                                         data-original-title="Abrir Boleto" data-placement="top">
                                                          <i class="clip-file-pdf"></i>
                                                      </a>';
-                                } elseif ($pagamento->getTpPagamento() == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA
-                                    && $pagamento->getDsLinkBoleto()) {
-                                    $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
+                                    } elseif ($pagamento->getTpPagamento() == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA
+                                        && $pagamento->getDsLinkBoleto()) {
+                                        $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
                                                     class="btn btn-warning tooltips" 
                                                         data-original-title="Abrir Página do Banco" data-placement="top">
                                                          <i class="clip-banknote"></i>
                                                      </a>';
+                                    }
                                 }
-                            }
-                            if ($pagamento->getStPagamento() > 0) {
-                                if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
-                                    $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
-                                    $acao .= ' <a href="' . PASTAADMIN . 'Curso/CancelarPagamentoCurso/' .
-                                        Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
-                                            $pagamento->getDsCodeTransacao()) . '" 
+                                if ($pagamento->getStPagamento() > 0) {
+                                    if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
+                                        $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
+                                        $acao .= ' <a href="' . PASTAADMIN . 'Curso/CancelarPagamentoCurso/' .
+                                            Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
+                                                $pagamento->getDsCodeTransacao()) . '" 
                                                 class="btn btn-danger tooltips" 
                                                     data-original-title="Cancelar Inscrição do Aluno" data-placement="top">
                                                      <i class="fa fa-trash-o"></i>
                                                  </a>';
-                                } elseif ($pagamento->getStPagamento() == StatusPagamentoEnum::PAGO ||
-                                    $pagamento->getStPagamento() == StatusPagamentoEnum::DISPONIVEL ||
-                                    $pagamento->getStPagamento() == StatusPagamentoEnum::EM_DISPUTA) {
-                                    $acao .= ' <a href="' . PASTAADMIN . 'Curso/EstornarPagamentoCurso/' .
-                                        Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
-                                            $pagamento->getDsCodeTransacao()) . '" 
+                                    } elseif ($pagamento->getStPagamento() == StatusPagamentoEnum::PAGO ||
+                                        $pagamento->getStPagamento() == StatusPagamentoEnum::DISPONIVEL ||
+                                        $pagamento->getStPagamento() == StatusPagamentoEnum::EM_DISPUTA) {
+                                        $acao .= ' <a href="' . PASTAADMIN . 'Curso/EstornarPagamentoCurso/' .
+                                            Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
+                                                $pagamento->getDsCodeTransacao()) . '" 
                                 class="btn btn-danger tooltips" 
                                     data-original-title="Estornar Inscrição do Aluno" data-placement="top">
                                      <i class="fa fa-trash-o"></i>
                                  </a>';
+                                    }
                                 }
+                                $tmBtn = 3;
                             }
                             $dtPagamento = ($pagamento->getDtPago())
                                 ? Valida::DataShow($pagamento->getDtPago())
@@ -122,7 +126,7 @@
                             $grid->setColunas($tpPagamento, 4);
                             $grid->setColunas($pagamento->getNuValorTotal(), 2);
                             $grid->setColunas($spanLabel . StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento()), 2);
-                            $grid->setColunas($acao, 3);
+                            $grid->setColunas($acao, $tmBtn);
                             $grid->criaLinha($pagamento->getCoPagamento());
                         endforeach;
                         $grid->finalizaGrid();

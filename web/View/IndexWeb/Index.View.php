@@ -31,7 +31,7 @@
                             }
                             ?>
                             <a href="<?= PASTASITE . 'IndexWeb/DetalhesCurso/' .
-                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>'" class="d-block mb-4">
+                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>" class="d-block mb-4">
                                 <div class="card m-auto link-card">
                                     <div class="card-image" style="background-image: url('<?= $imgBck; ?>')">
                                         <div class="card-image-overlay" style="background-color: #0087c5">
