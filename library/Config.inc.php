@@ -1,33 +1,39 @@
 <?php
+date_default_timezone_set('America/Bahia');
 //Inicia a Sessão
 // Pasta do arquivos do site
 define('SITE', 'web');
 // Pasta dos arquivos da Admiistração
 define('ADMIN', 'admin');
 
-$pastaRaiz = pastaRaiz();
-if (file_exists($pastaRaiz . ADMIN . "/Class/Constantes.class.php")):
-    include $pastaRaiz . ADMIN . "/Class/Constantes.class.php";
+if (defined("PASTA_HOME")) {
+    define('PASTA_RAIZ', PASTA_HOME);
+}else{
+    define('PASTA_RAIZ', str_replace('\\', '/', str_replace('library', '', __DIR__)));
+}
+
+if (file_exists(PASTA_RAIZ . ADMIN . "/Class/Constantes.class.php")):
+    include PASTA_RAIZ . ADMIN . "/Class/Constantes.class.php";
 else:
-    die($pastaRaiz . ADMIN . "/Class/Constantes.class.php");
+    die(PASTA_RAIZ . ADMIN . "/Class/Constantes.class.php");
 endif;
 
-if (file_exists($pastaRaiz . 'library/Constantes.class.php')):
-    include_once $pastaRaiz . "library/Constantes.class.php";
+if (file_exists(PASTA_RAIZ . 'library/Constantes.class.php')):
+    include_once PASTA_RAIZ . "library/Constantes.class.php";
 else:
     die('Error ao adicionar library/Constantes.class.php');
 endif;
 
 session_start();
-if (file_exists($pastaRaiz . ADMIN . "/configuracoes.php")):
-    include $pastaRaiz . ADMIN . "/configuracoes.php";
+if (file_exists(PASTA_RAIZ . ADMIN . "/configuracoes.php")):
+    include PASTA_RAIZ . ADMIN . "/configuracoes.php";
 else:
     die('Error ao adicionar ' . ADMIN . '/configuracoes.php');
 endif;
 servidor_inicial();
 
-if (file_exists($pastaRaiz . ADMIN . "/Config.Padrao.php")):
-    include $pastaRaiz . ADMIN . "/Config.Padrao.php";
+if (file_exists(PASTA_RAIZ . ADMIN . "/Config.Padrao.php")):
+    include PASTA_RAIZ . ADMIN . "/Config.Padrao.php";
 else:
     die('Error ao adicionar ' . ADMIN . '/Config.Padrao.php');
 endif;
@@ -122,7 +128,6 @@ date_default_timezone_set('America/Sao_Paulo');
 //*************************************//
 
 // Define a pasta Raiz das Imagens da Biblioteca
-define('PASTA_RAIZ', str_replace('\\', '/', str_replace('library', '', __DIR__)));
 define('INCLUDES', HOME . 'library/Helpers/includes/');
 define('INCLUDES_PLUGINS', HOME . 'library/plugins/');
 define('INCLUDES_LIBRARY', PASTA_RAIZ . 'library/');
@@ -158,7 +163,7 @@ define('PESQUISA_AVANCADA', "pesquisa_avancada");
 // AUTO LOAD DE CLASSES ####################
 function __autoload($Class)
 {
-    $pastaRaiz = pastaRaiz();
+    $pastaRaiz = PASTA_RAIZ;
     $pastas = array('Conn', 'Entidade', 'Service', 'Controller', 'Helpers', 'Model', 'Class', 'Form', 'Enum', 'Validador');
     $rotas = array(
         $pastaRaiz . 'library/',
@@ -258,12 +263,4 @@ function carregaJs($urlAmigavel)
     } elseif (file_exists('library/' . $arquivo)) {
         echo '<script src="' . PASTA_LIBRARY . $arquivo . '"></script>';
     }
-}
-
-function pastaRaiz()
-{
-    $caminho = explode('/', $_SERVER['SCRIPT_FILENAME']);
-    unset($caminho[count($caminho) - 1]);
-    $caminho = implode('/', $caminho) . '/';
-    return $caminho;
 }

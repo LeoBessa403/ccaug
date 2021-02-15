@@ -252,7 +252,6 @@ class Curso extends AbstractController
 
     public static function DetalharPagamentoAjax($coPagamento)
     {
-        debug($coPagamento,1);
         /** @var PagamentoService $PagamentoService */
         $PagamentoService = static::getServiceStatic(PAGAMENTO_SERVICE);
         return $PagamentoService->DetalharPagamentoAjax($coPagamento);

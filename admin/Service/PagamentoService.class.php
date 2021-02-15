@@ -234,6 +234,7 @@ class  PagamentoService extends AbstractService
 
         $dados = [];
         $dados[CO_PAGAMENTO] = [];
+        $dados[CO_HISTORICO_PAGAMENTO] = [];
         if ($pagamento->getCoHistoricoPagamento()) {
             /** @var HistoricoPagamentoEntidade $histPag */
             foreach ($pagamento->getCoHistoricoPagamento() as $histPag) {
@@ -259,7 +260,7 @@ class  PagamentoService extends AbstractService
         $dados[ST_PAGAMENTO] = StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento());
         $dados[TP_PAGAMENTO] = $tpPagamento;
         $dados[NU_VALOR_TOTAL] = Valida::FormataMoeda($pagamento->getNuValorTotal(), 'R$');
-        if (PerfilService::perfilMaster()) {
+        if (PerfilService::perfilMaster() || PerfilService::perfilFundador()) {
             $dados[NU_VALOR_DESCONTO] = Valida::FormataMoeda($pagamento->getNuValorDesconto(), 'R$');
             $dados[NU_VALOR_PAGO] = Valida::FormataMoeda($pagamento->getNuValorPago(), 'R$');
         }
