@@ -140,6 +140,12 @@
                         ?>
                     </div>
                 </div>
+                <div class="pull-right">
+                    <!-- end: DYNAMIC TABLE PANEL -->
+                    <?php Valida::geraBtnVoltar('Curso/ListarTurma/' .
+                        Valida::GeraParametro(CO_CURSO . "/" . $curso)); ?>
+                </div>
+                <br><br><br>
                 <!-- end: DYNAMIC TABLE PANEL -->
             </div>
         </div>

@@ -181,6 +181,7 @@ class Curso extends AbstractController
                     $CursoGratuito = false;
                 }
             }
+            $this->curso = $turma->getCoCurso()->getCoCurso();
             $this->result = $result;
             $this->CursoGratuito = $CursoGratuito;
         } else {
