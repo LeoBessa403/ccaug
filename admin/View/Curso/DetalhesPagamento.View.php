@@ -9,20 +9,52 @@
     </div>
     <div class="modal-body">
         <div class="row col-sm-12" id="Visualizar-Pagamento">
+            <div id="form-group-noPessoa" class="form-group col-sm-12">
+                <label for="noPessoa" class="col-sm-3  align-right">
+                    Nome:
+                </label>
+                <div class="col-sm-9">
+                    <span class="noPessoa"><b></b></span>
+                </div>
+            </div>
+            <div id="form-group-Email" class="form-group col-sm-12">
+                <label for="Email" class="col-sm-3  align-right">
+                    E-mail:
+                </label>
+                <div class="col-sm-9">
+                    <span class="Email"><b></b></span>
+                </div>
+            </div>
+            <div id="form-group-Telefone" class="form-group col-sm-12">
+                <label for="Telefone" class="col-sm-3  align-right">
+                    Telefone:
+                </label>
+                <div class="col-sm-9">
+                    <span class="Telefone"><b></b></span>
+                </div>
+            </div>
+            <div id="form-group-Curso" class="form-group col-sm-12">
+                <label for="Curso" class="col-sm-3  align-right">
+                    Curso:
+                </label>
+                <div class="col-sm-9">
+                    <span class="Curso"><b></b></span>
+                </div>
+            </div>
+            <div id="form-group-Turma" class="form-group col-sm-12">
+                <label for="Turma" class="col-sm-3  align-right">
+                    Turma:
+                </label>
+                <div class="col-sm-9">
+                    <span class="Turma"><b></b></span>
+                </div>
+            </div>
             <div id="form-group-Code" class="form-group col-sm-12">
                 <label for="Code" class="col-sm-3  align-right">
                     Código da Transação:
                 </label>
                 <div class="col-sm-9">
                     <span class="Code"><b></b></span>
-                </div>
-            </div>
-            <div id="form-group-plano" class="form-group col-sm-12">
-                <label for="plano" class="col-sm-3  align-right">
-                    Curso:
-                </label>
-                <div class="col-sm-9">
-                    <span class="plano"><b></b></span>
                 </div>
             </div>
             <div id="form-group-Data_Pagamento" class="form-group col-sm-12">

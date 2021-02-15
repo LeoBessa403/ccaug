@@ -229,10 +229,21 @@ class  PagamentoService extends AbstractService
     {
         /** @var PagamentoService $PagamentoService */
         $PagamentoService = new PagamentoService();
+        /** @var PessoaService $PessoaService */
+        $PessoaService = new PessoaService();
+        /** @var CursoService $CursoService */
+        $CursoService = new CursoService();
         /** @var PagamentoEntidade $pagamento */
         $pagamento = $PagamentoService->PesquisaUmRegistro($coPagamento);
+        /** @var PessoaEntidade $pessoa */
+        $pessoa = $PessoaService->PesquisaUmRegistro($pagamento->getCoInscricao()->getCoAluno()->getCoPessoa());
+        /** @var CursoEntidade $curso */
+        $curso = $CursoService->PesquisaUmRegistro($pagamento->getCoInscricao()->getCoTurma()->getCoCurso());
 
         $dados = [];
+        $dados[NO_PESSOA] = $pessoa->getNoPessoa();
+        $dados[DS_EMAIL] = $pessoa->getCoContato()->getDsEmail();
+        $dados[NU_TEL1] = Valida::MascaraTel($pessoa->getCoContato()->getNuTel1());
         $dados[CO_PAGAMENTO] = [];
         $dados[CO_HISTORICO_PAGAMENTO] = [];
         if ($pagamento->getCoHistoricoPagamento()) {
@@ -254,8 +265,12 @@ class  PagamentoService extends AbstractService
         $codePagamento = ($pagamento->getDsCodeTransacao() != 'null') ?
             $pagamento->getDsCodeTransacao() : '';
 
+        /** @var TurmaEntidade $turma */
+        $turma = $pagamento->getCoInscricao()->getCoTurma();
+
+        $dados[DS_TURMA] = $turma->getDsTurma() . ' / ' . $turma->getNuAno();
         $dados[DS_CODE_TRANSACAO] = $codePagamento;
-        $dados[DS_TITULO] = 'Curso nota 1000';
+        $dados[DS_TITULO] = $curso->getCoUltimoValorCurso()->getDsTitulo();
         $dados[DT_CONFIRMA_PAGAMENTO] = $dtPagamento;
         $dados[ST_PAGAMENTO] = StatusPagamentoEnum::getDescricaoValor($pagamento->getStPagamento());
         $dados[TP_PAGAMENTO] = $tpPagamento;

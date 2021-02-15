@@ -466,3 +466,23 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:03:13" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:03:13" where co_acesso = 12;
 
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:15:54" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:15:56" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:26:04" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:26:05" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:31:55" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:31:56" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:31:59" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:32:00" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:33:30" where co_acesso = 12;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-15 18:33:31" where co_acesso = 12;
+
