@@ -59,7 +59,7 @@ if ($session->CheckSession(MENSAGEM)) {
             Notificacoes::mesagens($session::getSession(MENSAGEM), $session::getSession(TIPO));
             break;
     }
-//    $session->FinalizaSession(MENSAGEM);
+    $session->FinalizaSession(MENSAGEM);
 }
 
 
