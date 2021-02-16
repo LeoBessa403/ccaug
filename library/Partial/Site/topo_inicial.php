@@ -76,7 +76,7 @@ $siteMap = new Sitemap();
     <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>plugins/gritter/css/jquery.gritter.css">
 
     <!-- Icons/Glyphs -->
-    <link rel="stylesheet" href="<?= PASTASITE; ?>css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?= PASTA_LIBRARY; ?>css/font-awesome.min.css">
 
 </head>
 <style>
