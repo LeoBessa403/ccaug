@@ -75,9 +75,9 @@ if (defined('TEM_SITE') == false) {
     // TAMANHO PADRÃO DO WIDTH DAS IAMGENS A SEREM CARREGADAS
     define('TAMANHO', 800);
     // NÚMERO PADRÃO DE ENVIO DO WHATSAPP
-    define('WHATSAPP', '');
+    define('WHATSAPP', '5561983610081');
     // NÚMERO PADRÃO DE RECEBIMENTO DO WHATSAPP
-    define('WHATSAPP_MSG', '');
+    define('WHATSAPP_MSG', '5561983610081');
     // DESCRIÇÃO PADRÃO DO SITE
     define('DESC_SITE', 'Sistema de gestão novo');
     // TÍTULO PADRÃO DO SITE

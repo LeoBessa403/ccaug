@@ -35,7 +35,13 @@
         </div>
     </div>
 </footer>
-
+<div class="icon-whats">
+    <a class="pulse" title="Nos chame no WhatSapp"
+       href="<?= Valida::geraLinkWhatSapp(Mensagens::ZAP01) ?>"
+       target="_blank">
+        <i class="fa fa-whatsapp"></i>
+    </a>
+</div>
 <script type="text/javascript" src="<?= PASTA_LIBRARY; ?>Helpers/includes/jquery-1.10.2.js"></script>
 <script type="text/javascript" src="<?= PASTA_LIBRARY; ?>Helpers/includes/jquery-2.0.3.js"></script>
 <script type="text/javascript" src="<?= PASTASITE; ?>js/app.js"></script>

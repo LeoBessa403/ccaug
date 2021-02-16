@@ -23,5 +23,8 @@ class Mensagens
 
     public $MSG01 = "Esse Perfil esta vinculado a um Usuário ou Funcionalidade.";
 
+    // MENSAGENS DO WHATSAPP
+    const ZAP01 = "Olhando no site e gostaria de saber mais!";
+
 
 }
