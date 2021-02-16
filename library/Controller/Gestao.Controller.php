@@ -252,7 +252,7 @@ class Gestao extends AbstractController
 
                     // ARQUIVOS CSS
                     $css[] = INCLUDES_LIBRARY . "plugins/bootstrap/css/bootstrap.min.css";
-                    $css[] = INCLUDES_LIBRARY . "plugins/font-awesome/css/font-awesome.min.css";
+                    $css[] = INCLUDES_LIBRARY . "css/font-awesome.min.css";
                     $css[] = INCLUDES_LIBRARY . "fonts/style.css";
                     $css[] = INCLUDES_LIBRARY . "css/main.css";
                     $css[] = INCLUDES_LIBRARY . "plugins/iCheck/skins/all.css";

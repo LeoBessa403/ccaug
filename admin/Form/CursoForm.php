@@ -200,7 +200,7 @@ class CursoForm
             ->setId(NU_TEL1)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Celular do Aluno")
-            ->setInfo("Com <i class='fa fa-whatsapp' style='color: green;'></i> WhatSapp")
+            ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;'></i> WhatSapp")
             ->setClasses("tel ob")
             ->setTamanhoInput(6)
             ->CriaInpunt();

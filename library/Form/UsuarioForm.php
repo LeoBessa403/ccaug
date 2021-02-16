@@ -83,7 +83,7 @@ class UsuarioForm extends AbstractController
             ->setTamanhoInput(6)
             ->setIcon("fa fa-mobile-phone")
             ->setLabel("Telefone Celular")
-            ->setInfo("Com o Whatsapp")
+            ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;'></i> WhatSapp")
             ->setClasses("tel ob")
             ->CriaInpunt();
 
@@ -326,7 +326,7 @@ class UsuarioForm extends AbstractController
         $formulario
             ->setId(NU_TEL1)
             ->setIcon("fa fa-mobile-phone")
-            ->setLabel("Telefone (WhatsApp)")
+            ->setInfo("Com <i class=\"fa fa-whatsapp\" style='color: green;' '></i> WhatSapp")
             ->setClasses("tel ob")
             ->CriaInpunt();
 

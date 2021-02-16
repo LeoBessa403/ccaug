@@ -661,3 +661,57 @@ INSERT INTO tb_pessoa VALUES("87","12345678909","JOSE DANILO MEIRA NETO","","201
 
 
 
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("vnj7gokd8ens1qqj7a77cs6cej", "1", "A", "14", "2021-02-16 12:27:01", "2021-02-16 11:57:01");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:02" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:02" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:06" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:07" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:09" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:10" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:12" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:13" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:19" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:27:20" where co_acesso = 14;
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-16 11:57:26" where co_acesso = 14;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("vnj7gokd8ens1qqj7a77cs6cej", "1", "A", "15", "2021-02-16 12:33:54", "2021-02-16 12:03:54");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:33:55" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:33:55" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:00" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:01" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:04" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:04" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:08" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:08" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:16" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:16" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:33" where co_acesso = 15;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:34:34" where co_acesso = 15;
+
