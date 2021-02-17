@@ -30,6 +30,10 @@ $(function () {
     $(".cartao_credito").keyup(function () {
         var numCartao = $(this).val().replace(/[^0-9]+/g, '');
         var TamNumCartao = numCartao.length;
+        if(TamNumCartao == 16){
+            numCartao  = $(this).val().replace(/[^0-9]+/g, '').substring(6, 0);
+            TamNumCartao = numCartao.length;
+        }
         var spanBandeira = $(this).parents('.input-group').children('span.input-group-addon');
         var spanMensagem = $(this).parents('.input-group').parents('.form-group').children('span.help-block');
         if (TamNumCartao == 6) {
