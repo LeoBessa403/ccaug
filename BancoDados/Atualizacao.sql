@@ -1237,3 +1237,41 @@ UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-17T12:20:47
 
 INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("34", "2021-02-17T12:20:47.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
 
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "43454353456", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "Rua Ipanema", ds_complemento = "", ds_bairro = "Ypiranga", nu_cep = "72879282", no_cidade = "Valparaíso de Goiás", sg_uf = "GO" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 14:24:48");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("37", "3", "2021-02-17 14:24:48");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("35", "2021-02-17 14:24:48", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "2", dt_modificado = "2021-02-17T13:24:55.000-03:00", nu_valor_desconto = "2.13", nu_valor_pago = "20.67", nu_valor_total = "22.80", ds_link_boleto = "", ds_code_transacao = "333EF82B-422E-4C51-9317-938998131C40" where co_pagamento = 35;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("35", "2021-02-17T13:24:55.000-03:00", "Mudou o Status do pagamento para Em análise", "Retorno da operadora do pagamento", "2");
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("oqns1tjdtdn2ti4tqk2861qir3", "1", "A", "19", "2021-02-17 14:55:52", "2021-02-17 14:25:52");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:55:52" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:55:53" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:55:57" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:55:58" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:56:01" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:56:02" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:56:04" where co_acesso = 19;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 14:56:05" where co_acesso = 19;
+
