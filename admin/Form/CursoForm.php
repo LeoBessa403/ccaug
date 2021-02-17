@@ -218,8 +218,8 @@ class CursoForm
                 null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
                 TipoPagamentoEnum::CARTAO_CREDITO =>
                     TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::CARTAO_CREDITO),
-                TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA =>
-                    TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA),
+                TipoPagamentoEnum::PIX =>
+                    TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::PIX),
                 TipoPagamentoEnum::BOLETO =>
                     TipoPagamentoEnum::getDescricaoValor(TipoPagamentoEnum::BOLETO)
             ];
@@ -233,17 +233,13 @@ class CursoForm
                 ->CriaInpunt();
         }
 
-
-        $bancos = [
-            null => Mensagens::MSG_SEM_ITEM_SELECIONADO,
-        ];
         $formulario
-            ->setId('bankName')
-            ->setType(TiposCampoEnum::SELECT)
-            ->setLabel("Banco")
+            ->setId(DS_CAMINHO)
+            ->setType(TiposCampoEnum::SINGLEFILE)
+            ->setInfo("Chave PIX: <b>linnekerlima@hotmail.com</b>")
             ->setClasses("debito")
+            ->setLabel("QR Code PIX (Enviar Comprovante No WhatsApp no Site)")
             ->setTamanhoInput(12)
-            ->setOptions($bancos)
             ->CriaInpunt();
 
         $formulario

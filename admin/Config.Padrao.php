@@ -29,9 +29,9 @@ define('NUM_BG_IMAGENS', '8');
 define('WHATSAPP', '5561983610081');
 define('WHATSAPP_MSG', '5561983610081');
 define('CONTROLLER_SEO', '');
-define('USER_EMAIL', 'naoresponda@editoraenovus.com.br');
-define('PASS_EMAIL', '@EnOvUs.2018@');
-define('HOST_EMAIL', 'smtp.editoraenovus.com.br');
+define('USER_EMAIL', 'escoladeapostolos@ccaug.com.br');
+define('PASS_EMAIL', 'CcAuG2021*/');
+define('HOST_EMAIL', 'mail.ccaug.com.br');
 define('PORTA_EMAIL', '587');
 define('ID_ANALITCS', '');
 

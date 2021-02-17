@@ -719,3 +719,521 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:37:54" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 12:37:55" where co_acesso = 15;
 
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("72681438187", "Leonardo Machado Carvalho Bessa", "", "2021-02-16 16:47:44", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("9155662233", "", "", "", "leonardo.bessa@basis.com.br", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("Rua Ipanema", "", "Ypiranga", "72879282", "Valparaíso de Goiás", "GO");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("11", "2021-02-16 16:47:44", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-16 16:47:44");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("16", "3", "2021-02-16 16:47:44");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("14", "2021-02-16 16:47:44", "Inicia o pagamento", "Usuário SisEnovus Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "2", dt_modificado = "2021-02-16T15:47:51.000-03:00", nu_valor_desconto = "2.13", nu_valor_pago = "20.67", nu_valor_total = "22.80", ds_link_boleto = "", ds_code_transacao = "389FD5F3-E33E-4452-A9A4-085F5D514202" where co_pagamento = 14;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("14", "2021-02-16T15:47:51.000-03:00", "Mudou o Status do pagamento para Em análise", "Retorno da operadora do pagamento", "2");
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F" where co_acesso = 15;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("fpemfi3mjk36i8ig83guilfcqa", "1", "A", "16", "2021-02-16 17:18:22", "2021-02-16 16:48:22");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:18:22" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:18:23" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:07" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:08" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:11" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:12" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:14" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:21:15" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:25:53" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:25:54" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:01" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:01" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:04" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:05" where co_acesso = 16;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("14", "2021-02-16T15:55:45.000-03:00", "Mudou o Status do pagamento para Pago ", "Retorno da operadora do pagamento", "3");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "3", dt_modificado = "2021-02-16T15:55:45.000-03:00", dt_pago = "2021-02-16T15:55:45.000-03:00" where co_pagamento = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:11" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:26:12" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:35" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:36" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:39" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:40" where co_acesso = 16;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("14", "2021-02-16T15:57:30.000-03:00", "Mudou o Status do pagamento para Em disputa", "Retorno da operadora do pagamento", "5");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "5", dt_modificado = "2021-02-16T15:57:30.000-03:00" where co_pagamento = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:47" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:27:48" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:27" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:28" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:32" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:33" where co_acesso = 16;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("14", "2021-02-16T15:58:26.000-03:00", "Mudou o Status do pagamento para Pago e Disponível", "Retorno da operadora do pagamento", "4");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "4", dt_modificado = "2021-02-16T15:58:26.000-03:00" where co_pagamento = 14;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:40" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 17:28:40" where co_acesso = 16;
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-16 17:28:43" where co_acesso = 16;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("fpemfi3mjk36i8ig83guilfcqa", "1", "A", "17", "2021-02-16 18:01:59", "2021-02-16 17:31:59");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 18:01:59" where co_acesso = 17;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 18:02:00" where co_acesso = 17;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 18:02:02" where co_acesso = 17;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-16 18:02:03" where co_acesso = 17;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "01304694160", no_pessoa = "Aluno Post", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 10;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6465423132", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leninha.k@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 10;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 10;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "10", co_endereco = "10" where co_pessoa = 10;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("9", "1", "2021-02-16 17:38:14");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("17", "5", "2021-02-16 17:38:14");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("15", "2021-02-16 17:38:14", "Inicia o pagamento", "Usuário SisEnovus Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-16T16:38:22.000-03:00", nu_valor_desconto = "1.31", nu_valor_pago = "21.49", nu_valor_total = "22.80", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=7dd8a74dd66756ce163426707416aa478b326114ba004fa3116cd960c32697eb79a5e695f74c352e", ds_code_transacao = "08D7DAD4-8167-47E3-A352-E10240BE6FCA" where co_pagamento = 15;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("15", "2021-02-16T16:38:22.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F" where co_acesso = 17;
+
+INSERT INTO ccaug100.TB_TRAFEGO (ds_navegador, ds_sistema_operacional, ds_dispositivo, nu_ip, ds_pais, ds_code_pais, ds_estado, ds_uf, ds_cidade, ds_agente) VALUES ("Firefox", "Windows 8.1", "Desktop", "127.0.0.1", "Desconhecido", "Desconhecida", "Desconhecida", "Desconhecida", "Desconhecida", "Mozilla/5.0 (Windows NT 6.3; Win64; x64; rv:85.0) Gecko/20100101 Firefox/85.0");
+
+INSERT INTO ccaug100.TB_ACESSO (ds_session_id, co_usuario, tp_situacao, co_trafego, dt_fim_acesso, dt_inicio_acesso) VALUES ("oqns1tjdtdn2ti4tqk2861qir3", "1", "A", "18", "2021-02-17 11:22:34", "2021-02-17 10:52:34");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:22:34" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:22:35" where co_acesso = 18;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "45335354355", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leninha.k@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 11:14:41");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("18", "4", "2021-02-17 11:14:41");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 11:14:41", nu_valor_pago = "0.00", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 16;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("16", "2021-02-17 11:14:41", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:47" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:48" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:54" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:54" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:56" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:44:57" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:52:27" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:52:29" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:52:57" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:52:58" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:55:45" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:55:46" where co_acesso = 18;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "01304694160", no_pessoa = "Aluno Post", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 10;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4345343545", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 10;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 10;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "10", co_endereco = "10" where co_pessoa = 10;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("9", "1", "2021-02-17 11:26:18");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("19", "4", "2021-02-17 11:26:18");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 11:26:18", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 17;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_usuario, st_pagamento) VALUES ("17", "2021-02-17 11:26:18", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:56:23" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 11:56:23" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:11:34" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:11:35" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:12:27" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:12:27" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:31:16" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:31:16" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:15" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:16" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:17" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:18" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:29" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:38:30" where co_acesso = 18;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4535533545", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 12:09:01");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("20", "4", "2021-02-17 12:09:01");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:09:01", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 18;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("18", "2021-02-17 12:09:01", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "5554454545", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 12:10:45");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("21", "4", "2021-02-17 12:10:45");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:10:45", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 19;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("19", "2021-02-17 12:10:45", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6767767678", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 12:16:51");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("22", "4", "2021-02-17 12:16:51");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:16:51", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 20;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("20", "2021-02-17 12:16:51", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:47:29" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:47:29" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:50:24" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:50:25" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:50:26" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 12:50:27" where co_acesso = 18;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6767767678", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 12:20:32");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("23", "4", "2021-02-17 12:20:32");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:20:32", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 21;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("21", "2021-02-17 12:20:32", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Lili Cara Fofa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "21442143555", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "lililasp@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 12:28:29");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("24", "4", "2021-02-17 12:28:29");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:28:29", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 22;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("22", "2021-02-17 12:28:29", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "3445355535", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 12:28:58");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("25", "4", "2021-02-17 12:28:58");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:28:58", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 23;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("23", "2021-02-17 12:28:58", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "01304694160", no_pessoa = "Lili Cara Fofa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 10;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "5434534534", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 10;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 10;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "10", co_endereco = "10" where co_pessoa = 10;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("9", "1", "2021-02-17 12:31:20");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("26", "4", "2021-02-17 12:31:20");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:31:20", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 24;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("24", "2021-02-17 12:31:20", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 13:04:57" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 13:04:59" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 13:05:00" where co_acesso = 18;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 13:05:01" where co_acesso = 18;
+
+INSERT INTO ccaug100.TB_PESSOA (nu_cpf, no_pessoa, nu_rg, dt_cadastro, dt_nascimento, st_sexo) VALUES ("22322191191", "Lili Cara Fofa", "", "2021-02-17 12:37:02", "", "");
+
+INSERT INTO ccaug100.TB_CONTATO (nu_tel1, nu_tel2, nu_tel3, nu_tel_0800, ds_email, ds_site, ds_facebook, ds_twitter, ds_instagram) VALUES ("42342553535", "", "", "", "lililasp@gmail.com", "", "", "", "");
+
+INSERT INTO ccaug100.TB_ENDERECO (ds_endereco, ds_complemento, ds_bairro, nu_cep, no_cidade, sg_uf) VALUES ("", "", "", "", "", "");
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "12", co_endereco = "12" where co_pessoa = 12;
+
+INSERT INTO TB_ALUNO (co_pessoa, dt_cadastro, st_status) VALUES ("12", "2021-02-17 12:37:02", "S");
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("11", "1", "2021-02-17 12:37:02");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("27", "4", "2021-02-17 12:37:02");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:37:02", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 25;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("25", "2021-02-17 12:37:02", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "22322191191", no_pessoa = "Jose Arnaldo", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 12;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "9879789790", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 12;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 12;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "12", co_endereco = "12" where co_pessoa = 12;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("11", "1", "2021-02-17 12:50:32");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("28", "4", "2021-02-17 12:50:32");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 12:50:32", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 26;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("26", "2021-02-17 12:50:33", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Aluno Post", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4325255555", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:04:37");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("29", "4", "2021-02-17 13:04:37");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 13:04:37", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 27;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("27", "2021-02-17 13:04:37", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-17 13:05:04" where co_acesso = 18;
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "72681438187", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 11;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "53253535355", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "lililasp@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 11;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 11;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "11", co_endereco = "11" where co_pessoa = 11;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("10", "1", "2021-02-17 13:07:47");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("30", "4", "2021-02-17 13:07:47");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-02-17 13:07:47", nu_valor_pago = "22.80", nu_valor_total = "22.80", nu_valor_desconto = "0.00", st_pagamento = "1" where co_pagamento = 28;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("28", "2021-02-17 13:07:47", "Iniciou o Pagamento.", "O Aluno Efetivou a Inscrição", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4321343443", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:08:24");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("31", "5", "2021-02-17 13:08:24");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("29", "2021-02-17 13:08:24", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-17T12:08:31.000-03:00", nu_valor_desconto = "1.31", nu_valor_pago = "21.49", nu_valor_total = "22.80", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=28abe83ac0639a8757120a07d65cb56f4d2615962e85fb4bca597fceda330a0ba650d7d4283471cf", ds_code_transacao = "C7E67ABD-1534-4F76-959F-FDA67363A6DC" where co_pagamento = 29;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("29", "2021-02-17T12:08:31.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4543252352", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:13:58");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("32", "5", "2021-02-17 13:13:58");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4543252352", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:14:28");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("33", "5", "2021-02-17 13:14:28");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("31", "2021-02-17 13:14:28", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Leonardo Machado Carvalho Bessa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "4543252352", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:15:20");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("34", "5", "2021-02-17 13:15:20");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("32", "2021-02-17 13:15:20", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-17T12:15:28.000-03:00", nu_valor_desconto = "1.31", nu_valor_pago = "21.49", nu_valor_total = "22.80", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=101b06ed363d3b8d4a5f18b7a8fe4f58cf3e5a2c31871cfeac621d518653c8718da9dfa4f58bbf33", ds_code_transacao = "9C3611B7-53B9-4A66-837C-0EC6FD54E80A" where co_pagamento = 32;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("32", "2021-02-17T12:15:28.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Aluno A", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6546546546", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "lililasp@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:18:24");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("35", "5", "2021-02-17 13:18:24");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("33", "2021-02-17 13:18:24", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-17T12:18:31.000-03:00", nu_valor_desconto = "1.31", nu_valor_pago = "21.49", nu_valor_total = "22.80", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=6e9a925a471cb2ace15db4662d565cd6e5412a3e0fb21dc1626cc00079858ab20c8ae3f9531a5634", ds_code_transacao = "D8C7E307-2F25-4C4B-9616-4F0286919D2E" where co_pagamento = 33;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("33", "2021-02-17T12:18:31.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Lili Cara Fofa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "6577657777", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "leonardomcbessa@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "1", "2021-02-17 13:20:40");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("36", "5", "2021-02-17 13:20:40");
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("34", "2021-02-17 13:20:40", "Inicia o pagamento", "Aluno Iniciou o pagamento", "0");
+
+UPDATE TB_PAGAMENTO SET st_pagamento = "1", dt_modificado = "2021-02-17T12:20:47.000-03:00", nu_valor_desconto = "1.31", nu_valor_pago = "21.49", nu_valor_total = "22.80", ds_link_boleto = "https://sandbox.pagseguro.uol.com.br/checkout/payment/booklet/print.jhtml?c=8e7ec81ef3b5665ca32bc392d5b45077644e5ae8f044dcd17a6997abfe3c5c5eea19c3fc68e3e995", ds_code_transacao = "40AE9AEE-01F1-4806-B94C-1DE2961D0163" where co_pagamento = 34;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("34", "2021-02-17T12:20:47.000-03:00", "Mudou o Status do pagamento para Aguardando pagamento", "Retorno da operadora do pagamento", "1");
+

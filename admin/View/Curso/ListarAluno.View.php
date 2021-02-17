@@ -80,18 +80,12 @@
                                                         data-original-title="Abrir Boleto" data-placement="top">
                                                          <i class="clip-file-pdf"></i>
                                                      </a>';
-                                    } elseif ($pagamento->getTpPagamento() == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA
-                                        && $pagamento->getDsLinkBoleto()) {
-                                        $acao .= ' <a href="' . $pagamento->getDsLinkBoleto() . '" target="_blank"
-                                                    class="btn btn-warning tooltips" 
-                                                        data-original-title="Abrir Página do Banco" data-placement="top">
-                                                         <i class="clip-banknote"></i>
-                                                     </a>';
                                     }
                                 }
                                 if ($pagamento->getStPagamento() > 0) {
-                                    if ($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
-                                        $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) {
+                                    if (($pagamento->getStPagamento() == StatusPagamentoEnum::AGUARDANDO_PAGAMENTO ||
+                                        $pagamento->getStPagamento() == StatusPagamentoEnum::EM_ANALISE) &&
+                                        ($pagamento->getTpPagamento() != TipoPagamentoEnum::PIX)) {
                                         $acao .= ' <a href="' . PASTAADMIN . 'Curso/CancelarPagamentoCurso/' .
                                             Valida::GeraParametro(DS_CODE_TRANSACAO . "/" .
                                                 $pagamento->getDsCodeTransacao()) . '" 

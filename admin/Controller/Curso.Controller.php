@@ -205,6 +205,7 @@ class Curso extends AbstractController
         endif;
 
         $res[CO_CURSO] = static::verificaCurso();
+        $res[DS_CAMINHO] = 'pix.jpg';
         /** @var CursoEntidade $curso */
         $curso = $CursoService->PesquisaUmRegistro($res[CO_CURSO]);
         $this->noCurso = $curso->getCoUltimoValorCurso()->getDsTitulo();

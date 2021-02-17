@@ -43,8 +43,8 @@ class Email
     public function Enviar()
     {
 
-        $compara = strstr(HOME, 'localhost');
-        if ($compara == null):
+//        $compara = strstr(HOME, 'localhost');
+//        if ($compara == null):
             /** @var PHPMailer $mail */
             $mail = $this->Mail;
             $this->Mail->CharSet = 'utf-8';
@@ -86,7 +86,7 @@ class Email
             }
             $mail->ClearAttachments();
             $mail->clearAddresses();
-        endif;
+//        endif;
         return $this;
     }
 

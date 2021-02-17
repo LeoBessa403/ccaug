@@ -78,7 +78,7 @@ class  InscricaoService extends AbstractService
                 $turmas = array_reverse($curso->getCoTurma());
                 /** @var TurmaEntidade $turma */
                 foreach ($turmas as $turma) {
-                    if ($turma->getStStatus() == SimNaoEnum::SIM){
+                    if ($turma->getStStatus() == SimNaoEnum::SIM) {
                         $insc[CO_TURMA] = $turma->getCoTurma();
                         break;
                     }
@@ -95,6 +95,10 @@ class  InscricaoService extends AbstractService
 
             $histPag[CO_PAGAMENTO] = $PagamentoService->Salva($pagInsc);
             $retorno[MSG] = CADASTRADO;
+
+            $dadosEmail[NO_PESSOA] = $dados[NO_PESSOA];
+            $dadosEmail[DS_EMAIL] = $dados[DS_EMAIL];
+            $dadosEmail[DS_TITULO] = $curso->getCoUltimoValorCurso()->getDsTitulo();
 
             if ($pagInsc[TP_PAGAMENTO] == TipoPagamentoEnum::GRATIS) {
 
@@ -131,79 +135,115 @@ class  InscricaoService extends AbstractService
                 }
             } else {
 
-                // HISTORICO DO PAGAMENTO INICIADO
-                $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
-                $histPag[DS_ACAO] = 'Inicia o pagamento';
-                $histPag[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
-                    . ' Iniciou o pagamento';
-                $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
-                $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
+                if ($dados[TP_PAGAMENTO][0] == TipoPagamentoEnum::PIX) {
+                    $pagCurso[DT_MODIFICADO] = Valida::DataHoraAtualBanco();
+                    $pagCurso[NU_VALOR_PAGO] = $curso->getCoUltimoValorCurso()->getNuValor();
+                    $pagCurso[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
+                    $pagCurso[NU_VALOR_DESCONTO] = '0.00';
+                    $pagCurso[ST_PAGAMENTO] = StatusPagamentoEnum::AGUARDANDO_PAGAMENTO;
 
-                if ($retorno[SUCESSO]) {
-                    /** @var PessoaEntidade $pessoa */
-                    $pessoa = $PessoaService->PesquisaUmRegistro($coPessoa);
-                    $retorno = $this->processaPagamento($curso, $pessoa, $histPag[CO_PAGAMENTO]);
+                    $PagamentoService->Salva($pagCurso, $histPag[CO_PAGAMENTO]);
 
-                    if ($retorno["dados"]->error) {
+                    // HISTORICO DO PAGAMENTO INICIADO
+                    $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                    $histPag[DS_ACAO] = 'Iniciou o Pagamento.';
+                    $histPag[DS_USUARIO] = 'O Aluno Efetivou a Inscrição';
+                    $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::AGUARDANDO_PAGAMENTO;
+                    $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
+
+                    if ($retorno[SUCESSO]) {
+                        $dadosEmail['pix'] = true;
+                        $retorno[SUCESSO] = true;
                         Notificacoes::geraMensagem(
-                            'Não foi possível realizar o Pagamento!',
+                            'Inscrição Realizada com Sucesso!<br>Instruções de pagamento Enviada no E-mail.',
+                            TiposMensagemEnum::SUCESSO
+                        );
+                        $PDO->commit();
+                    } else {
+                        Notificacoes::geraMensagem(
+                            'Error ao salvar o pagamento',
                             TiposMensagemEnum::ALERTA
                         );
                         $retorno[SUCESSO] = false;
                         $PDO->rollBack();
-                    } else {
-                        $retornoPagSeguro = $retorno['dados'];
+                    }
+                } else {
 
-                        $retPagSeg[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
-                        $retPagSeg[DT_MODIFICADO] = (string)$retornoPagSeguro->lastEventDate;
-                        $retPagSeg[NU_VALOR_DESCONTO] = (string)$retornoPagSeguro->feeAmount;
-                        $retPagSeg[NU_VALOR_PAGO] = (string)$retornoPagSeguro->netAmount;
-                        $retPagSeg[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
-                        $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
-                        $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
+                    // HISTORICO DO PAGAMENTO INICIADO
+                    $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
+                    $histPag[DS_ACAO] = 'Inicia o pagamento';
+                    $histPag[DS_USUARIO] = 'Aluno Iniciou o pagamento';
+                    //UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
+                    $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
+                    $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 
-                        $retorno[SUCESSO] = $PagamentoService->Salva(
-                            $retPagSeg, (int)$retornoPagSeguro->reference);
+                    if ($retorno[SUCESSO]) {
+                        /** @var PessoaEntidade $pessoa */
+                        $pessoa = $PessoaService->PesquisaUmRegistro($coPessoa);
+                        $retorno = $this->processaPagamento($curso, $pessoa, $histPag[CO_PAGAMENTO]);
 
-                        // HISTORICO DO PAGAMENTO RETORNO PAGSEGURO
-                        $histPagAss[CO_PAGAMENTO] = (int)$retornoPagSeguro->reference;
-                        $histPagAss[DT_CADASTRO] = (string)$retornoPagSeguro->lastEventDate;
-                        $histPagAss[DS_ACAO] = 'Mudou o Status do pagamento para ' .
-                            StatusPagamentoEnum::getDescricaoValor((string)$retornoPagSeguro->status);
-                        $histPagAss[DS_USUARIO] = 'Retorno da operadora do pagamento';
-                        $histPagAss[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
-
-                        $HistoricoPagamentoService->Salva($histPagAss);
-
-                        if ($retorno[SUCESSO]) {
-                            $retorno[SUCESSO] = true;
-
-                            if ($retPagSeg[DS_LINK_BOLETO]) {
-                                echo "<script>window.open('" . $retPagSeg[DS_LINK_BOLETO] . "', '_blank');</script>";
-                            }
+                        if ($retorno["dados"]->error) {
                             Notificacoes::geraMensagem(
-                                'Inscrição Realizada com Sucesso!',
-                                TiposMensagemEnum::SUCESSO
-                            );
-                            $PDO->commit();
-                        } else {
-                            Notificacoes::geraMensagem(
-                                'Error ao salvar o pagamento',
+                                'Não foi possível realizar o Pagamento!',
                                 TiposMensagemEnum::ALERTA
                             );
                             $retorno[SUCESSO] = false;
                             $PDO->rollBack();
+                        } else {
+                            $retornoPagSeguro = $retorno['dados'];
+
+                            $retPagSeg[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
+                            $retPagSeg[DT_MODIFICADO] = (string)$retornoPagSeguro->lastEventDate;
+                            $retPagSeg[NU_VALOR_DESCONTO] = (string)$retornoPagSeguro->feeAmount;
+                            $retPagSeg[NU_VALOR_PAGO] = (string)$retornoPagSeguro->netAmount;
+                            $retPagSeg[NU_VALOR_TOTAL] = $curso->getCoUltimoValorCurso()->getNuValor();
+                            $retPagSeg[DS_LINK_BOLETO] = (string)$retornoPagSeguro->paymentLink;
+                            $retPagSeg[DS_CODE_TRANSACAO] = (string)$retornoPagSeguro->code;
+                            $retorno[SUCESSO] = $PagamentoService->Salva(
+                                $retPagSeg, (int)$retornoPagSeguro->reference);
+
+                            // HISTORICO DO PAGAMENTO RETORNO PAGSEGURO
+                            $histPagAss[CO_PAGAMENTO] = (int)$retornoPagSeguro->reference;
+                            $histPagAss[DT_CADASTRO] = (string)$retornoPagSeguro->lastEventDate;
+                            $histPagAss[DS_ACAO] = 'Mudou o Status do pagamento para ' .
+                                StatusPagamentoEnum::getDescricaoValor((string)$retornoPagSeguro->status);
+                            $histPagAss[DS_USUARIO] = 'Retorno da operadora do pagamento';
+                            $histPagAss[ST_PAGAMENTO] = (string)$retornoPagSeguro->status;
+
+                            $HistoricoPagamentoService->Salva($histPagAss);
+
+                            if ($retorno[SUCESSO]) {
+                                $retorno[SUCESSO] = true;
+
+                                if ($retPagSeg[DS_LINK_BOLETO]) {
+                                    $dadosEmail[DS_LINK_BOLETO] = $retPagSeg[DS_LINK_BOLETO];
+                                }
+                                Notificacoes::geraMensagem(
+                                    'Inscrição Realizada com Sucesso!<br>Confirmação de Inscrição e 
+                                            Link Do Boleto Enviado no Email',
+                                    TiposMensagemEnum::SUCESSO
+                                );
+                                $PDO->commit();
+                            } else {
+                                Notificacoes::geraMensagem(
+                                    'Error ao salvar o pagamento',
+                                    TiposMensagemEnum::ALERTA
+                                );
+                                $retorno[SUCESSO] = false;
+                                $PDO->rollBack();
+                            }
                         }
+                    } else {
+                        Notificacoes::geraMensagem(
+                            'Não foi possível realizar a ação',
+                            TiposMensagemEnum::ALERTA
+                        );
+                        $retorno[SUCESSO] = false;
+                        $PDO->rollBack();
                     }
-                } else {
-                    Notificacoes::geraMensagem(
-                        'Não foi possível realizar a ação',
-                        TiposMensagemEnum::ALERTA
-                    );
-                    $retorno[SUCESSO] = false;
-                    $PDO->rollBack();
                 }
             }
+            $this->enviaConfirmacaoEmail($dadosEmail);
         } else {
             Notificacoes::geraMensagem(
                 $validador[MSG],
@@ -211,13 +251,11 @@ class  InscricaoService extends AbstractService
             );
             $retorno = $validador;
         }
-
         return $retorno;
     }
 
 
-    private
-    function processaPagamento(CursoEntidade $curso, PessoaEntidade $pessoa, $coPag)
+    private function processaPagamento(CursoEntidade $curso, PessoaEntidade $pessoa, $coPag)
     {
         $Dados = filter_input_array(INPUT_POST, FILTER_DEFAULT);
 
@@ -250,7 +288,7 @@ class  InscricaoService extends AbstractService
             $DadosArray['paymentMethod'] = 'creditCard';
         } elseif ($tpPagamento == TipoPagamentoEnum::BOLETO) {
             $DadosArray['paymentMethod'] = 'boleto';
-        } elseif ($tpPagamento == TipoPagamentoEnum::DEPOSITO_TRANSFERENCIA) {
+        } elseif ($tpPagamento == TipoPagamentoEnum::PIX) {
             $DadosArray['bankName'] = $Dados['bankName'][0];
             $DadosArray['paymentMethod'] = 'eft';
         }
@@ -305,4 +343,43 @@ class  InscricaoService extends AbstractService
         return $retorna;
     }
 
+    public function enviaConfirmacaoEmail(array $dadosEmail)
+    {
+        if ($dadosEmail[NO_PESSOA]) {
+            /** @var Email $email */
+            $email = new Email();
+
+            // Índice = Nome, e Valor = Email.
+            $emails = array(
+                $dadosEmail[NO_PESSOA] => $dadosEmail[DS_EMAIL],
+            );
+            $Mensagem = "<h3>Olá " . $dadosEmail[NO_PESSOA] . ", Sua Inscrição no " . $dadosEmail[DS_TITULO] .
+                " foi realizada com sucesso.</h3>";
+            $Mensagem .= "<p>Em breve Mais informações do Curso.</p>";
+            if (!empty($dadosEmail[DS_LINK_BOLETO])) {
+                $Mensagem .= "<p><b>Aguardando Pagamento, </b>Acesso o link do Boleto para pagamento 
+                        <a href='" . $dadosEmail[DS_LINK_BOLETO] . "'>ABRIR BOLETO</a></p><br>";
+            } elseif (!empty($dadosEmail['pix'])) {
+                $Mensagem .= "<p>QR Code do PIX <img src='http://ccaug.com.br/uploads/pix.jpg' height='150' width='150'/> </p><br>";
+                $Mensagem .= "<p>Chave PIX <b>linnekerlima@hotmail.com</b></p><br>";
+                $Mensagem .= "<p><b>Aguardando Pagamento, </b>enviar comprovante para o WhatsApp da Escola.";
+                $Mensagem .= '<br>Se já realizou o pagamento, Clique em</b> 
+                                <a class="pulse" title="Nos chame no WhatSapp"
+                                               href="' . Valida::geraLinkWhatSapp("Ola, Segue meu comprovante de pagamento") . '"
+                                               target="_blank">WhatsApp</a> e nós envie o comprovante</p><br>';
+            }
+
+            $email->setEmailDestinatario($emails)
+                ->setTitulo("Escola de Apóstolos - Confirmação de Inscrição do " . $dadosEmail[DS_TITULO])
+                ->setMensagem($Mensagem);
+
+            // Variável para validação de Emails Enviados com Sucesso.
+            $this->Email = $email->Enviar();
+        } else {
+            Notificacoes::geraMensagem(
+                "Confirmação da Ativação não enviada!",
+                TiposMensagemEnum::INFORMATIVO
+            );
+        }
+    }
 }

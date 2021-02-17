@@ -1,9 +1,8 @@
 $(function () {
     var imgBand = '';
     $('.debito,.credito').parents('.form-group').hide();
-    var dados = Funcoes.Ajax('Inscricao/getReferenciaPagamentoInscricao', null);
-    PagSeguroDirectPayment.setSessionId(dados.id);
-    carregaBancos();
+    $('.user-edit-image-buttons').hide();
+
     $("button.btn-success").attr('type', 'button');
 
     $("#co_plano").change(function () {
@@ -16,12 +15,14 @@ $(function () {
         var tpPagamento = $(this).val();
         if (tpPagamento == 3) {
             $('.debito').parents('.form-group').hide();
-            $('.credito').parents('.form-group').show()
+            $('.credito').parents('.form-group').show();
+            carregaSession();
         } else if (tpPagamento == 4) {
             $('.debito').parents('.form-group').show();
-            $('.credito').parents('.form-group').hide()
+            $('.credito').parents('.form-group').hide();
         } else {
-            $('.debito,.credito').parents('.form-group').hide()
+            $('.debito,.credito').parents('.form-group').hide();
+            carregaSession();
         }
     });
     $(".cartao_credito").keyup(function () {
@@ -134,6 +135,11 @@ $(function () {
         })
     }
 
+    function carregaSession(){
+        var dados = Funcoes.Ajax('Inscricao/getReferenciaPagamentoInscricao', null);
+        PagSeguroDirectPayment.setSessionId(dados.id);
+    }
+
     $(".btn-success").click(function () {
         $(".img-load").show();
         var tpPagamento = $("#tp_pagamento").val();
@@ -161,7 +167,7 @@ $(function () {
             } else if (tpPagamento == 4) {
                 recupHashCartao();
             }
-        }else{
+        } else {
             recupHashCartao();
         }
     });

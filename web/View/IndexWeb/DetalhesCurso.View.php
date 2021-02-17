@@ -11,7 +11,7 @@ $curso = $result;
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a href="<?= HOME; ?>">Home</a></li>
-                            <li class="breadcrumb-item"><a href="<?= HOME; ?>cursos">cursos</a></li>
+                            <li class="breadcrumb-item"><a href="<?= HOME; ?>">cursos</a></li>
                             <li class="breadcrumb-item active" aria-current="page">
                                 <?= $curso->getCoUltimoValorCurso()->getDsTitulo(); ?>
                             </li>
@@ -83,27 +83,13 @@ $curso = $result;
                                             </p>
                                         <?php } ?>
                                     </div>
-                                    <?php
-                                    if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
-                                        ?>
-                                        <div class="col-auto text-right" style="float: left;">
-                                            <a href="#"
-                                               class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
-                                                Em breve
-                                            </a>
-                                        </div>
-                                        <?php
-                                    } else {
-                                        ?>
-                                        <div class="col-auto text-right" style="float: left;">
-                                            <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
-                                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
-                                               class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
-                                                Se Inscrever
-                                            </a>
-                                        </div>
-
-                                    <?php } ?>
+                                    <div class="col-auto text-right" style="float: left;">
+                                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
+                                           class="float-md-right margin-left-0 margin-top-15 margin-top-lg-0 btn btn-success btn-rounded">
+                                            Se Inscrever
+                                        </a>
+                                    </div>
                                 </div>
                                 <div class="row justify-content-end no-gutters margin-top-15">
                                     <div class="col-auto">
@@ -141,26 +127,13 @@ $curso = $result;
                     <div class="conteudo">
                         <?= $curso->getDsDescricao(); ?>
                     </div>
-                    <?php
-                    if ($curso->getCoUltimoValorCurso()->getNuValor() != '0.00') {
-                        ?>
-                        <div class="col-auto text-right" style="float: left;">
-                            <a href="#"
-                               class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
-                                Em breve
-                            </a>
-                        </div>
-                        <?php
-                    } else {
-                        ?>
-                        <div class="col-auto text-right" style="float: left;">
-                            <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
-                            Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
-                               class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
-                                Se Inscrever
-                            </a>
-                        </div>
-                    <?php } ?>
+                    <div class="col-auto text-right" style="float: left;">
+                        <a href="<?= PASTAADMIN . 'Curso/InscricaoCurso/' .
+                        Valida::GeraParametro(CO_CURSO . "/" . $curso->getCoCurso()); ?>"
+                           class="float-md-right margin-left-0 margin-top-30 btn btn-success btn-rounded">
+                            Se Inscrever
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
