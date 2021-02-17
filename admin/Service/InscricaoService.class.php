@@ -214,14 +214,23 @@ class  InscricaoService extends AbstractService
                             if ($retorno[SUCESSO]) {
                                 $retorno[SUCESSO] = true;
 
-                                if ($retPagSeg[DS_LINK_BOLETO]) {
-                                    $dadosEmail[DS_LINK_BOLETO] = $retPagSeg[DS_LINK_BOLETO];
-                                }
-                                Notificacoes::geraMensagem(
-                                    'Inscrição Realizada com Sucesso!<br>Confirmação de Inscrição e 
+                                if ($dados[TP_PAGAMENTO][0] == TipoPagamentoEnum::BOLETO) {
+                                    if ($retPagSeg[DS_LINK_BOLETO]) {
+                                        $dadosEmail[DS_LINK_BOLETO] = $retPagSeg[DS_LINK_BOLETO];
+                                    }
+                                    Notificacoes::geraMensagem(
+                                        'Inscrição Realizada com Sucesso!<br>Confirmação de Inscrição e 
                                             Link Do Boleto Enviado no Email',
-                                    TiposMensagemEnum::SUCESSO
-                                );
+                                        TiposMensagemEnum::SUCESSO
+                                    );
+                                }else{
+                                    Notificacoes::geraMensagem(
+                                        'Inscrição Realizada com Sucesso!<br>Confirmação de Inscrição e 
+                                            Enviado no Email<br>Aguardando confirmação de pagamento da Operadora do Cartão',
+                                        TiposMensagemEnum::SUCESSO
+                                    );
+                                }
+
                                 $PDO->commit();
                             } else {
                                 Notificacoes::geraMensagem(
