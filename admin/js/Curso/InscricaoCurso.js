@@ -49,7 +49,7 @@ $(function () {
             iniciaComboParcelas()
         }
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^.-]+/g, '');
+        valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor)
     }).focusout(function () {
         var spanBandeira = $(this).parents('.input-group').children('span.input-group-addon');

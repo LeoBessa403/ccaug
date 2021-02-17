@@ -162,12 +162,12 @@ $(function () {
         }
     }).keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^:]+/g, '');
+        valor = valor.val().replace(/[^:]+/g, '');
         $(this).val(valor);
     });
     $(".cep").mask("99.999-999").keyup(function () {
         var valor = $(this).val().replace(/[^0-9-.]+/g, '');
-        valor = valor.replace(/[^-.]+/g, '');
+        valor = valor.val().replace(/[^-.]+/g, '');
         $(this).val(valor);
     });
 
@@ -197,12 +197,12 @@ $(function () {
     $(".tel").mask("(99) 9999-9999?9").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
         mascaraTel($(this), valor);
-        valor = valor.replace(/[^()-]+/g, '');
+        valor = valor.val().replace(/[^()-]+/g, '');
         $(this).val(valor);
     });
     $(".tel0800").mask("0800-999-9999").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^-]+/g, '');
+        valor = valor.val().replace(/[^-]+/g, '');
         $(this).val(valor);
     });
 
@@ -215,13 +215,13 @@ $(function () {
 
     $(".cvv").mask("999").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^.-]+/g, '');
+        valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor);
     });
 
     $(".validade_cartao").mask("99/99").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^.-]+/g, '');
+        valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor);
     });
 
@@ -273,7 +273,7 @@ $(function () {
         }
     ).keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^/]+/g, '');
+        valor = valor.val().replace(/[^/]+/g, '');
         $(this).val(valor);
     });
     $(".cpf").mask("999.999.999-99").change(function () {
@@ -282,7 +282,7 @@ $(function () {
         validaCPF(cpf, id);
     }).keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^.-]+/g, '');
+        valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor);
     });
     $(".cnpj").mask("99.999.999/9999-99").change(function () {
@@ -291,7 +291,7 @@ $(function () {
         validaCNPJ(cnpj, id);
     }).keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^/.-]+/g, '');
+        valor = valor.val().replace(/[^/.-]+/g, '');
         $(this).val(valor);
     });
     $(".email").change(function () {
@@ -339,7 +339,7 @@ $(function () {
         if (valor !== '000') {
             Funcoes.ValidaOK(id, "Campo Obrigatório OK!");
         }
-        valor = valor.replace(/[^,.]+/g, '');
+        valor = valor.val().replace(/[^,.]+/g, '');
         $(this).val(valor);
     });
     $(".porc-decimal").maskMoney({
@@ -356,7 +356,7 @@ $(function () {
         }
     }).keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
-        valor = valor.replace(/[^,.]+/g, '');
+        valor = valor.val().replace(/[^,.]+/g, '');
         $(this).val(valor);
     }).attr('maxlength', 5);
 
