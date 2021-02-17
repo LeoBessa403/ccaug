@@ -245,7 +245,7 @@ class CursoForm
         $formulario
             ->setId('numCartao')
             ->setTamanhoInput(6)
-            ->setIcon("fa fa-whatsapp", 'dir')
+            ->setIcon("&nbsp;", 'dir')
             ->setLabel("Número do Cartão")
             ->setInfo("Somente Números")
             ->setClasses("cartao_credito credito")

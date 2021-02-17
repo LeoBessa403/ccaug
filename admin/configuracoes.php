@@ -49,7 +49,7 @@ function servidor_inicial()
                 'BANCO' => 1, // 1 = mysql, 2 = postgres
                 'DEBUG' => false,
                 'PROD' => true,
-                'TOKEN_PAGSEGURO' => "e420df9f-b88a-4ba4-acfc-ef3dc796abd129194be145c3878bd1e90a4f65786848b0c0-51de-48b2-a242-7ae275f26890",
+                'TOKEN_PAGSEGURO' => "7fcf0adc-60fe-4fd2-acc1-ff240d6555b0a3d6c5e54ff39c5eb481991c8f7c58c9c48d-5643-4d23-b8ca-4b470e639b73",
                 'URL_PAGSEGURO' =>
                     "https://ws.pagseguro.uol.com.br/v2/",
                 'JS_PAGSEGURO' =>

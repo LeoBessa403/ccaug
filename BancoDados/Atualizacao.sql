@@ -1283,3 +1283,5 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 15:24:00" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-02-17 15:24:02" where co_acesso = 19;
 
+UPDATE ccaug100.TB_ACESSO SET tp_situacao = "F", dt_fim_acesso = "2021-02-17 15:24:05" where co_acesso = 19;
+

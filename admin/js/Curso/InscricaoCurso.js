@@ -12,6 +12,7 @@ $(function () {
         Funcoes.TiraValidacao('numCartao')
     });
     $("#tp_pagamento").change(function () {
+        $(".img-load").show();
         var tpPagamento = $(this).val();
         if (tpPagamento == 3) {
             $('.debito').parents('.form-group').hide();
@@ -24,6 +25,7 @@ $(function () {
             $('.debito,.credito').parents('.form-group').hide();
             carregaSession();
         }
+        $(".img-load").hide();
     });
     $(".cartao_credito").keyup(function () {
         var numCartao = $(this).val().replace(/[^0-9]+/g, '');
@@ -68,7 +70,7 @@ $(function () {
     });
 
     function recupParcelas(bandeira) {
-        var coCurso = 1;//$("#co_curso").val();
+        var coCurso = $("#co_curso").val();
         var comboParc = $("#qntParcelas");
         if (coCurso) {
             var dados = Funcoes.Ajax('Inscricao/getValorCurso', coCurso);
@@ -146,8 +148,9 @@ $(function () {
         if (tpPagamento) {
             if (tpPagamento == 3) {
                 var validade = $('#validadeCartao').val().split('/');
+                var numCartao = $('#numCartao').val().replace(/[^0-9]+/g, '');
                 PagSeguroDirectPayment.createCardToken({
-                    cardNumber: $('#numCartao').val(),
+                    cardNumber: numCartao,
                     brand: $('#bandeiraCartao').val(),
                     cvv: $('#cvvCartao').val(),
                     expirationMonth: validade[0],
@@ -161,7 +164,7 @@ $(function () {
                     },
                     complete: function (retorno) {
                     }
-                })
+                });
             } else if (tpPagamento == 5) {
                 recupHashCartao();
             } else if (tpPagamento == 4) {
