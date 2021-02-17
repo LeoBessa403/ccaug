@@ -173,7 +173,6 @@ class  InscricaoService extends AbstractService
                     $histPag[DT_CADASTRO] = Valida::DataHoraAtualBanco();
                     $histPag[DS_ACAO] = 'Inicia o pagamento';
                     $histPag[DS_USUARIO] = 'Aluno Iniciou o pagamento';
-                    //UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado())
                     $histPag[ST_PAGAMENTO] = StatusPagamentoEnum::PENDENTE;
                     $retorno[SUCESSO] = $HistoricoPagamentoService->Salva($histPag);
 

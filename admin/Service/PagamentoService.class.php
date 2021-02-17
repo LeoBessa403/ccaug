@@ -13,7 +13,7 @@ class  PagamentoService extends AbstractService
     public function __construct()
     {
         parent::__construct(PagamentoEntidade::ENTIDADE);
-        $this->ObjetoModel = New PagamentoModel();
+        $this->ObjetoModel = new PagamentoModel();
     }
 
 
@@ -50,9 +50,6 @@ class  PagamentoService extends AbstractService
         /** @var PagamentoEntidade $pagamento */
         $pagamento = $PagamentoService->PesquisaUmRegistro($coPagamento);
 
-//        $whats = new WhatsAppService();
-//        $retWhats = $whats->enviaMsgRetornoPagamento($plan->getCoAssinante()->getCoAssinante(),$Xml);
-
         $PDO->beginTransaction();
         if ($pagamento->getStPagamento() != (string)$Xml->status) {
 
@@ -65,9 +62,6 @@ class  PagamentoService extends AbstractService
             $histPaG[ST_PAGAMENTO] = (string)$Xml->status;
 
             $HistoricoPagamentoService->Salva($histPaG);
-
-//            $whats = new WhatsAppService();
-//            $retWhats = $whats->enviaMsgRetornoPagamento($plan->getCoAssinante()->getCoAssinante(),$Xml);
         }
 
         $retorno[SUCESSO] = $PagamentoService->Salva($dados, $coPagamento);
@@ -122,7 +116,8 @@ class  PagamentoService extends AbstractService
             $histPaG[DT_CADASTRO] = Valida::DataHoraAtualBanco();
             $histPaG[DS_ACAO] = 'Mudou o Status do pagamento para ' .
                 StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::CANCELADA);
-            $histPaG[DS_USUARIO] = 'Suporte Efetuou o cancelamento.';
+            $histPaG[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado()) .
+                ' Efetuou o cancelamento.';
             $histPaG[ST_PAGAMENTO] = StatusPagamentoEnum::CANCELADA;
 
             $HistoricoPagamentoService->Salva($histPaG);
@@ -193,7 +188,8 @@ class  PagamentoService extends AbstractService
             $histPaG[DT_CADASTRO] = Valida::DataHoraAtualBanco();
             $histPaG[DS_ACAO] = 'Mudou o Status do pagamento para ' .
                 StatusPagamentoEnum::getDescricaoValor(StatusPagamentoEnum::DEVOLVIDA);
-            $histPaG[DS_USUARIO] = 'Suporte Efetuou o estorno.';
+            $histPaG[DS_USUARIO] = UsuarioService::getNoPessoaCoUsuario(UsuarioService::getCoUsuarioLogado()) .
+                ' Efetuou o estorno.';
             $histPaG[ST_PAGAMENTO] = StatusPagamentoEnum::DEVOLVIDA;
 
             $HistoricoPagamentoService->Salva($histPaG);
