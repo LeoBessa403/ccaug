@@ -71,7 +71,7 @@ $curso = $result;
                                             </p>
                                             <p class='margin-0 font-size-10 text-bold font-color-primary font-primary'>
                                                 Em
-                                                até 12 vezes</p>
+                                                até 5 vezes</p>
                                             <?php
                                         } else {
                                             ?>
