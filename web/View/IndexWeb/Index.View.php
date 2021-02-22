@@ -128,7 +128,7 @@
                                                         <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
                                                             Investimento</p>
                                                         <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
-                                                            Em até 5 vezes</p>
+                                                            Ou 5 x R$ 5,20</p>
                                                         <p class="font-secondary text-medium font-size-14 font-color-primary">
                                                             R$ <?= $curso->getCoUltimoValorCurso()->getNuValor(); ?></p>
                                                         <?php
