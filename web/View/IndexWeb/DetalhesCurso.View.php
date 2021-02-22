@@ -28,8 +28,7 @@ $curso = $result;
                         <div class="d-flex align-items-center  justify-content-sm-start">
                             <i class="far fa-clock font-size-24 font-color-terniary margin-right-10"></i>
                             <div class="line-height-15">
-                                    <span class="d-block font-secondary font-color-terniary font-size-12"
-                                          title="31/08/2020 a 30/11/2020">
+                                    <span class="d-block font-secondary font-color-terniary font-size-12">
                                         <?= $curso->getCoUltimoValorCurso()->getNuDuracao(); ?> Semana
                                                                             </span>
                                 <span class="font-secondary font-size-12 font-color-gray">Duração</span>
@@ -70,8 +69,7 @@ $curso = $result;
                                                 R$ <?= Valida::FormataMoeda($curso->getCoUltimoValorCurso()->getNuValor()); ?>
                                             </p>
                                             <p class='margin-0 font-size-10 text-bold font-color-primary font-primary'>
-                                                Em
-                                                até 5 vezes</p>
+                                                Ou 5 x R$ 5,20</p>
                                             <?php
                                         } else {
                                             ?>
