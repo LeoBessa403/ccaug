@@ -127,10 +127,10 @@
                                                         ?>
                                                         <p class="margin-0 font-size-10 text-bold font-color-primary font-primary">
                                                             Investimento</p>
-                                                        <p class="m-0 font-size-10 text-bold font-color-primary font-primary">
-                                                            Ou 5 x R$ 5,20</p>
-                                                        <p class="font-secondary text-medium font-size-14 font-color-primary">
+                                                        <p class="m-0 font-secondary text-medium font-size-14 font-color-primary">
                                                             R$ <?= $curso->getCoUltimoValorCurso()->getNuValor(); ?></p>
+                                                        <p class="font-size-10 text-bold font-color-primary font-primary">
+                                                            Ou 5 x R$ 5,20</p>
                                                         <?php
                                                     } else {
                                                         ?>
