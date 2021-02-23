@@ -24,9 +24,9 @@ class Valida
         self::$Format = '/[a-z0-9_\.\-]+@[a-z0-9_\.\-]*[a-z0-9_\.\-]+\.[a-z]{2,4}$/';
 
         if (preg_match(self::$Format, self::$Data)):
-            return 1;
+            return true;
         else:
-            return 2;
+            return false;
         endif;
     }
 
@@ -39,7 +39,7 @@ class Valida
     {
         $cpf = preg_replace('/[^0-9]/', '', $cpf);
         if (empty($cpf) || strlen($cpf) != 11) {
-            return 2;
+            return false;
         }
         $digitoA = 0;
         $digitoB = 0;
@@ -48,16 +48,16 @@ class Valida
         }
         for ($i = 0, $x = 11; $i <= 9; $i++, $x--) {
             if (str_repeat($i, 11) == $cpf) {
-                return 2;
+                return false;
             }
             $digitoB += $cpf[$i] * $x;
         }
         $somaA = (($digitoA % 11) < 2) ? 0 : 11 - ($digitoA % 11);
         $somaB = (($digitoB % 11) < 2) ? 0 : 11 - ($digitoB % 11);
         if ($somaA != $cpf[9] || $somaB != $cpf[10]) {
-            return 2;
+            return false;
         } else {
-            return 1;
+            return true;
         }
     }
 
@@ -70,16 +70,15 @@ class Valida
     {
         $soma = 0;
         $multiplicador = 0;
-        $multiplo = 0;
         $cnpj = preg_replace('/[^0-9]/', '', $cnpj);
 
         if (empty($cnpj) || strlen($cnpj) != 14) {
-            return 2;
+            return false;
         }
         for ($i = 0; $i <= 9; $i++) {
             $repetidos = str_pad('', 14, $i);
             if ($cnpj === $repetidos) {
-                return 2;
+                return false;
             }
         }
         $parte1 = substr($cnpj, 0, 12);
@@ -104,11 +103,10 @@ class Valida
         $rest = $soma % 11;
         $dv2 = ($rest == 0 || $rest == 1) ? 0 : 11 - $rest;
         if ($dv1 == $cnpj[12] && $dv2 == $cnpj[13]):
-            return 1;
+            return true;
         else:
-            return 2;
+            return false;
         endif;
-
     }
 
     /**
