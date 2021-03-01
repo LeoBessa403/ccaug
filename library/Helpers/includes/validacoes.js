@@ -213,13 +213,13 @@ $(function () {
 
     $(".cartao_credito").mask("9999 9999 9999 9999");
 
-    $(".cvv").attr('maxlength', 3).attr('placeholder', '000').keyup(function () {
+    $(".cvv").mask("999").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
         valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor);
     });
 
-    $(".validade_cartao").attr('maxlength', 7).attr('placeholder', '00/0000').keyup(function () {
+    $(".validade_cartao").mask("99/9999").keyup(function () {
         var valor = $(this).val().replace(/[^0-9]+/g, '');
         valor = valor.val().replace(/[^.-]+/g, '');
         $(this).val(valor);
