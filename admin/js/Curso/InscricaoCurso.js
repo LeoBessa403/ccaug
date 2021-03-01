@@ -158,7 +158,7 @@ $(function () {
                     brand: $('#bandeiraCartao').val(),
                     cvv: $('#cvvCartao').val(),
                     expirationMonth: validade[0],
-                    expirationYear: '20' + validade[1],
+                    expirationYear: validade[1],
                     success: function (retorno) {
                         $('#tokenCartao').val(retorno.card.token);
                         recupHashCartao()
