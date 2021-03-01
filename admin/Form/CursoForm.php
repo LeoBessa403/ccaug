@@ -244,7 +244,7 @@ class CursoForm
 
         $formulario
             ->setId('numCartao')
-            ->setTamanhoInput(6)
+            ->setTamanhoInput(12)
             ->setIcon("&nbsp;", 'dir')
             ->setLabel("Número do Cartão")
             ->setInfo("Somente Números")
@@ -253,7 +253,7 @@ class CursoForm
 
         $formulario
             ->setId('validadeCartao')
-            ->setTamanhoInput(3)
+            ->setTamanhoInput(6)
             ->setLabel("Validade do Cartão")
             ->setInfo("Somente Números")
             ->setClasses("validade_cartao credito")
@@ -261,7 +261,7 @@ class CursoForm
 
         $formulario
             ->setId('cvvCartao')
-            ->setTamanhoInput(3)
+            ->setTamanhoInput(6)
             ->setLabel("CVV do cartão")
             ->setInfo("Somente Números")
             ->setClasses("cvv credito")
