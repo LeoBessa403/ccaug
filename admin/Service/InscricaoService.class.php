@@ -121,9 +121,11 @@ class  InscricaoService extends AbstractService
 
                     $retorno[SUCESSO] = true;
                     Notificacoes::geraMensagem(
-                        'Inscrição Realizada com Sucesso!',
+                        'Vagas do cursos foram esgotadas. Estaremos formado uma nova turma, 
+                        em breve entraremos em contato para maiores informações.',
                         TiposMensagemEnum::SUCESSO
                     );
+                    $dadosEmail['reserva'] = true;
                     $PDO->commit();
                 } else {
                     Notificacoes::geraMensagem(
@@ -223,7 +225,7 @@ class  InscricaoService extends AbstractService
                                             Link Do Boleto Enviado no Email',
                                         TiposMensagemEnum::SUCESSO
                                     );
-                                }else{
+                                } else {
                                     Notificacoes::geraMensagem(
                                         'Inscrição Realizada com Sucesso!<br>Confirmação de Inscrição e 
                                             Enviado no Email<br>Aguardando confirmação de pagamento da Operadora do Cartão',
@@ -375,6 +377,9 @@ class  InscricaoService extends AbstractService
                                 <a class="pulse" title="Nos chame no WhatSapp"
                                                href="' . Valida::geraLinkWhatSapp("Ola, Segue meu comprovante de pagamento") . '"
                                                target="_blank">WhatsApp</a> e nós envie o comprovante</p><br>';
+            }elseif (!empty($dadosEmail['reserva'])) {
+                $Mensagem .= "<p>Vagas do cursos foram esgotadas. Estaremos formado uma nova turma, 
+                        ou se caso surja uma Vaga na Turma Atual.</p><br>";
             }
 
             $email->setEmailDestinatario($emails)

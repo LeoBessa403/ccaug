@@ -96,3 +96,31 @@ UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:47:08" where co_ace
 
 UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:47:09" where co_acesso = 23;
 
+UPDATE ccaug100.TB_PESSOA SET nu_cpf = "12345678909", no_pessoa = "Lili Cara Fofa", nu_rg = "", dt_nascimento = "", st_sexo = "" where co_pessoa = 2;
+
+UPDATE ccaug100.TB_CONTATO SET nu_tel1 = "3243243434", nu_tel2 = "", nu_tel3 = "", nu_tel_0800 = "", ds_email = "lililasp@gmail.com", ds_site = "", ds_facebook = "", ds_twitter = "", ds_instagram = "" where co_contato = 2;
+
+UPDATE ccaug100.TB_ENDERECO SET ds_endereco = "", ds_complemento = "", ds_bairro = "", nu_cep = "", no_cidade = "", sg_uf = "" where co_endereco = 2;
+
+UPDATE ccaug100.TB_PESSOA SET co_contato = "2", co_endereco = "2" where co_pessoa = 2;
+
+INSERT INTO TB_INSCRICAO (co_aluno, co_turma, dt_cadastro) VALUES ("1", "3", "2021-03-04 09:18:06");
+
+INSERT INTO TB_PAGAMENTO (co_inscricao, tp_pagamento, dt_modificado) VALUES ("39", "0", "2021-03-04 09:18:06");
+
+UPDATE TB_PAGAMENTO SET dt_modificado = "2021-03-04 09:18:06", nu_valor_pago = "0.00", nu_valor_total = "0.00", nu_valor_desconto = "0.00", st_pagamento = "3" where co_pagamento = 37;
+
+INSERT INTO TB_HISTORICO_PAGAMENTO (co_pagamento, dt_cadastro, ds_acao, ds_usuario, st_pagamento) VALUES ("37", "2021-03-04 09:18:06", "Curso Gratuito", "O Aluno Efetivou a Inscrição", "3");
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:13" where co_acesso = 23;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:13" where co_acesso = 23;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:17" where co_acesso = 23;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:18" where co_acesso = 23;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:20" where co_acesso = 23;
+
+UPDATE ccaug100.TB_ACESSO SET dt_fim_acesso = "2021-03-04 09:48:20" where co_acesso = 23;
+
