@@ -123,7 +123,7 @@ class  InscricaoService extends AbstractService
                     Notificacoes::geraMensagem(
                         'Vagas do cursos foram esgotadas. Estaremos formando uma nova turma, 
                         em breve entraremos em contato para maiores informações.',
-                        TiposMensagemEnum::SUCESSO
+                        TiposMensagemEnum::ALERTA
                     );
                     $dadosEmail['reserva'] = true;
                     $PDO->commit();
