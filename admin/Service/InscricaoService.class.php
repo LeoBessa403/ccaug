@@ -121,7 +121,7 @@ class  InscricaoService extends AbstractService
 
                     $retorno[SUCESSO] = true;
                     Notificacoes::geraMensagem(
-                        'Vagas do cursos foram esgotadas. Estaremos formado uma nova turma, 
+                        'Vagas do cursos foram esgotadas. Estaremos formando uma nova turma, 
                         em breve entraremos em contato para maiores informações.',
                         TiposMensagemEnum::SUCESSO
                     );
